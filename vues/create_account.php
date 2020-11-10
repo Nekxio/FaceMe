@@ -15,3 +15,5 @@
 
     <input type="submit" id='submit' value='Créer un compte' >
 </form>
+
+<a href="./login.php">Se connecter</a>

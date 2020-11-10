@@ -4,7 +4,7 @@
         header("Location:index.php?action=login");
     }
 
-    // On veut affchier notre mur ou celui d'un de nos amis et pas faire n'importe quoi
+    // On veut affchier notre mur ou celui d'un de nos amis
     $ok = false;
 
     if(!isset($_GET["id"]) || $_GET["id"]==$_SESSION["id"]){ 
@@ -18,6 +18,12 @@
 
         // les deux ids à tester sont : $_GET["id"] et $_SESSION["id"]
         // A completer. Il faut récupérer une ligne, si il y en a pas ca veut dire que lon est pas ami avec cette personne
+        $query = $pdo -> prepare($sql);
+        $query -> execute(array($_GET["id"],$_SESSION["id"],$_SESSION["id"],$_GET["id"]));
+        $result = $query -> fetch();
+        if ($result != false){
+            $ok = true;
+        }
     }
     if($ok==false) {
         echo "Vous n êtes pas encore ami, vous ne pouvez voir son mur !!";       
@@ -26,5 +32,20 @@
     // Requête de sélection des éléments dun mur
      // SELECT * FROM ecrit WHERE idAmi=? order by dateEcrit DESC
      // le paramètre  est le $id
-    }
+     $sql = "SELECT ecrit.*, user.name FROM ecrit JOIN user ON ecrit.idAuteur=user.id WHERE idAmi=? order by dateEcrit DESC";
+     $query = $pdo -> prepare($sql);
+        $query -> execute(array($_SESSION["id"]));
+        while($result = $query -> fetch()){
+            print_r($result);
+    ?>
+    
+    <div>
+        <h1><?= $result['name'] ?></h1>
+        <h1><?= $result['titre'] ?></h1>
+        <p><?= $result['contenu'] ?></p>
+    </div>
+    
+    <?php      
+            }
+        }
 ?>
