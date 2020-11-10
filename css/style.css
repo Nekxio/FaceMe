@@ -1,0 +1,330 @@
+/**GENERAL**/
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+
+/**HEADER FACEME**/   
+.headerFlex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#headerFond {
+    padding: 1.2rem 0rem 1.2rem 0rem;
+    background-color: #FF9900;
+}
+
+#headerLogo img {
+    height: 4rem;
+}
+
+#headerSearch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 0.6rem 1rem 0.6rem 1rem;
+}
+
+#headerSearch img {
+    height: 22px;
+    margin-right: 1rem;
+}
+
+#headerSearch__input {
+    border: none;
+    font-size: 16pt;
+    font-weight: 300;
+}
+
+#headerSearch__input::placeholder {
+    color: #808080;
+}
+
+#headerUser {
+    position: relative;
+}
+
+#headerUser__button {
+    border: none;
+    background-color: transparent;
+}
+
+#headerUser img {
+    height: 4rem;
+}
+
+#headerHover__menu {
+    background-color: #ffffff;  
+    position: absolute;
+    width: 12rem;
+    top: 5rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.6);
+    -moz-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.6);
+    -webkit-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.6);
+    animation: showMenu 0.4s ease;
+    display: none;
+}
+
+@keyframes showMenu {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#headerHover__menu ul {
+    list-style: none;
+}
+
+#headerHover__menu ul li a {
+    color: #FF9900;
+    line-height: 1.5rem;
+}
+
+#headerHover__menu ul li:last-child {
+    line-height: 3rem;
+}
+
+#headerHover__menu ul li a:hover {
+    color: #FF9900;
+    line-height: 1.5rem;
+}
+
+
+/**PAGE CONNEXION**/
+#page_connexion {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+#page__title {
+    color: #FF9900;
+    font-size: 136pt;
+    font-weight: 900;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    line-height: 0;
+    text-decoration: underline;
+    animation: onload_title 1s;
+}
+
+@keyframes onload_title {
+    from {
+        transform: translate(750px) rotate(180deg);
+    }
+
+    to {
+        transform: translate(0px) rotate(180deg);
+    }
+}
+
+#formCo__fond {
+    background-color: #FFFFFF;
+    height: 40rem;
+    width: 28rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.6);
+    -moz-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.6);
+    -webkit-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.6);
+    animation: onload_form 3s;
+}
+
+@keyframes onload_form {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#signIn__title {
+    color: #FF9900;
+    font-size: 26pt;
+    font-weight: 700;
+    padding: 0.4rem 0rem 0.4rem 1rem ;
+}
+
+#signIn__fond {
+    background-color: #FF9900;
+    height: 35rem;
+    width: 28rem;
+    border-radius: 10px;
+}
+
+#signIn__main {
+    display: flex;
+    flex-direction: column;
+}
+
+.signIn__input {
+    border: none;
+    border-radius: 10px;
+    width: 25rem;
+    margin: 2rem 0rem 0rem 1rem;
+    padding: 1.5rem 0rem 1.5rem 1rem;
+    background-color: #ebe8e8;
+}
+
+.form__submit {
+    border: none;
+    border-radius: 10px;
+    width: 26rem;
+    margin: 2rem 0rem 0rem 1rem;
+    padding: 1.5rem 0rem 1.5rem 1rem;
+    color: #FF9900;
+    background-color: #ffffff;
+    font-size: 14pt;
+    font-weight: 700;
+    transition: 0.4s;
+}
+
+.form__submit:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.6);
+    -moz-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.6);
+    -webkit-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.6);
+}
+
+#form__separation {
+    width: 26rem;
+    height: 0.2rem;
+    background-color: #FFFFFF;
+    margin: 3rem 0rem 3rem 1rem;    
+}
+
+#signUp__title {
+    color: #FFFFFF;
+    font-size: 20pt;
+    letter-spacing: 2px;
+    font-weight: 300;
+    margin: 0rem 0rem 0rem 1rem;
+}
+
+#formIn__fond {
+    background-color: #FFFFFF;
+    height: 44rem;
+    width: 28rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.6);
+    -moz-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.6);
+    -webkit-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.6);
+    animation: onload_form 3s;
+    display: none;
+}
+
+#formIn__title {
+    color: #FF9900;
+    font-size: 26pt;
+    font-weight: 700;
+    padding: 0.4rem 0rem 0.4rem 1rem ;
+}
+
+#signUp__fond {
+    background-color: #FF9900;
+    height: 39rem;
+    width: 28rem;
+    border-radius: 10px;
+}
+
+.signUp__input {
+    border: none;
+    border-radius: 10px;
+    width: 25rem;
+    margin: 2rem 0rem 0rem 1rem;
+    padding: 1.5rem 0rem 1.5rem 1rem;
+    background-color: #ebe8e8;
+}
+
+
+/**PAGE INDEX**/
+
+
+
+/**PAGE 404**/
+#errorFlex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#cardFond {
+    background-color: #FF9900;
+    box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -moz-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -webkit-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    color: #ffffff;
+    border-radius: 20px;
+    position: relative;
+    height: 35rem;
+    width: 55rem;
+    margin: 2rem 0rem 4rem 0rem;
+}
+
+#cardFond__404 {
+    position: absolute;
+    font-size: 250pt;
+    font-weight: 600;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    top: -7px; 
+    right: 225px;
+
+}
+
+#cardFond__texte {
+    position: absolute;
+    font-size: 22pt;
+    font-weight: 400;
+    top: 395px;
+    left: 285px;
+}
+
+#cardButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #FF9900;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 16pt;
+    font-weight: 500;
+    padding: 0.4rem 1.4rem 0.4rem 1.4rem;
+    box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -moz-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -webkit-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+#cardButton:hover {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+}
+
+#cardButton img {
+    height: 42px;
+    padding-left: 1.6rem;
+}
