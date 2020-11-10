@@ -8,4 +8,5 @@ $listeDesActions = array(
     "form_account" => "traitement/form_account.php",
     "connexion" => "traitement/connexion.php",
     "deconnexion" => "traitement/deconnexion.php",
+    "commentaire" => "traitement/commentaire.php",
 );

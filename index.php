@@ -29,15 +29,12 @@ ob_start();
             unset($_SESSION['info']);
         }
         ?>
-
-        <header>
-            <h1>FaceMe</h1>
-        </header>
-        <nav>
-            <ul>
                 <?php
                 if (isset($_SESSION['id'])) {
-                    echo "<li>Bonjour " . $_SESSION['login'] . " <a href='index.php?action=deconnexion'>Deconnexion</a></li>";
+                    echo "<header>
+                                <h1>FaceMe</h1>
+                            </header>";
+                    echo $_SESSION['login']." <a href='index.php?action=deconnexion'>Deconnexion</a>";
                 }else {
                     echo "
                     <div id='container'>

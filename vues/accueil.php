@@ -10,6 +10,8 @@
     if(!isset($_GET["id"]) || $_GET["id"]==$_SESSION["id"]){ 
         $id = $_SESSION["id"];
         $ok = true; // On a le droit d afficher notre mur
+        
+
     } else {
         $id = $_GET["id"];
         // Verifions si on est amis avec cette personne
@@ -36,15 +38,26 @@
      $query = $pdo -> prepare($sql);
         $query -> execute(array($_SESSION["id"]));
         while($result = $query -> fetch()){
-            print_r($result);
     ?>
     
-    <div>
-        <h1><?= $result['name'] ?></h1>
-        <h1><?= $result['titre'] ?></h1>
-        <p><?= $result['contenu'] ?></p>
+    <div class="post_complet">
+        <div class="post_user">
+            <h1><?= $result['name'] ?></h1>
+            <p><?= $result['contenu'] ?></p>
+            <img src="<?= $result['contenu'] ?>" alt="image de <?= $result['name'] ?>."/>
+        </div>
+        <div>
+            <h1>Commentaires</h1>
+            <form action="index.php?action=commentaire" method="POST">
+                <label><b><?= $result['name'] ?></b></label>
+                <input type="text" placeholder="Ecrire une réponse..." name="answer" required>
+                <input type="submit" id='submit' value='Envoyer' >
+            </form>
+        </div>
+        <div>
+            
+        </div>
     </div>
-    
     <?php      
             }
         }
