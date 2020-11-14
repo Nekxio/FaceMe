@@ -138,7 +138,7 @@ a {
 
 #formCo__fond {
     background-color: #FFFFFF;
-    height: 40rem;
+    height: 42.6rem;
     width: 28rem;
     border-radius: 10px;
     box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.6);
@@ -199,7 +199,6 @@ a {
 }
 
 .form__submit:hover {
-    transform: scale(1.1);
     box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.6);
     -moz-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.6);
     -webkit-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.6);
@@ -217,7 +216,11 @@ a {
     font-size: 20pt;
     letter-spacing: 2px;
     font-weight: 300;
-    margin: 0rem 0rem 0rem 1rem;
+    margin: 0rem 0rem 3rem 1rem;
+}
+
+#signIn__submit {
+    padding: 1.5rem 8rem 1.5rem 8rem;
 }
 
 #formIn__fond {
