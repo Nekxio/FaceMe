@@ -1,19 +1,13 @@
-<form action="index.php?action=form_account" method="POST">
-    <h1>Créer un compte</h1>
-                
-    <label><b>Nom d'utilisateur</b></label>
-    <input type="text" placeholder="Entrer le nom d'utilisateur" name="login" required>
-
-    <label><b>Mot de passe</b></label>
-    <input minlength='8' pattern='(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$' type="password" placeholder="Entrer le mot de passe" name="PASSWORD" required>
-
-    <label><b>Répétez le mot de passe</b></label>
-    <input minlength='8' pattern='(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$' type="password" placeholder="Entrer le mot de passe" name="PASSWORD2" required>
-
-    <label><b>adresse email</b></label>
-    <input type="mail" placeholder="Entrer l'adresse email" name="email" required>
-
-    <input type="submit" id='submit' value='Créer un compte' >
-</form>
-
-<a href="./login.php">Se connecter</a>
+<div id="formIn__fond">
+    <p id="formIn__title">Je crée mon compte</p>
+    <div id="signUp__fond">
+        <form action="index.php?action=form_account" method="POST" id="signUp__main"> 
+            <input type="text" placeholder="Nom d'utilisateur" class="signUp__input" id="formName" name="login" required>
+            <input type="email" placeholder="E-mail" class="signUp__input" id="formMail" name="email" required>
+            <input type="password" placeholder="Mot de passe" class="signUp__input" id="formPwd1" minlength='8' pattern='(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$' name="PASSWORD" required>
+            <input type="password" placeholder="Confirmer votre mot de passe" class="signUp__input" id="formPwd2" minlength='8' pattern='(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$' name="PASSWORD2" required>
+            <input type="submit" value="Que l'aventure commence !" class="form__submit" id="signUp__submit">
+            <a href="./login.php">Se connecter</a>
+        </form>
+    </div>
+</div>

@@ -19,64 +19,65 @@ ob_start();
         <title>FaceMe | Le réseau social MMI</title>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
         <style>
-        <?php
-        include('./css/style.css');
-        include('./css/normalize.css');
-        ?>
+            <?php
+                include('./css/style.css');
+                include('./css/normalize.css');
+            ?>
         </style>
-        
     </head>
 
     <body>
-
         <?php
-        if (isset($_SESSION['info'])) {
-            echo "<div>
-                <strong>Information : </strong> " . $_SESSION['info'] . "</div>";
-            unset($_SESSION['info']);
-        }
+            if (isset($_SESSION['info'])) {
+                echo "<div>
+                    <strong>Information : </strong> " . $_SESSION['info'] . "</div>";
+                unset($_SESSION['info']);
+            }
         ?>
-                <?php
+
+        <section class="container" id="page_connexion">
+            <div id="page__title">
+                <p>FaceMe</p>
+            </div>
+
+            <?php
                 if (isset($_SESSION['id'])) {
                     echo "<header>
                                 <h1>FaceMe</h1>".$_SESSION['login']." <a href='index.php?action=deconnexion'>Deconnexion</a>";."</header>";
                 }else {
                     echo "
-                    <div id='container'>
-                        <!-- zone de connexion -->
-                        <h1>Se Connecter</h1>
-                        <form action='index.php?action=connexion' method='POST'>
-                                     
-                            <label><b>Nom d'utilisateur</b></label>
-                            <input type='text' placeholder='Identifiant' name='login' required>
-
-                            <label><b>Mot de passe</b></label>
-                            <input type='password' placeholder='Mot de passe' name='PASSWORD' required>
-
-                            <input type='submit' id='submit' value='Me connecter' >
-                        </form>
-                        <a href='index.php?action=create_account'>Créer un compte</a></li>
+                    <div id='formCo__fond'>
+                        <p id='signIn__title'>Se connecter</p>
+                        <div id='signIn__fond'>
+                            <form action='index.php?action=connexion' method='POST' id='signIn__main'>
+                                <input type='text' placeholder='Identifiant' class='signIn__input' name='login' required>
+                                <input type='password' placeholder='Mot de Passe' class='signIn__input' name='PASSWORD' required>
+                                <input type='submit' value='Je me connecte' class='form__submit' id='submit'>
+                            </form>
+                            <div id='form__separation'></div>
+                            <p id='signUp__title'>On ne se connait pas encore ?</p>
+                            <a href='index.php?action=create_account' class='form__submit' id='signIn__submit' onclick='changement()'>Créer un compte</a>
+                        </div>
+                    </div>
                     ";
                 }
-                ?>
-            </ul>
-        </nav>
+            ?>
 
-        <?php
-            if (isset($_GET["action"])) {
-            $action = $_GET["action"];
-                // Est ce que cette action existe dans la liste des actions
-            if (array_key_exists($action, $listeDesActions) == false) {
-                include("./vues/404.php"); // NON : page 404
-            } else {
-                include($listeDesActions[$action]); // Oui, on la charge
+            <?php
+                if (isset($_GET["action"])) {
+                $action = $_GET["action"];
+                    // Est ce que cette action existe dans la liste des actions
+                if (array_key_exists($action, $listeDesActions) == false) {
+                    include("vues/404.php"); // NON : page 404
+                } else {
+                    include($listeDesActions[$action]); // Oui, on la charge
+                }
             }
-        }
 
-        ob_end_flush();
-        ?>
+                ob_end_flush();
+            ?>
 
-        <footer>Le pied de page</footer>
+        <script src="js/script.js"></script>
         <script src="js/jquery-3.2.1.min.js"></script>
     </body>
 </html>
