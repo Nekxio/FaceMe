@@ -1,10 +1,8 @@
 /**AFFICHAGE INSCRIPTION PAGE CONNEXION**/
 function changement() {
     let x = document.getElementById("formCo__fond");
-    let y = document.getElementById("formIn__fond");
-
+    
     x.style.display="none";
-    y.style.display="block"; 
 }
 
 
