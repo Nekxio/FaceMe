@@ -49,7 +49,7 @@
         <div>
             <h1>Commentaires</h1>
             <form action='index.php?action=commentaires&idPost=<?= $result['id']?>' method='POST'>
-                <label><b>".<?= $result['name'] ?>."</b></label>
+                <label><b><?= $result['name'] ?></b></label>
                 <input type='text' placeholder='Ecrire une réponse...' name='contenu' required>
                 <input type='submit' id='submit' value='Envoyer' >
             </form>
