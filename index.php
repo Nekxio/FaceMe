@@ -39,9 +39,7 @@ ob_start();
                 <?php
                 if (isset($_SESSION['id'])) {
                     echo "<header>
-                                <h1>FaceMe</h1>
-                            </header>";
-                    echo $_SESSION['login']." <a href='index.php?action=deconnexion'>Deconnexion</a>";
+                                <h1>FaceMe</h1>".$_SESSION['login']." <a href='index.php?action=deconnexion'>Deconnexion</a>";."</header>";
                 }else {
                     echo "
                     <div id='container'>
@@ -69,7 +67,7 @@ ob_start();
             $action = $_GET["action"];
                 // Est ce que cette action existe dans la liste des actions
             if (array_key_exists($action, $listeDesActions) == false) {
-                include("vues/404.php"); // NON : page 404
+                include("./vues/404.php"); // NON : page 404
             } else {
                 include($listeDesActions[$action]); // Oui, on la charge
             }

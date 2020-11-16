@@ -48,17 +48,25 @@
         </div>
         <div>
             <h1>Commentaires</h1>
-            <form action="index.php?action=commentaire" method="POST">
-                <label><b><?= $result['name'] ?></b></label>
-                <input type="text" placeholder="Ecrire une réponse..." name="answer" required>
-                <input type="submit" id='submit' value='Envoyer' >
+            <form action='index.php?action=commentaires&idPost=<?= $result['id']?>' method='POST'>
+                <label><b>".<?= $result['name'] ?>."</b></label>
+                <input type='text' placeholder='Ecrire une réponse...' name='contenu' required>
+                <input type='submit' id='submit' value='Envoyer' >
             </form>
         </div>
         <div>
-            
+            <?php
+                $sql1 = "SELECT commentaires.*, user.name FROM commentaires JOIN user ON commentaires.idAuteur=user.id WHERE idPost=? order by dateCom DESC";
+                $query1 = $pdo -> prepare($sql1);
+                $query1 -> execute(array($result["id"]));
+                while($result1 = $query1 -> fetch()){
+            ?>
+                <h1><?= $result1['name'] ?></h1>
+                <p><?= $result1['contenu'] ?></p>
+                <?php } ?>
         </div>
     </div>
-    <?php      
-            }
+<?php
         }
+    }
 ?>
