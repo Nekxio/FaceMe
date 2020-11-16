@@ -34,7 +34,6 @@ ob_start();
                 unset($_SESSION['info']);
             }
         ?>
-
             <?php
                 if (isset($_SESSION['id'])) {
                     echo "<header>
