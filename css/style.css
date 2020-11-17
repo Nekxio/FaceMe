@@ -259,7 +259,100 @@ a {
 
 
 /**PAGE INDEX**/
+.post_complet {
+    background-color: #EEEEEE;
+    border-radius: 10px;
+    margin: 1rem 0rem 3rem 0rem;
+    padding: 0.4rem 1.4rem 0.4rem 1.4rem;
+    box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -moz-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -webkit-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+}
 
+.post_completpadding {
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.post_user {
+    display: flex;
+    align-items: center;
+}
+
+.post_user > img {
+    height: 40px;
+    margin-right: 1rem;
+}
+
+.post_user > h1{
+    color: #FF9900;
+    font-weight: 700;
+}
+
+.post_contenu {
+    background-color: #ffffff;
+    padding: 1rem 1rem 1rem 1rem;
+    border-radius: 10px;
+    padding: 0.4rem 1.4rem 0.4rem 1.4rem;
+    box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -moz-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -webkit-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+}
+
+.separation_grise {
+    margin: 2rem 0rem 0rem 0rem;
+    border: 1px solid #707070;
+}
+
+.post_commentaires > h1 {
+    font-size: 16pt;
+    font-weight: 400;
+    color: #707070;
+}
+
+.post_commentairesForm > label {
+    font-size: 16pt;
+    font-weight: 500;
+    color: #FF9900;
+    padding: 0rem 0rem 1rem 0rem;
+}
+
+.post_commentairesForm {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1rem 1rem 1rem 1rem;
+    box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -moz-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -webkit-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+}
+
+.post_commentairesInput {
+    border: none;
+    border-radius: 10px;
+    padding: 0.6rem 1rem 0.6rem 1rem;
+    background-color: #EEEEEE;
+}
+
+.post_commentairesFlex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post_commentairesIcon {
+    border: none;
+    background-color: transparent;
+}
+
+.post_commentairesIcon > img {
+    height: 40px;
+}
+
+.separation_orange {
+    margin: 1rem 0rem 1rem 0rem;
+    border: 1px solid #FF9900;
+}
 
 
 /**PAGE 404**/
