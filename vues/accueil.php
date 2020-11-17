@@ -44,7 +44,13 @@
         <div class="post_user">
             <h1><?= $result['name'] ?></h1>
             <p><?= $result['contenu'] ?></p>
-            <img src="<?= $result['contenu'] ?>" alt="image de <?= $result['name'] ?>."/>
+            <?php
+                if(isset($result['image'])){
+                ?>
+                <img src="<?= $result['image'] ?>" alt="image de <?= $result['name'] ?>."/>
+                <?php
+            }
+            ?>
         </div>
         <div>
             <h1>Commentaires</h1>
