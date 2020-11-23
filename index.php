@@ -53,8 +53,8 @@ ob_start();
                                     </button>
                                     <div id="headerHover__menu">
                                         <ul>
-                                            <li><a href="">Mon Profil</a></li>
-                                            <li><a href="">Mes Paramètres</a></li>
+                                            <li><a href="index.php?action=profile">Mon Profil</a></li>
+                                            <li><a href="index.php?action=settings">Mes Paramètres</a></li>
                                             <li><a href="index.php?action=deconnexion">Se déconnecter</a></li>
                                         </ul>
                                     </div>
