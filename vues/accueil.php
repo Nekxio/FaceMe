@@ -1,27 +1,3 @@
-    <div id="headerFond">
-        <div class="container headerFlex">
-            <div id="headerLogo">
-                <img src="./icons/logo.svg" alt="Logo FaceMe">
-            </div>
-            <div id="headerSearch">
-                <img src="./icons/loupe.svg" alt="Icone loupe">
-                <input type="text" placeholder="Rechercher" id="headerSearch__input">
-            </div>
-            <div id="headerUser">
-                <button id="headerUser__button" onclick="userHover()">
-                    <img src="./icons/user_white.svg" alt="Icone utilisateur">
-                </button>
-                <div id="headerHover__menu">
-                    <ul>
-                        <li><a href="">Mon Profil</a></li>
-                        <li><a href="">Mes Paramètres</a></li>
-                        <li><a href="">Se déconnecter</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
 <?php
  if(!isset($_SESSION["id"])) {
         // On n est pas connecté, il faut retourner à la pgae de login
