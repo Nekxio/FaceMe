@@ -71,7 +71,7 @@ ob_start();
                         <p id='signIn__title'>Se connecter</p>
                         <div id='signIn__fond'>
                             <form action='index.php?action=connexion' method='POST' id='signIn__main'>
-                                <input type='text' placeholder='Identifiant' class='signIn__input' name='login' required>
+                                <input type='text' placeholder='Adresse e-mail' class='signIn__input' name='email' required>
                                 <input type='password' placeholder='Mot de Passe' class='signIn__input' name='PASSWORD' required>
                                 <input type='submit' value='Je me connecte' class='form__submit' id='submit'>
                             </form>

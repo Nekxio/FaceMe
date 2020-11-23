@@ -1,9 +1,9 @@
 <?php
 
-$sql = "SELECT * FROM user WHERE login=? AND mdp=PASSWORD(?)";
+$sql = "SELECT * FROM user WHERE email=? AND mdp=PASSWORD(?)";
 
 $q = $pdo->prepare($sql);
-	$q->execute(array($_POST['login'],$_POST['PASSWORD']));
+	$q->execute(array($_POST['email'],$_POST['PASSWORD']));
 	$line = $q->fetch();     
 
     if ($line == false) {
@@ -11,7 +11,8 @@ $q = $pdo->prepare($sql);
     }else {
         session_start();
         $_SESSION['id'] = $line['id'];
-        $_SESSION['login'] = $_POST['login'];
+        $_SESSION['email'] = $line['email'];
+        $_SESSION['name'] = $line['name'];
         header('Location: index.php?action=accueil');
     }
 
