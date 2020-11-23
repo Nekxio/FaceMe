@@ -34,21 +34,22 @@
         $result2 = $query2 -> fetch();
         ?>        
 
-   <div class="post">
-        <h1>Dîtes à vos amis comment se passe votre journée</h1>
-        <form action='index.php?action=publication&id=<?= $id?>' method='POST' class="post_form">
-            <label><?= $result2['name'] ?></label>
-            <input type='text' placeholder='Écrire une publication' name='contenu' required class="post_input">
-            <hr class="separation_orange">
-            <div class="post_commentairesFlex">
-            <button type='file' class="post_commentairesIcon">
-                <img src="./icons/add.svg" alt="icône ajout fichier">
-                        </button>
-                        <button type='submit' class="post_commentairesIcon">
-                            <img src="./icons/send.svg" alt="icône envoyer">
-                        </button>
-                    </div>  
-                </form>
+   <div class="container">
+       <div class="publication">
+        <h1 class="publication__title">Dîtes à vos amis comment se passe votre journée</h1>
+            <form action='index.php?action=publication&id=<?= $id?>' method='POST' class="post_form">
+                <input type='text' placeholder='Écrire une publication' name='contenu' required class="publication_input">
+                <hr class="separation_orange">
+                <div class="post_commentairesFlex">
+                    <button type='file' class="post_commentairesIcon">
+                        <img src="./icons/add.svg" alt="icône ajout fichier">
+                    </button>
+                    <button type='submit' class="post_commentairesIcon">
+                        <img src="./icons/send.svg" alt="icône envoyer">
+                    </button>
+                </div>  
+            </form>
+       </div>
     </div>
    <?php // Requête de sélection des éléments dun mur
      // SELECT * FROM ecrit WHERE idAmi=? order by dateEcrit DESC
