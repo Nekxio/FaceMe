@@ -34,8 +34,30 @@
     if(!isset($_GET["id"]) || $_GET["id"]==$_SESSION["id"]){ 
         $id = $_SESSION["id"];
         $ok = true; // On a le droit d afficher notre mur
-        
+        $sql2 = "SELECT * FROM user";
+        $query2 = $pdo -> prepare($sql2);
+        $query2 -> execute(array($_SESSION["id"]));
+        $result2 = $query2 -> fetch();
 
+        ?>
+        <div class="post_commentaires">
+                <h1>Dîtes à vos amis comment se passe votre journée</h1>
+                <form action='index.php?action=publication<?= $result2['id']?>' method='POST' class="post_form">
+                    <label><?= $result2['name'] ?></label>
+                    <input type='text' placeholder='Écrire une publication' name='contenu' required class="post_input">
+                    <hr class="separation_orange">
+                    <div class="post_commentairesFlex">
+                        <button type='file' class="post_commentairesIcon">
+                            <img src="./icons/add.svg" alt="icône ajout fichier">
+                        </button>
+                        <button type='submit' class="post_commentairesIcon">
+                            <img src="./icons/send.svg" alt="icône envoyer">
+                        </button>
+                    </div>  
+                </form>
+    </div>
+        
+<?php
     } else {
         $id = $_GET["id"];
         // Verifions si on est amis avec cette personne
@@ -65,7 +87,6 @@
     ?>
 
     <section class="container">
-
     <div class="post_complet">
         <div class="post_completpadding">
             <div>
