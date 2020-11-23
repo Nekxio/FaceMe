@@ -36,12 +36,33 @@ ob_start();
         ?>
             <?php
                 if (isset($_SESSION['id'])) {
-                    echo "<header>
-                                <h1>FaceMe</h1>
-                            </header>";
-                    echo $_SESSION['login']." <a href='index.php?action=deconnexion'>Deconnexion</a>";
+                    ?>
+                        <div id="headerFond">
+                            <div class="container headerFlex">
+                                <div id="headerLogo">
+                                    <img src="./icons/logo.svg" alt="Logo FaceMe">
+                                </div>
+                                <div id="headerSearch">
+                                    <img src="./icons/loupe.svg" alt="Icone loupe">
+                                    <input type="text" placeholder="Rechercher" id="headerSearch__input">
+                                </div>
+                                <div id="headerUser">
+                                    <button id="headerUser__button" onclick="userHover()">
+                                        <img src="./icons/user_white.svg" alt="Icone utilisateur">
+                                    </button>
+                                    <div id="headerHover__menu">
+                                        <ul>
+                                            <li><a href="">Mon Profil</a></li>
+                                            <li><a href="">Mes Paramètres</a></li>
+                                            <li><a href="index.php?action=deconnexion">Se déconnecter</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                <?php
                 } else {
-                    echo "
+                   ?>
                     <section class='container' id='page_connexion'>
                     <div id='page__title'>
                         <p>FaceMe</p>
@@ -59,7 +80,7 @@ ob_start();
                             <a href='index.php?action=create_account' class='form__submit' id='signIn__submit' onclick='changement()'>Créer un compte</a>
                         </div>
                     </div>
-                    ";
+                    <?php
                 }
             ?>
 
