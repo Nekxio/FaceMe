@@ -42,10 +42,10 @@
                 <hr class="separation_orange">
                 <div class="post_commentairesFlex">
                     <button type='file' class="post_commentairesIcon">
-                        <img src="./icons/add.svg" alt="icône ajout fichier">
+                        <img src="./src/icons/add.svg" alt="icône ajout fichier">
                     </button>
                     <button type='submit' class="post_commentairesIcon">
-                        <img src="./icons/send.svg" alt="icône envoyer">
+                        <img src="./src/icons/send.svg" alt="icône envoyer">
                     </button>
                 </div>  
             </form>
@@ -65,7 +65,7 @@
         <div class="post_completpadding">
             <div>
                 <div class="post_user">
-                    <img src="./icons/user_orange.svg" alt="icône user orange">
+                    <img src="./src/icons/user_orange.svg" alt="icône user orange">
                     <h1><?= $result['name'] ?></h1>
                 </div>
                 <div class="post_contenu">
@@ -88,10 +88,10 @@
                     <hr class="separation_orange">
                     <div class="post_commentairesFlex">
                         <button type='file' class="post_commentairesIcon">
-                            <img src="./icons/add.svg" alt="icône ajout fichier">
+                            <img src="./src/icons/add.svg" alt="icône ajout fichier">
                         </button>
                         <button type='submit' class="post_commentairesIcon">
-                            <img src="./icons/send.svg" alt="icône envoyer">
+                            <img src="./src/icons/send.svg" alt="icône envoyer">
                         </button>
                     </div>  
                 </form>

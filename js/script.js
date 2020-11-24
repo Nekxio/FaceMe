@@ -17,3 +17,13 @@ function userHover() {
         showMenu.style.display="none";
     }
 }
+
+function deconnexion() {
+Swal.fire({
+  position: 'center',
+  icon: 'success',
+  title: 'Déconnexion',
+  showConfirmButton: false,
+  timer: 1500
+})
+}

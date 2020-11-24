@@ -15,7 +15,7 @@ ob_start();
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover" />
         <meta name="theme-color" content="#FA9C1D" />
-        <link href="./icons/logo_faceme.png" rel="icon" type="image/x-icon"/>
+        <link href="./src/icons/logo_faceme.png" rel="icon" type="image/x-icon"/>
         <title>FaceMe | Le réseau social MMI</title>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
         <style>
@@ -40,22 +40,25 @@ ob_start();
                         <div id="headerFond">
                             <div class="container headerFlex">
                                 <div id="headerLogo">
-                                    <img src="./icons/logo.svg" alt="Logo FaceMe">
+                                    <img src="./src/icons/logo.svg" alt="Logo FaceMe">
                                 </div>
                                 <div id="headerSearch">
-                                    <img src="./icons/loupe.svg" alt="Icone loupe">
+                                    <img src="./src/icons/loupe.svg" alt="Icone loupe">
                                     <input type="text" placeholder="Rechercher" id="headerSearch__input">
+                                </div>
+                                <div>
+                                    <a href="index.php?action=accueil">Accueil</a>
                                 </div>
                                 <div id="headerUser">
                                     <button id="headerUser__button" onclick="userHover()">
-                                        <img src="./icons/user_white.svg" alt="Icone utilisateur">
+                                        <img src="./src/icons/user_white.svg" alt="Icone utilisateur">
                                         <p><?= $_SESSION['name']?></p>
                                     </button>
                                     <div id="headerHover__menu">
                                         <ul>
                                             <li><a href="index.php?action=profile&id=<?= $_SESSION['id']?>">Mon Profil</a></li>
                                             <li><a href="index.php?action=settings">Mes Paramètres</a></li>
-                                            <li><a href="index.php?action=deconnexion">Se déconnecter</a></li>
+                                            <li><a href="index.php?action=deconnexion" onclick="deconnexion()">Se déconnecter</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -101,5 +104,6 @@ ob_start();
 
         <script src="js/script.js"></script>
         <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     </body>
 </html>

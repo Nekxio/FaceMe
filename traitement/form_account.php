@@ -1,11 +1,11 @@
 <?PHP
-$q = "SELECT * FROM user WHERE login=?";
+$q = "SELECT * FROM user WHERE name=?";
 
-$login = $_POST['login'];
-if ($login == $q) {
-	$login_check = false;
+$name = $_POST['name'];
+if ($name == $q) {
+	$name_check = false;
 }else{
-	$login_check = true;
+	$name_check = true;
 }
 
 $email = $_POST['email'];
@@ -24,15 +24,15 @@ if ($pwd1 == $pwd2) {
 	$pwd_check = false;
 }
 
-if ($login_check == true) {
+if ($name_check == true) {
 
 	if ($pwd_check) {
 
 		if ($email_check == true) {
-			$sql="INSERT INTO user (login, mdp, email) VALUES (?,PASSWORD(?),?)";
+			$sql="INSERT INTO user (name, mdp, email) VALUES (?,PASSWORD(?),?)";
 
 			$q = $pdo->prepare($sql);
-			$q->execute(array($_POST['login'],$_POST['PASSWORD'],$_POST['email']));
+			$q->execute(array($_POST['name'],$_POST['PASSWORD'],$_POST['email']));
 			echo "Le compte est créé ";
 		}
 	}else {

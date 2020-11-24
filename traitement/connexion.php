@@ -7,7 +7,18 @@ $q = $pdo->prepare($sql);
 	$line = $q->fetch();     
 
     if ($line == false) {
-        header('Location: index.php?action=login');
+        echo "<script type='text/javascript'>
+                document.addEventListener('DOMContentLoaded', function() {
+                  Swal.fire({
+                    title: 'Connexion refusé !',
+                    text: 'adresse e-mail et/ou mot de passe incorrect !',
+                    icon: 'error',
+                    showCancelButton: false,
+                    confirmButtonColor: '#ff9900',
+                    confirmButtonText: 'OK'
+                  })
+                });
+              </script>";
     }else {
         session_start();
         $_SESSION['id'] = $line['id'];

@@ -10,4 +10,5 @@ $listeDesActions = array(
     "commentaires" => "traitement/commentaires.php",
     "publication" => "traitement/publication.php",
     "profile" => "vues/profile.php",
+    "friendship" => "traitement/friendship.php",
 );

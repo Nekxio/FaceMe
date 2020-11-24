@@ -30,15 +30,16 @@
     if($ok==false) {
         echo "Vous n êtes pas encore ami, vous ne pouvez voir son mur !!";       
     } else {
-        $sql2 = "SELECT * FROM user";
+        $sql2 = "SELECT * FROM user WHERE id=?";
         $query2 = $pdo -> prepare($sql2);
-        $query2 -> execute();
+        $query2 -> execute(array($_SESSION['id']));
         $result2 = $query2 -> fetch()
         ?>
     <div class="bg-profile">
         
         <h1 class="profile_name"><?= $result2['name'] ?></h1>
     </div>
+    <a href="">Ajouter</a>
     <div>
             <div>
                 <a href="#"><img src="settings.png" alt="paramètres"></a>
@@ -94,10 +95,10 @@
                         <hr class="separation_orange">
                         <div class="post_commentairesFlex">
                             <button type='file' class="post_commentairesIcon">
-                                <img src="./icons/add.svg" alt="icône ajout fichier">
+                                <img src="./src/icons/add.svg" alt="icône ajout fichier">
                             </button>
                             <button type='submit' class="post_commentairesIcon">
-                                <img src="./icons/send.svg" alt="icône envoyer">
+                                <img src="./src/icons/send.svg" alt="icône envoyer">
                             </button>
                         </div>  
                     </form>
@@ -114,7 +115,7 @@
                 <div class="post_completpadding">
                     <div>
                         <div class="post_user">
-                            <img src="./icons/user_orange.svg" alt="icône user orange">
+                            <img src="./src/icons/user_orange.svg" alt="icône user orange">
                             <h1><?= $result6['name'] ?></h1>
                         </div>
                         <div class="post_contenu">
@@ -137,10 +138,10 @@
                             <hr class="separation_orange">
                             <div class="post_commentairesFlex">
                                 <button type='file' class="post_commentairesIcon">
-                                    <img src="./icons/add.svg" alt="icône ajout fichier">
+                                    <img src="./src/icons/add.svg" alt="icône ajout fichier">
                                 </button>
                                 <button type='submit' class="post_commentairesIcon">
-                                    <img src="./icons/send.svg" alt="icône envoyer">
+                                    <img src="./src/icons/send.svg" alt="icône envoyer">
                                 </button>
                             </div>  
                         </form>

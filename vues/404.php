@@ -11,7 +11,7 @@
             <div>
                 <a href="../index.php" id="cardButton">
                     Retour
-                    <img src="./icons/undo.svg" alt="Icon retour">
+                    <img src="./src/icons/undo.svg" alt="Icon retour">
                 </a>
             </div>
         </section>
