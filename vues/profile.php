@@ -30,36 +30,34 @@
     if($ok==false) {
         echo "Vous n êtes pas encore ami, vous ne pouvez voir son mur !!";       
     } else {
-    // A completer
-    // Requête de sélection des éléments dun mur
-     // SELECT * FROM ecrit WHERE idAmi=? order by dateEcrit DESC
-     // le paramètre  est le $id
-     $sql = "SELECT ecrit.*, user.name FROM ecrit JOIN user ON ecrit.idAuteur=user.id WHERE idAmi=? order by dateEcrit DESC";
-     $query = $pdo -> prepare($sql);
-        $query -> execute(array($_SESSION["id"]));
-        while($result = $query -> fetch()){
-    ?>
+        $sql2 = "SELECT * FROM user";
+        $query2 = $pdo -> prepare($sql2);
+        $query2 -> execute();
+        $result2 = $query2 -> fetch()
+        ?>
     <div class="bg-profile">
-        <img src="<?= $result['background'] ?>" alt="background de <?= $result['name'] ?>." />
-        <img src="<?= $result['avatar'] ?>" alt="image de <?= $result['name']?>." />
-        <h1 class="profile_name"><?= $result['name'] ?></h1>
+        
+        <h1 class="profile_name"><?= $result2['name'] ?></h1>
     </div>
     <div>
             <div>
                 <a href="#"><img src="settings.png" alt="paramètres"></a>
                 <div class="biography">
                     <h1 class="title orange">Biographie</h1>
-                    <p class="biography-text"><?= $result['bio'] ?></p>
+                    <p class="biography-text"><?= $result2['bio'] ?></p>
                 </div>
                 <div class="friends">
                     <a href="#" class="title orange">Amis</a>
                     <div>
-                        <?php 
-                            for ($i=0; $i<9; $i++){
+                        <?php
+                            $sql3 ="SELECT user.* FROM user INNER JOIN lien ON idUtilisateur1=user.id AND etat='ami' AND idUtilisateur2=? UNION SELECT user.* FROM user INNER JOIN lien ON idUtilisateur2=user.id AND etat='ami' AND idUtilisateur1=? LIMIT 9";
+                            $query3 = $pdo->prepare($sql3);
+                            $query3->execute(array($_GET['id'],$_SESSION['id']));
+                            while($result3 = $query3 -> fetch()){
                             ?>
-                            <img src='<?=$result['avatar']?>' alt='image de <?=$result['name']?>' />
-                            <p class='friend-name'><?=$result['name']?></p>;
-                            <?php
+                                <img src='<?=$result3['avatar']?>' alt='image de <?=$result3['name']?>' />
+                                <p class='friend-name'><?=$result3['name']?></p>;
+                                <?php
                             }
                         ?>
                     </div>
@@ -85,6 +83,12 @@
             <div>
 
             </div>
+    <?php
+     $sql3 = "SELECT ecrit.*, user.name FROM ecrit JOIN user ON ecrit.idAuteur=user.id WHERE idAmi=? order by dateEcrit DESC";
+     $query3 = $pdo -> prepare($sql3);
+        $query3 -> execute(array($_SESSION["id"]));
+        while($result3 = $query3 -> fetch()){
+    ?>
     
     </div>
 
