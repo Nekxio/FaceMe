@@ -28,7 +28,15 @@
         }
     }
     if($ok==false) {
-        echo "Vous n êtes pas encore ami, vous ne pouvez voir son mur !!";       
+    ?>
+        <div class="bg-profile">
+        
+        <h1 class="profile_name"><?= $result2['name'] ?></h1>
+    </div>
+    <a href="index.php?action=friendship&id=<?= $_GET['id'] ?>" onclick="friendship()">Ajouter</a>
+    <div>
+        <h1>Vous n'êtes pas encore ami, vous ne pouvez pas voir son profil !</h1>
+    <?php       
     } else {
         $sql2 = "SELECT * FROM user WHERE id=?";
         $query2 = $pdo -> prepare($sql2);
@@ -39,7 +47,6 @@
         
         <h1 class="profile_name"><?= $result2['name'] ?></h1>
     </div>
-    <a href="">Ajouter</a>
     <div>
             <div>
                 <a href="#"><img src="settings.png" alt="paramètres"></a>
@@ -162,5 +169,14 @@
         </div>
 <?php
         }
+?><section class="container">
+    <div class="topArea">
+        <p class="topArea__text">Vous avez bien scrollé ! Remontez au sommet !</p>
+        <a class="topArea__button" onclick="scrollToTop()">
+            <img src="./icons/uparrow.svg" alt="Icône flèche du haut">
+        </a>
+    </div>
+</section>
+<?php
     }
 ?>

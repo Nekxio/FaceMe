@@ -6,5 +6,5 @@
         $sql="INSERT INTO ecrit (contenu, dateEcrit, idAuteur, idAmi) VALUES (?,?,?,?)";
         $q = $pdo->prepare($sql);
         $q->execute(array($_POST['contenu'], date("Y-m-d H:i:s"), $_SESSION['id'], $_GET['id']));
-        header("Location: index.php?action=accueil");
+        header('Location: ' . $_SERVER["HTTP_REFERER"] );
 ?>

@@ -19,11 +19,26 @@ function userHover() {
 }
 
 function deconnexion() {
-Swal.fire({
-  position: 'center',
-  icon: 'success',
-  title: 'Déconnexion',
-  showConfirmButton: false,
-  timer: 1500
-})
+    Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Déconnexion',
+    showConfirmButton: false,
+    timer: 1500
+    })
+}
+
+function friendship() {
+    Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Demande envoyée',
+    showConfirmButton: false,
+    timer: 1500
+    })
+}
+
+function scrollToTop() { 
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => { document.location.reload(); }, 2000);
 }

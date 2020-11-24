@@ -11,4 +11,6 @@ $listeDesActions = array(
     "publication" => "traitement/publication.php",
     "profile" => "vues/profile.php",
     "friendship" => "traitement/friendship.php",
+    "deletepost" => "traitement/deletepost.php",
+    "deletecom" => "traitement/deletecom.php",
 );

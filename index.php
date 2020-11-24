@@ -51,7 +51,7 @@ ob_start();
                                 </div>
                                 <div id="headerUser">
                                     <button id="headerUser__button" onclick="userHover()">
-                                        <img src="./src/icons/user_white.svg" alt="Icone utilisateur">
+                                        <a href="index.php?action=profile&id=<?= $_SESSION['id']?>"><img src="./src/icons/user_white.svg" alt="Icone utilisateur"></a>
                                         <p><?= $_SESSION['name']?></p>
                                     </button>
                                     <div id="headerHover__menu">
@@ -59,6 +59,22 @@ ob_start();
                                             <li><a href="index.php?action=profile&id=<?= $_SESSION['id']?>">Mon Profil</a></li>
                                             <li><a href="index.php?action=settings">Mes Paramètres</a></li>
                                             <li><a href="index.php?action=deconnexion" onclick="deconnexion()">Se déconnecter</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="headerUser">
+                                    <button id="headerUser__button" onclick="userHover()">
+                                        <img src="./src/icons/user_white.svg" alt="Icone utilisateur">
+                                        <p>Notifications</p>
+                                    </button>
+                                    <div id="headerHover__menu">
+                                        <ul>
+                                            <?php
+                                                $sql2 = "SELECT * FROM user";
+                                                $query2 = $pdo -> prepare($sql2);
+                                                $query2 -> execute(array($_SESSION["id"]));
+                                                $result2 = $query2 -> fetch();
+                                            ?>
                                         </ul>
                                     </div>
                                 </div>

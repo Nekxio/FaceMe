@@ -26,7 +26,9 @@
         }
     }
     if($ok==false) {
-        echo "Vous n êtes pas encore ami, vous ne pouvez voir son mur !!";       
+    ?>
+       <h1>Vous n'êtes pas encore ami, vous ne pouvez pas voir le mur !</h1>
+    <?php   
     } else {
         $sql2 = "SELECT * FROM user";
         $query2 = $pdo -> prepare($sql2);
@@ -63,6 +65,7 @@
     <section class="container">
     <div class="post_complet">
         <div class="post_completpadding">
+        <a href="index.php?action=deletepost&id=<?= $result['id']?>">Delete</a>
             <div>
                 <div class="post_user">
                     <img src="./src/icons/user_orange.svg" alt="icône user orange">
@@ -104,6 +107,7 @@
                     while($result1 = $query1 -> fetch()){
                 ?>
                 <div class="vueCommentaires">
+                    <a href="index.php?action=deletecom&idPost=<?= $result['id']?>">Delete</a>
                     <div class="vueCommentaires__flex">
                         <h1 class="vueCommentaires__title"><?= $result1['name'] ?></h1><p class="vueCommentaires__text"> a écrit :</p>
                     </div>
@@ -117,13 +121,14 @@
     
 <?php
         }
-    }
-?>
-<section class="container">
+?><section class="container">
     <div class="topArea">
         <p class="topArea__text">Vous avez bien scrollé ! Remontez au sommet !</p>
-        <a href="#" class="topArea__button">
+        <a class="topArea__button" onclick="scrollToTop()">
             <img src="./icons/uparrow.svg" alt="Icône flèche du haut">
         </a>
     </div>
 </section>
+<?php
+    }
+?>
