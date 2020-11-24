@@ -49,7 +49,7 @@ ob_start();
                                 <div id="headerUser">
                                     <button id="headerUser__button" onclick="userHover()">
                                         <img src="./icons/user_white.svg" alt="Icone utilisateur">
-                                        <p><?= $_SESSION['name']?></p>
+                                        <p id="headerUser__name"><?= $_SESSION['name']?></p>
                                     </button>
                                     <div id="headerHover__menu">
                                         <ul>

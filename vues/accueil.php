@@ -103,15 +103,27 @@
                     $query1 -> execute(array($result["id"]));
                     while($result1 = $query1 -> fetch()){
                 ?>
-                    <h1><?= $result1['name'] ?></h1>
-                    <p><?= $result1['contenu'] ?></p>
+                <div class="vueCommentaires">
+                    <div class="vueCommentaires__flex">
+                        <h1 class="vueCommentaires__title"><?= $result1['name'] ?></h1><p class="vueCommentaires__text"> a écrit :</p>
+                    </div>
+                    <p class="vueCommentaires__content"><?= $result1['contenu'] ?></p>
                     <?php } ?>
+                </div>
             </div>
         </div>
     </div>
-
     </section>
+    
 <?php
         }
     }
 ?>
+<section class="container">
+    <div class="topArea">
+        <p class="topArea__text">Vous avez bien scrollé ! Remontez au sommet !</p>
+        <a href="#" class="topArea__button">
+            <img src="./icons/uparrow.svg" alt="Icône flèche du haut">
+        </a>
+    </div>
+</section>

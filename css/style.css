@@ -3,14 +3,28 @@
     font-family: 'Roboto', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 a {
     text-decoration: none;
+}
+
+p {
+    margin: 0rem 0rem 0rem 0rem;
+    padding: 0rem 0rem 0rem 0rem;
+}
+
+input, button {
+    outline: none;
 }
 
 .container {
     max-width: 950px;
     margin: 0 auto;
 }
+
 
 
 /**HEADER FACEME**/   
@@ -64,6 +78,12 @@ a {
 
 #headerUser img {
     height: 4rem;
+}
+
+#headerUser__name {
+    color: #ffffff;
+    font-size: 16pt;
+    font-weight: 400;
 }
 
 #headerHover__menu {
@@ -375,6 +395,54 @@ a {
 .separation_orange {
     margin: 1rem 0rem 1rem 0rem;
     border: 1px solid #FF9900;
+}
+
+.vueCommentaires__flex {
+    display: flex;
+    align-items: center;
+}
+
+.vueCommentaires__title {
+    color: #FF9900;
+    font-size: 18pt;
+    font-weight: 500;
+}
+
+.vueCommentaires__text {
+    padding: 0rem 0rem 0rem 0.5rem;
+    color: #707070;
+}
+
+.topArea {
+    background-color: #ebe8e8;
+    box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -moz-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -webkit-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    border-radius: 10px;
+    padding: 1rem 1rem 1rem 1rem;
+    margin: 2rem 0rem 2rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topArea__text {
+    color: #707070;
+    font-size: 16pt;
+}
+
+.topArea__button {
+    border: none;
+    background-color: transparent;
+    transition: 0.2s ease-in-out;
+}
+
+.topArea__button img {
+    height: 60px;
+}
+
+.topArea__button:hover {
+    transform: translateY(-6px);
 }
 
 
