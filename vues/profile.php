@@ -66,13 +66,13 @@
                     <a href="#" class="title orange">Photos</a>
                     <div>
                         <?php
-                            $sql1 = "SELECT * FROM pictures WHERE idAuteur=? DESC";
-                            $query1 = $pdo -> prepare($sql1);
-                            $query1 -> execute(array($_SESSION["id"]));
-                            while($result1 = $query1 -> fetch()){
+                            $sql4 = "SELECT * FROM pictures WHERE idAuteur=?";
+                            $query4 = $pdo -> prepare($sql4);
+                            $query4 -> execute(array($_SESSION["id"]));
+                            while($result4 = $query4 -> fetch()){
                                 for ($j=0; $j<9; $j++){
                         ?>
-                            <img src='<?=$result1['image']?>' alt='image de <?=$result1['name']?>' />
+                            <img src='<?=$result4['image']?>' alt='image de <?=$result2['name']?>' />
                         <?php
                                 }
                             }
@@ -81,19 +81,85 @@
                 </div>
             </div>
             <div>
-
+            <?php
+                $sql5 = "SELECT * FROM user";
+                $query5 = $pdo -> prepare($sql5);
+                $query5 -> execute(array($_SESSION["id"]));
+                $result5 = $query5 -> fetch();
+            ?>
+            <div class="publication">
+                <h1 class="publication__title">Dîtes à vos amis comment se passe votre journée</h1>
+                    <form action='index.php?action=publication&id=<?= $id?>' method='POST' class="post_form">
+                        <input type='text' placeholder='Écrire une publication' name='contenu' required class="publication_input">
+                        <hr class="separation_orange">
+                        <div class="post_commentairesFlex">
+                            <button type='file' class="post_commentairesIcon">
+                                <img src="./icons/add.svg" alt="icône ajout fichier">
+                            </button>
+                            <button type='submit' class="post_commentairesIcon">
+                                <img src="./icons/send.svg" alt="icône envoyer">
+                            </button>
+                        </div>  
+                    </form>
             </div>
-    <?php
-     $sql3 = "SELECT ecrit.*, user.name FROM ecrit JOIN user ON ecrit.idAuteur=user.id WHERE idAmi=? order by dateEcrit DESC";
-     $query3 = $pdo -> prepare($sql3);
-        $query3 -> execute(array($_SESSION["id"]));
-        while($result3 = $query3 -> fetch()){
-    ?>
-    
-    </div>
-
-
-    <?php
+        <?php // Requête de sélection des éléments dun mur
+            // SELECT * FROM ecrit WHERE idAmi=? order by dateEcrit DESC
+            // le paramètre  est le $id
+            $sql6 = "SELECT ecrit.*, user.name FROM ecrit JOIN user ON ecrit.idAuteur=user.id WHERE idAmi=? order by dateEcrit DESC";
+            $query6 = $pdo -> prepare($sql6);
+                $query6 -> execute(array($_SESSION["id"]));
+                while($result6 = $query6 -> fetch()){
+            ?>
+            <div class="post_complet">
+                <div class="post_completpadding">
+                    <div>
+                        <div class="post_user">
+                            <img src="./icons/user_orange.svg" alt="icône user orange">
+                            <h1><?= $result6['name'] ?></h1>
+                        </div>
+                        <div class="post_contenu">
+                            <p><?= $result6['contenu'] ?></p>
+                            <?php
+                                if(isset($result6['image'])){
+                            ?>
+                                <img src="<?= $result6['image'] ?>" alt="image de <?= $result6['name'] ?>."/>
+                            <?php
+                            }
+                        ?>
+                        </div>
+                    </div>
+                    <hr class="separation_grise">
+                    <div class="post_commentaires">
+                        <h1>Commentaires</h1>
+                        <form action='index.php?action=commentaires&idPost=<?= $result6['id']?>' method='POST' class="post_commentairesForm">
+                            <label><?= $result6['name'] ?></label>
+                            <input type='text' placeholder='Écrire un commentaire' name='contenu' required class="post_commentairesInput">
+                            <hr class="separation_orange">
+                            <div class="post_commentairesFlex">
+                                <button type='file' class="post_commentairesIcon">
+                                    <img src="./icons/add.svg" alt="icône ajout fichier">
+                                </button>
+                                <button type='submit' class="post_commentairesIcon">
+                                    <img src="./icons/send.svg" alt="icône envoyer">
+                                </button>
+                            </div>  
+                        </form>
+                    </div>
+                    <div>
+                        <?php
+                            $sql7 = "SELECT commentaires.*, user.name FROM commentaires JOIN user ON commentaires.idAuteur=user.id WHERE idPost=? order by dateCom DESC";
+                            $query7 = $pdo -> prepare($sql7);
+                            $query7 -> execute(array($result6["id"]));
+                            while($result7 = $query7 -> fetch()){
+                        ?>
+                            <h1><?= $result7['name'] ?></h1>
+                            <p><?= $result7['contenu'] ?></p>
+                            <?php } ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+<?php
         }
     }
 ?>
