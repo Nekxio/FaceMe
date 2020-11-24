@@ -53,7 +53,7 @@ ob_start();
                                     </button>
                                     <div id="headerHover__menu">
                                         <ul>
-                                            <li><a href="index.php?action=profile">Mon Profil</a></li>
+                                            <li><a href="index.php?action=profile&id=<?= $_SESSION['id']?>">Mon Profil</a></li>
                                             <li><a href="index.php?action=settings">Mes Paramètres</a></li>
                                             <li><a href="index.php?action=deconnexion">Se déconnecter</a></li>
                                         </ul>
