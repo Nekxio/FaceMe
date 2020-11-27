@@ -107,8 +107,8 @@
                     while($result1 = $query1 -> fetch()){
                 ?>
                 <div class="vueCommentaires">
-                    <a href="index.php?action=deletecom&idPost=<?= $result['id']?>">Delete</a>
                     <div class="vueCommentaires__flex">
+                        <a href="index.php?action=deletecom&id=<?= $result1['id']?>">Delete</a>
                         <h1 class="vueCommentaires__title"><?= $result1['name'] ?></h1><p class="vueCommentaires__text"> a écrit :</p>
                     </div>
                     <p class="vueCommentaires__content"><?= $result1['contenu'] ?></p>
