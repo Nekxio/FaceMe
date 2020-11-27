@@ -49,7 +49,7 @@
                     <button type='submit' class="post_commentairesIcon">
                         <img src="./src/icons/send.svg" alt="icône envoyer">
                     </button>
-                </div>  
+                </div>
             </form>
        </div>
     </div>
@@ -81,6 +81,16 @@
                     }
                 ?>
                 </div>
+                <div class="likes">
+                    <a href="index.php?action=likes&id=<?= $result['id']?>">j'aime</a>
+                    <?php
+                        $sql8 = "SELECT idPost, count(*) as likes FROM aime WHERE idPost=?" ;
+                        $query8 = $pdo -> prepare($sql8);
+                        $query8 -> execute(array($result['id']));
+                        $result8 = $query8 -> fetch();
+                    ?>
+                    <p><?=$result8['likes']?></p>
+                </div>
             </div>
             <hr class="separation_grise">
             <div class="post_commentaires">
@@ -108,8 +118,8 @@
                 ?>
                 <div class="vueCommentaires">
                     <div class="vueCommentaires__flex">
-                        <a href="index.php?action=deletecom&id=<?= $result1['id']?>">Delete</a>
                         <h1 class="vueCommentaires__title"><?= $result1['name'] ?></h1><p class="vueCommentaires__text"> a écrit :</p>
+                        <a href="index.php?action=deletecom&id=<?= $result1['id']?>">Delete</a>
                     </div>
                     <p class="vueCommentaires__content"><?= $result1['contenu'] ?></p>
                     <?php } ?>

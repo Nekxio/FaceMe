@@ -124,6 +124,7 @@
                         <div class="post_user">
                             <img src="./src/icons/user_orange.svg" alt="icône user orange">
                             <h1><?= $result6['name'] ?></h1>
+                            <a href="index.php?action=deletepost&id=<?= $result6['id']?>">Delete</a>
                         </div>
                         <div class="post_contenu">
                             <p><?= $result6['contenu'] ?></p>
@@ -135,6 +136,17 @@
                             }
                         ?>
                         </div>
+                        <div class="likes">
+                            <a href="index.php?action=likes&id=<?= $result6['id']?>">j'aime</a>
+                            <?php
+                                $sql8 = "SELECT idPost, count(*) as likes FROM aime WHERE idPost=?" ;
+                                $query8 = $pdo -> prepare($sql8);
+                                $query8 -> execute(array($result6['id']));
+                                $result8 = $query8 -> fetch();
+                            ?>
+                            <p><?=$result8['likes']?></p>
+                        </div>
+                        
                     </div>
                     <hr class="separation_grise">
                     <div class="post_commentaires">
@@ -160,9 +172,15 @@
                             $query7 -> execute(array($result6["id"]));
                             while($result7 = $query7 -> fetch()){
                         ?>
-                            <h1><?= $result7['name'] ?></h1>
-                            <p><?= $result7['contenu'] ?></p>
-                            <?php } ?>
+                            <div class="vueCommentaires">
+                                <div class="vueCommentaires__flex">
+                                    
+                                    <h1 class="vueCommentaires__title"><?= $result7['name'] ?></h1><p class="vueCommentaires__text"> a écrit :</p>
+                                    <a href="index.php?action=deletecom&id=<?= $result7['id']?>">Delete</a>
+                                </div>
+                                <p class="vueCommentaires__content"><?= $result7['contenu'] ?></p>
+                                <?php } ?>
+                            </div>
                     </div>
                 </div>
             </div>
