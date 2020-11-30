@@ -63,7 +63,7 @@
     ?>
 
     <section class="container">
-    <div class="post_complet">
+    <div class="post_complet" id="<?= $result['id'] ?>">
         <div class="post_completpadding">
         <a href="index.php?action=deletepost&id=<?= $result['id']?>">Delete</a>
             <div>
