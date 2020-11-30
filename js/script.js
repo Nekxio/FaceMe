@@ -42,3 +42,18 @@ function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setTimeout(() => { document.location.reload(); }, 2000);
 }
+
+/**ANIMATION HOVER DELETE**/
+function newBin() {
+    document.getElementById("post_userBin").src = "./src/icons/opentrash.svg";
+}
+
+function oldBin() {
+    document.getElementById("post_userBin").src = "./src/icons/trash.svg";
+}
+
+
+/**FOCUS POUR LES COMMENTAIRES**/
+function commentFocus() {
+    document.getElementById("input_commentFocus").focus({preventScroll:false});
+}

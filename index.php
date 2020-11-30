@@ -40,14 +40,13 @@ ob_start();
                         <div id="headerFond">
                             <div class="container headerFlex">
                                 <div id="headerLogo">
-                                    <img src="./src/icons/logo.svg" alt="Logo FaceMe">
+                                    <a href="index.php?action=accueil">
+                                        <img src="./src/icons/logo.svg" alt="Logo FaceMe">
+                                    </a>
                                 </div>
                                 <div id="headerSearch">
                                     <img src="./src/icons/loupe.svg" alt="Icone loupe">
                                     <input type="text" placeholder="Rechercher" id="headerSearch__input">
-                                </div>
-                                <div>
-                                    <a href="index.php?action=accueil">Accueil</a>
                                 </div>
                                 <div id="headerUser">
                                     <button id="headerUser__button" onclick="userHover()">

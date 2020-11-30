@@ -65,11 +65,17 @@
     <section class="container">
     <div class="post_complet" id="<?= $result['id'] ?>">
         <div class="post_completpadding">
-        <a href="index.php?action=deletepost&id=<?= $result['id']?>">Delete</a>
             <div>
                 <div class="post_user">
-                    <img src="./src/icons/user_orange.svg" alt="icône user orange">
-                    <h1><?= $result['name'] ?></h1>
+                    <div class="post_userId">
+                        <img src="./src/icons/user_orange.svg" alt="icône user orange">
+                        <h1><?= $result['name'] ?></h1>
+                    </div>
+                    <div class="post_userBin">
+                        <a href="index.php?action=deletepost&id=<?= $result['id']?>">
+                            <img src="./src/icons/trash.svg" onmouseover="newBin()" onmouseout="oldBin()" alt="icône poubelle" id="post_userBin">
+                        </a>
+                    </div>
                 </div>
                 <div class="post_contenu">
                     <p><?= $result['contenu'] ?></p>
@@ -80,24 +86,33 @@
                     <?php
                     }
                 ?>
+                    <hr class="post_separation">
+                    <div class="postComment">
+                        <div class="post_likes"> 
+                            <a href="index.php?action=likes&id=<?= $result['id']?>">
+                                <img src="./src/icons/like.svg" alt="icône coeur" class="post_likesIcons">
+                            </a>   
+                            <?php
+                                $sql8 = "SELECT idPost, count(*) as likes FROM aime WHERE idPost=?" ;
+                                $query8 = $pdo -> prepare($sql8);
+                                $query8 -> execute(array($result['id']));
+                                $result8 = $query8 -> fetch();
+                            ?>
+                            <p class="likes_count"><?=$result8['likes']?></p>
+                        </div>
+                        <button id="commentFocus" class="post_comment" onclick="commentFocus();">
+                            <img src="./src/icons/message.svg" alt="icône commentaires">
+                        </button>
+                    </div>
                 </div>
-                <div class="likes">
-                    <a href="index.php?action=likes&id=<?= $result['id']?>">j'aime</a>
-                    <?php
-                        $sql8 = "SELECT idPost, count(*) as likes FROM aime WHERE idPost=?" ;
-                        $query8 = $pdo -> prepare($sql8);
-                        $query8 -> execute(array($result['id']));
-                        $result8 = $query8 -> fetch();
-                    ?>
-                    <p><?=$result8['likes']?></p>
-                </div>
+                
             </div>
             <hr class="separation_grise">
             <div class="post_commentaires">
                 <h1>Commentaires</h1>
                 <form action='index.php?action=commentaires&idPost=<?= $result['id']?>' method='POST' class="post_commentairesForm">
                     <label><?= $result['name'] ?></label>
-                    <input type='text' placeholder='Écrire un commentaire' name='contenu' required class="post_commentairesInput">
+                    <input type='text' placeholder='Écrire un commentaire' name='contenu' required class="post_commentairesInput" id="input_commentFocus">
                     <hr class="separation_orange">
                     <div class="post_commentairesFlex">
                         <button type='file' class="post_commentairesIcon">
@@ -131,11 +146,13 @@
     
 <?php
         }
-?><section class="container">
+?>
+
+<section class="container">
     <div class="topArea">
         <p class="topArea__text">Vous avez bien scrollé ! Remontez au sommet !</p>
         <a class="topArea__button" onclick="scrollToTop()">
-            <img src="./icons/uparrow.svg" alt="Icône flèche du haut">
+            <img src="./src/icons/uparrow.svg" alt="Icône flèche du haut">
         </a>
     </div>
 </section>
