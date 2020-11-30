@@ -69,7 +69,7 @@ ob_start();
                                     <div id="headerHover__menu">
                                         <ul>
                                             <?php
-                                                $sql2 = "SELECT * FROM user";
+                                                $sql2 = "SELECT * FROM lien WHERE ";
                                                 $query2 = $pdo -> prepare($sql2);
                                                 $query2 -> execute(array($_SESSION["id"]));
                                                 $result2 = $query2 -> fetch();
