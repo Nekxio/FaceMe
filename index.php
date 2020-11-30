@@ -50,7 +50,7 @@ ob_start();
                                 </div>
                                 <div id="headerUser">
                                     <button id="headerUser__button" onclick="userHover()">
-                                        <a href="index.php?action=profile&id=<?= $_SESSION['id']?>"><img src="./src/icons/user_white.svg" alt="Icone utilisateur"></a>
+                                        <img src="./src/icons/user_white.svg" alt="Icone utilisateur">
                                         <p><?= $_SESSION['name']?></p>
                                     </button>
                                     <div id="headerHover__menu">
