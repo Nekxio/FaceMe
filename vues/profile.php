@@ -47,31 +47,31 @@
         
         <h1 class="profile_name"><?= $result2['name'] ?></h1>
     </div>
-    <div class="">
-            <div>
-                <a href="#"><img src="settings.png" alt="paramètres"></a>
-                <div class="biography">
-                    <h1 class="title orange">Biographie</h1>
-                    <p class="biography-text"><?= $result2['bio'] ?></p>
+    <div>
+        <div>
+            <a href="#"><img src="settings.png" alt="paramètres"></a>
+            <div class="biography">
+                <h1 class="title orange">Biographie</h1>
+                <p class="biography-text"><?= $result2['bio'] ?></p>
+            </div>
+            <div class="friends">
+                <a href="#" class="title orange">Amis</a>
+                <div>
+                    <?php
+                        $sql3 ="SELECT user.* FROM user INNER JOIN lien ON idUtilisateur1=user.id AND etat='ami' AND idUtilisateur2=? UNION SELECT user.* FROM user INNER JOIN lien ON idUtilisateur2=user.id AND etat='ami' AND idUtilisateur1=? LIMIT 9";
+                        $query3 = $pdo->prepare($sql3);
+                        $query3->execute(array($_GET['id'],$_SESSION['id']));
+                        while($result3 = $query3 -> fetch()){
+                    ?>
+                    <img src='<?=$result3['avatar']?>' alt='image de <?=$result3['name']?>' />
+                    <p class='friend-name'><?=$result3['name']?></p>;
+                    <?php
+                        }
+                    ?>
                 </div>
-                <div class="friends">
-                    <a href="#" class="title orange">Amis</a>
-                    <div>
-                        <?php
-                            $sql3 ="SELECT user.* FROM user INNER JOIN lien ON idUtilisateur1=user.id AND etat='ami' AND idUtilisateur2=? UNION SELECT user.* FROM user INNER JOIN lien ON idUtilisateur2=user.id AND etat='ami' AND idUtilisateur1=? LIMIT 9";
-                            $query3 = $pdo->prepare($sql3);
-                            $query3->execute(array($_GET['id'],$_SESSION['id']));
-                            while($result3 = $query3 -> fetch()){
-                            ?>
-                                <img src='<?=$result3['avatar']?>' alt='image de <?=$result3['name']?>' />
-                                <p class='friend-name'><?=$result3['name']?></p>;
-                                <?php
-                            }
-                        ?>
-                    </div>
-                </div>
-                <div class="pictures">
-                    <a href="#" class="title orange">Photos</a>
+            </div>
+            <div class="pictures">
+                <a href="#" class="title orange">Photos</a>
                     <div>
                         <?php
                             $sql4 = "SELECT * FROM pictures WHERE idAuteur=?";
@@ -80,26 +80,28 @@
                             while($result4 = $query4 -> fetch()){
                                 for ($j=0; $j<9; $j++){
                         ?>
-                            <img src='<?=$result4['image']?>' alt='image de <?=$result2['name']?>' />
+                        <img src='<?=$result4['image']?>' alt='image de <?=$result2['name']?>' />
                         <?php
                                 }
                             }
                         ?>
                     </div>
-                </div>
             </div>
-            <div>
-            <?php
-                $sql5 = "SELECT * FROM user";
-                $query5 = $pdo -> prepare($sql5);
-                $query5 -> execute(array($_SESSION["id"]));
-                $result5 = $query5 -> fetch();
-            ?>
-            <div class="publication">
-                <h1 class="publication__title">Dîtes à vos amis comment se passe votre journée</h1>
-                    <form action='index.php?action=publication&id=<?= $id?>' method='POST' class="post_form">
-                        <input type='text' placeholder='Écrire une publication' name='contenu' required class="publication_input">
-                        <hr class="separation_orange">
+        </div>
+    <div>
+    <?php
+        $sql5 = "SELECT * FROM user";
+        $query5 = $pdo -> prepare($sql5);
+        $query5 -> execute(array($_SESSION["id"]));
+        $result5 = $query5 -> fetch();
+    ?>
+    
+    <section class="container">
+        <div class="publication">
+            <h1 class="publication__title">Dîtes à vos amis comment se passe votre journée</h1>
+                <form action='index.php?action=publication&id=<?= $id?>' method='POST' class="post_form">
+                    <input type='text' placeholder='Écrire une publication' name='contenu' required class="publication_input">
+                    <hr class="separation_orange">
                         <div class="post_commentairesFlex">
                             <button type='file' class="post_commentairesIcon">
                                 <img src="./src/icons/add.svg" alt="icône ajout fichier">
@@ -108,16 +110,19 @@
                                 <img src="./src/icons/send.svg" alt="icône envoyer">
                             </button>
                         </div>  
-                    </form>
-            </div>
-        <?php // Requête de sélection des éléments dun mur
+                </form>
+        </div>
+        <?php 
+            // Requête de sélection des éléments dun mur
             // SELECT * FROM ecrit WHERE idAmi=? order by dateEcrit DESC
             // le paramètre  est le $id
             $sql6 = "SELECT ecrit.*, user.name FROM ecrit JOIN user ON ecrit.idAuteur=user.id WHERE idAmi=? order by dateEcrit DESC";
             $query6 = $pdo -> prepare($sql6);
-                $query6 -> execute(array($_SESSION["id"]));
-                while($result6 = $query6 -> fetch()){
-            ?>
+            $query6 -> execute(array($_SESSION["id"]));
+            while($result6 = $query6 -> fetch()){
+        ?>
+    </section>
+
     <section class="container">
         <div class="post_complet">
             <div class="post_completpadding">
