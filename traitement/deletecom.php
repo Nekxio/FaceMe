@@ -6,6 +6,6 @@
         $sql="DELETE FROM commentaires WHERE commentaires.id=?";
         $q = $pdo->prepare($sql);
         $q->execute(array($_GET['id']));
-        header('Location: ' . $_SERVER["HTTP_REFERER"] );
+        header('Location: ' . $_SERVER["HTTP_REFERER"]."#".$_GET['id'] );
         exit;
 ?>
