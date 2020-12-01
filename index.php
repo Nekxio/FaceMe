@@ -36,57 +36,59 @@ ob_start();
         ?>
             <?php
                 if (isset($_SESSION['id'])) {
-                    ?>
-                        <div id="headerFond">
-                            <div class="container headerFlex">
-                                <div id="headerLogo">
-                                    <a href="index.php?action=accueil">
-                                        <img src="./src/icons/logo.svg" alt="Logo FaceMe">
-                                    </a>
-                                </div>
-                                <div id="headerSearch">
-                                    <img src="./src/icons/loupe.svg" alt="Icone loupe">
-                                    <input type="text" placeholder="Rechercher" id="headerSearch__input">
-                                </div>
-                                <div id="headerUser">
-                                    <button id="headerUser__button" onclick="userHover()">
-                                        <img src="./src/icons/user_white.svg" alt="Icone utilisateur">
-                                        <p><?= $_SESSION['name']?></p>
-                                    </button>
-                                    <div id="headerHover__menu">
-                                        <ul>
-                                            <li><a href="index.php?action=profile&id=<?= $_SESSION['id']?>">Mon Profil</a></li>
-                                            <li><a href="index.php?action=settings">Mes Paramètres</a></li>
-                                            <li><a href="index.php?action=deconnexion" onclick="deconnexion()">Se déconnecter</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div id="headerUser">
-                                    <button id="headerUser__button">
-                                        <img src="./src/icons/user_white.svg" alt="Icone utilisateur">
-                                        <p>Notifications</p>
-                                    </button>
-                                    <div>
-                                        <ul>
-                                            <?php
-                                                $sql2 = "SELECT lien.*, user.id, user.name FROM lien JOIN user ON lien.idUtilisateur2=user.id WHERE lien.idUtilisateur2=? AND lien.etat='attente'";
-                                                $query2 = $pdo -> prepare($sql2);
-                                                $query2 -> execute(array($_SESSION["id"]));
-                                                $result2 = $query2 -> fetch();
-                                                    if(!empty($result2)){
-                                                    ?>
-                                                        <span><?=$result2['name']?></span>
-                                                        <a href="index.php?action=reponse&id=<?=$result2['idUtilisateur1']?>&reponse=accepter">accepter</a>
-                                                    <?php
-                                                    }else{
-                                                        echo "<p>Aucune invitation pour le moment</p>";
-                                                    };
-                                            ?>
-                                        </ul>
-                                    </div>
-                                </div>
+            ?>
+
+            <div class="headerFond">
+                <div class="container headerFlex">
+                    <div class="headerLogo">
+                        <a href="index.php?action=accueil">
+                            <img src="./src/icons/logo.svg" alt="Logo FaceMe">
+                        </a>
+                    </div>
+                    <div class="headerSearch">
+                        <img src="./src/icons/loupe.svg" alt="Icone loupe">
+                        <input type="text" placeholder="Rechercher" id="headerSearch__input">
+                    </div>
+                    <div class="headerButton">
+                        <div class="headerUser">
+                            <button class="headerUser__button" onclick="userHover()">
+                                <img src="./src/icons/user_white.svg" alt="Icone utilisateur">
+                            </button>
+                            <div id="headerHover__menu">
+                                <p><?= $_SESSION['name']?></p>
+                                <p><a href="index.php?action=profile&id=<?= $_SESSION['id']?>">Mon Profil</a></p> 
+                                <p><a href="index.php?action=settings">Mes Paramètres</a></p>
+                                <p><a href="index.php?action=deconnexion" onclick="deconnexion()">Se déconnecter</a></p>
                             </div>
                         </div>
+                        <div class="headerNotif">
+                            <button class="headerNotif__button">
+                                <img src="./src/icons/bell.svg" alt="Icone cloche">
+                                <p></p>
+                            </button>
+                        </div>
+                        <div>
+                            <ul>
+                                <?php
+                                    $sql2 = "SELECT lien.*, user.id, user.name FROM lien JOIN user ON lien.idUtilisateur2=user.id WHERE lien.idUtilisateur2=? AND lien.etat='attente'";
+                                    $query2 = $pdo -> prepare($sql2);
+                                    $query2 -> execute(array($_SESSION["id"]));
+                                    $result2 = $query2 -> fetch();
+                                        if(!empty($result2)){
+                                ?>
+                                <span><?=$result2['name']?></span>
+                                    <a href="index.php?action=reponse&id=<?=$result2['idUtilisateur1']?>&reponse=accepter">accepter</a>
+                                <?php
+                                    } else {
+                                        echo "<p>Aucune invitation pour le moment</p>";
+                                    };
+                                ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
                 <?php
                 } else {
                    ?>
