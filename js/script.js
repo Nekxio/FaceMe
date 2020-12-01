@@ -6,15 +6,14 @@ function changement() {
 }
 
 
-/**AFFICHAGE MENU CONTEXTUEL HEADERS**/
+/**AFFICHAGE MENU CONTEXTUEL HEADER**/
 function userHover() {
-    let showMenu = document.getElementById("headerHover__menu");
-    showMenu.style.display="none";
+    var e = document.getElementById("headerHover__menu"); 
 
-    if (showMenu.style.display == "none") {
-        showMenu.style.display="block";
+    if (e.style.display === "none") {
+        e.style.display = "block";
     } else {
-        showMenu.style.display="none";
+        e.style.display = "none";
     }
 }
 
