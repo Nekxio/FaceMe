@@ -30,17 +30,35 @@
     if($ok==false) {
     ?>
         <div class="bg-profile">
-        
-        <h1 class="profile_name"><?= $result2['name'] ?></h1>
+        <?php       
+        $sql1 = "SELECT * FROM user WHERE id=?";
+        $query1 = $pdo -> prepare($sql1);
+        $query1 -> execute(array($_GET['id']));
+        $result1 = $query1 -> fetch()
+        ?>
+        <h1 class="profile_name"><?= $result1['name'] ?></h1>
     </div>
-    <a href="index.php?action=friendship&id=<?= $_GET['id'] ?>" onclick="friendship()">Ajouter</a>
+    <?php       
+        $sql1 = "SELECT * FROM lien WHERE idUtilisateur2=? AND idUtilisateur1=?";
+        $query1 = $pdo -> prepare($sql1);
+        $query1 -> execute(array($_GET['id'], $_SESSION['id']));
+        $result1 = $query1 -> fetch();
+        if($result1['etat'] == 'attente'){
+            echo "<p>Demande envoyée, attente de sa réponse !</p>";
+        }else{
+        ?>
+            <a href="index.php?action=friendship&id=<?= $_GET['id'] ?>" onclick="friendship()">Ajouter</a>
+        <?php
+        };
+        ?>
+    
     <div>
         <h1>Vous n'êtes pas encore ami, vous ne pouvez pas voir son profil !</h1>
     <?php       
     } else {
         $sql2 = "SELECT * FROM user WHERE id=?";
         $query2 = $pdo -> prepare($sql2);
-        $query2 -> execute(array($_SESSION['id']));
+        $query2 -> execute(array($_GET['id']));
         $result2 = $query2 -> fetch()
         ?>
     <div class="bg-profile">

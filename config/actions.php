@@ -13,5 +13,6 @@ $listeDesActions = array(
     "friendship" => "traitement/friendship.php",
     "deletepost" => "traitement/deletepost.php",
     "deletecom" => "traitement/deletecom.php",
-    "likes" => "traitement/likes.php"
+    "likes" => "traitement/likes.php",
+    "reponse" => "traitement/reponsefriendship.php"
 );

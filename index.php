@@ -62,17 +62,25 @@ ob_start();
                                     </div>
                                 </div>
                                 <div id="headerUser">
-                                    <button id="headerUser__button" onclick="userHover()">
+                                    <button id="headerUser__button">
                                         <img src="./src/icons/user_white.svg" alt="Icone utilisateur">
                                         <p>Notifications</p>
                                     </button>
-                                    <div id="headerHover__menu">
+                                    <div>
                                         <ul>
                                             <?php
-                                                $sql2 = "SELECT * FROM lien WHERE ";
+                                                $sql2 = "SELECT lien.*, user.id, user.name FROM lien JOIN user ON lien.idUtilisateur2=user.id WHERE lien.idUtilisateur2=? AND lien.etat='attente'";
                                                 $query2 = $pdo -> prepare($sql2);
                                                 $query2 -> execute(array($_SESSION["id"]));
                                                 $result2 = $query2 -> fetch();
+                                                    if(!empty($result2)){
+                                                    ?>
+                                                        <span><?=$result2['name']?></span>
+                                                        <a href="index.php?action=reponse&id=<?=$result2['idUtilisateur1']?>&reponse=accepter">accepter</a>
+                                                    <?php
+                                                    }else{
+                                                        echo "<p>Aucune invitation pour le moment</p>";
+                                                    };
                                             ?>
                                         </ul>
                                     </div>
