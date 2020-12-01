@@ -34,16 +34,16 @@ input, button {
     justify-content: space-between;
 }
 
-#headerFond {
+.headerFond {
     padding: 1.2rem 0rem 1.2rem 0rem;
     background-color: #FF9900;
 }
 
-#headerLogo img {
+.headerLogo img {
     height: 4rem;
 }
 
-#headerSearch {
+.headerSearch {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -52,7 +52,7 @@ input, button {
     padding: 0.6rem 1rem 0.6rem 1rem;
 }
 
-#headerSearch img {
+.headerSearch img {
     height: 22px;
     margin-right: 1rem;
 }
@@ -67,64 +67,36 @@ input, button {
     color: #808080;
 }
 
-#headerUser {
-    position: relative;
+.headerButton {
+    display: flex;
+    align-items: center;
 }
 
-#headerUser__button {
+.headerUser {
+    position: relative;
+    padding-right: 2.4rem;
+}
+
+.headerUser__button, .headerNotif__button  {
     border: none;
     background-color: transparent;
 }
 
-#headerUser img {
-    height: 4rem;
+.headerUser img, .headerNotif img {
+    height: 48px;
 }
 
-#headerUser__name {
-    color: #ffffff;
-    font-size: 16pt;
-    font-weight: 400;
-}
 
 #headerHover__menu {
-    background-color: #ffffff;  
     position: absolute;
-    width: 12rem;
-    top: 5rem;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.6);
-    -moz-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.6);
-    -webkit-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.6);
-    animation: showMenu 0.4s ease;
+    width: 8rem;
+    line-height: 1.8rem;
+    background-color: #ffffff;  
     display: none;
-}
-
-@keyframes showMenu {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-#headerHover__menu ul {
-    list-style: none;
-}
-
-#headerHover__menu ul li a {
-    color: #FF9900;
-    line-height: 1.5rem;
-}
-
-#headerHover__menu ul li:last-child {
-    line-height: 3rem;
-}
-
-#headerHover__menu ul li a:hover {
-    color: #FF9900;
-    line-height: 1.5rem;
+    padding: 1rem 1rem 1rem 1rem;
+    box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -moz-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -webkit-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
 }
 
 

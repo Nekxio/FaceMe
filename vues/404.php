@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div>
-                <a href="../index.php" id="cardButton">
+                <a href="index.php?action=accueil" id="cardButton">
                     Retour
                     <img src="./src/icons/undo.svg" alt="Icon retour">
                 </a>
