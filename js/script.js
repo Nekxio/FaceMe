@@ -1,21 +1,34 @@
 /**AFFICHAGE INSCRIPTION PAGE CONNEXION**/
-function changement() {
-    let x = document.getElementById("formCo__fond");
-    
-    x.style.display="none";
-}
+function connexion() {
+    let y = document.getElementById("formCo__fond");
 
+    y.style.display = "none";
+}
 
 /**AFFICHAGE MENU CONTEXTUEL HEADER**/
 function userHover() {
-    var e = document.getElementById("headerHover__menu"); 
+    let e = document.getElementById("headerHover__menu");
 
     if (e.style.display === "none") {
         e.style.display = "block";
+        e.style.zIndex = "999";
     } else {
         e.style.display = "none";
     }
 }
+
+/**AFFICHAGE MENU CONTEXTUEL NOTIF**/
+function notifHover() {
+    let x = document.getElementById("headerHover__notif"); 
+
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        x.style.zIndex = "999";
+    } else {
+        x.style.display = "none";
+    }
+}
+
 
 function deconnexion() {
     Swal.fire({

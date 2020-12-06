@@ -1,5 +1,5 @@
 <?php
- if(!isset($_SESSION["id"])) {
+    if(!isset($_SESSION["id"])) {
         // On n est pas connecté, il faut retourner à la pgae de login
         header("Location:index.php?action=login");
     }
@@ -7,11 +7,9 @@
     // On veut affchier notre mur ou celui d'un de nos amis
     $ok = false;
 
-    if(!isset($_GET["id"]) || $_GET["id"]==$_SESSION["id"]){ 
+    if(!isset($_GET["id"]) || $_GET["id"]==$_SESSION["id"]) { 
         $id = $_SESSION["id"];
         $ok = true; // On a le droit d afficher notre mur
-        
-
     } else {
         $id = $_GET["id"];
         // Verifions si on est amis avec cette personne
@@ -23,87 +21,94 @@
         $query = $pdo -> prepare($sql);
         $query -> execute(array($_GET["id"],$_SESSION["id"],$_SESSION["id"],$_GET["id"]));
         $result = $query -> fetch();
-        if ($result != false){
+        if ($result != false) {
             $ok = true;
         }
     }
-    if($ok==false) {
+
+    if ($ok==false) {
     ?>
-        <div class="bg-profile">
+    
+    <div>
         <?php       
-        $sql1 = "SELECT * FROM user WHERE id=?";
-        $query1 = $pdo -> prepare($sql1);
-        $query1 -> execute(array($_GET['id']));
-        $result1 = $query1 -> fetch()
+            $sql1 = "SELECT * FROM user WHERE id=?";
+            $query1 = $pdo -> prepare($sql1);
+            $query1 -> execute(array($_GET['id']));
+            $result1 = $query1 -> fetch()
         ?>
         <h1 class="profile_name"><?= $result1['name'] ?></h1>
     </div>
+    
     <?php       
         $sql1 = "SELECT * FROM lien WHERE idUtilisateur2=? AND idUtilisateur1=?";
         $query1 = $pdo -> prepare($sql1);
         $query1 -> execute(array($_GET['id'], $_SESSION['id']));
         $result1 = $query1 -> fetch();
-        if($result1['etat'] == 'attente'){
-            echo "<p>Demande envoyée, attente de sa réponse !</p>";
-        }else{
-        ?>
-            <a href="index.php?action=friendship&id=<?= $_GET['id'] ?>" onclick="friendship()">Ajouter</a>
-        <?php
-        };
-        ?>
+        if($result1['etat'] == 'attente') {
+            echo "<p class='container requestTime'>Demande envoyée, attente de sa réponse !</p>";
+        } else {
+    ?>
     
-    <div>
-        <h1>Vous n'êtes pas encore ami, vous ne pouvez pas voir son profil !</h1>
-    <?php       
-    } else {
-        $sql2 = "SELECT * FROM user WHERE id=?";
-        $query2 = $pdo -> prepare($sql2);
-        $query2 -> execute(array($_GET['id']));
-        $result2 = $query2 -> fetch()
-        ?>
-    <div class="bg-profile">
-        
-        <h1 class="profile_name"><?= $result2['name'] ?></h1>
+    <div class="container requestBtn__main">
+        <a href="index.php?action=friendship&id=<?= $_GET['id'] ?>" class="requestBtn" onclick="friendship()">Ajouter</a>
     </div>
-    <div>
-        <div>
-            <a href="#"><img src="settings.png" alt="paramètres"></a>
-            <div class="biography">
-                <h1 class="title orange">Biographie</h1>
-                <p class="biography-text"><?= $result2['bio'] ?></p>
+    
+    <?php
+        };
+    ?>
+    
+    <div class="container">
+        <p class="requestText">Vous n'êtes pas encore ami, vous ne pouvez pas voir son profil !</p>
+        <?php       
+        } else {
+            $sql2 = "SELECT * FROM user WHERE id=?";
+            $query2 = $pdo -> prepare($sql2);
+            $query2 -> execute(array($_GET['id']));
+            $result2 = $query2 -> fetch()
+        ?>
+    </div>
+
+    <div class="container">
+        <p class="profileHeader">Bienvenue sur votre profil <?= $result2['name'] ?></p>
+    </div>
+    <div class="profileAside">
+        <div class="biography">
+            <h1 class="profileAside__bioTitle">Biographie</h1>
+            <p class="profileAside__bioText"><?= $result2['bio'] ?></p>
+            <hr class="profileAside__bioSeparation">
+        </div>
+        <div class="profileAside__bioFriends">
+            <a href="#">Amis</a>
+            <div>
+                <?php
+                    $sql3 ="SELECT user.* FROM user INNER JOIN lien ON idUtilisateur1=user.id AND etat='ami' AND idUtilisateur2=? UNION SELECT user.* FROM user INNER JOIN lien ON idUtilisateur2=user.id AND etat='ami' AND idUtilisateur1=? LIMIT 9";
+                    $query3 = $pdo->prepare($sql3);
+                    $query3->execute(array($_GET['id'],$_SESSION['id']));
+                    while($result3 = $query3 -> fetch()){
+                ?>
+                <img src='<?=$result3['avatar']?>' alt='image de <?=$result3['name']?>' />
+                <p class='friend-name'><?=$result3['name']?></p>;
+                <?php
+                    }
+                ?>
             </div>
-            <div class="friends">
-                <a href="#" class="title orange">Amis</a>
+        </div>
+        <div class="profileAside__bioPhotos">
+            <a href="#">Photos</a>
                 <div>
                     <?php
-                        $sql3 ="SELECT user.* FROM user INNER JOIN lien ON idUtilisateur1=user.id AND etat='ami' AND idUtilisateur2=? UNION SELECT user.* FROM user INNER JOIN lien ON idUtilisateur2=user.id AND etat='ami' AND idUtilisateur1=? LIMIT 9";
-                        $query3 = $pdo->prepare($sql3);
-                        $query3->execute(array($_GET['id'],$_SESSION['id']));
-                        while($result3 = $query3 -> fetch()){
+                        $sql4 = "SELECT * FROM pictures WHERE idAuteur=?";
+                        $query4 = $pdo -> prepare($sql4);
+                        $query4 -> execute(array($_SESSION["id"]));
+                        while($result4 = $query4 -> fetch()){
+                            for ($j=0; $j<9; $j++){
                     ?>
-                    <img src='<?=$result3['avatar']?>' alt='image de <?=$result3['name']?>' />
-                    <p class='friend-name'><?=$result3['name']?></p>;
+                    <img src='<?=$result4['image']?>' alt='image de <?=$result2['name']?>' />
                     <?php
+                            }
                         }
                     ?>
                 </div>
-            </div>
-            <div class="pictures">
-                <a href="#" class="title orange">Photos</a>
-                    <div>
-                        <?php
-                            $sql4 = "SELECT * FROM pictures WHERE idAuteur=?";
-                            $query4 = $pdo -> prepare($sql4);
-                            $query4 -> execute(array($_SESSION["id"]));
-                            while($result4 = $query4 -> fetch()){
-                                for ($j=0; $j<9; $j++){
-                        ?>
-                        <img src='<?=$result4['image']?>' alt='image de <?=$result2['name']?>' />
-                        <?php
-                                }
-                            }
-                        ?>
-                    </div>
             </div>
         </div>
     <div>

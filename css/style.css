@@ -72,14 +72,15 @@ input, button {
     align-items: center;
 }
 
-.headerUser {
+.headerUser, .headerNotif {
     position: relative;
-    padding-right: 2.4rem;
+    padding-left: 2rem;
 }
 
 .headerUser__button, .headerNotif__button  {
     border: none;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .headerUser img, .headerNotif img {
@@ -89,14 +90,70 @@ input, button {
 
 #headerHover__menu {
     position: absolute;
+    z-index: 999;
     width: 8rem;
     line-height: 1.8rem;
     background-color: #ffffff;  
+    border-radius: 10px;
     display: none;
     padding: 1rem 1rem 1rem 1rem;
     box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
     -moz-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
     -webkit-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+}
+
+#headerHover__menuName {
+    font-size: 18pt;
+    font-weight: 500;
+    color: #FF9900;
+}
+
+#headerHover__menuSeparation {
+    border: 1px solid #808080;
+}
+
+.headerHover__menuLink a {
+    text-decoration: none;
+    color: #808080;
+    font-size: 12pt;
+}
+
+.headerHover__menuLink {
+    transition: 0.4s ease-in-out;
+}
+
+.headerHover__menuLink:hover {
+    transform: translateX(8px);
+    font-weight: 700;
+}
+
+#headerHover__notif {
+    position: absolute;
+    background-color: #ffffff;  
+    display: none;
+    border-radius: 10px;
+    width: 14rem;
+    padding: 0.2rem 1.2rem 0.2rem 0.2rem;
+    box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -moz-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -webkit-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+}
+
+#headerHover__notifMain {
+    color: #808080;
+    font-size: 12pt;
+}
+
+#headerHover__notifTitle {
+    color: #FF9900;
+    font-size: 18pt;
+    font-weight: 500;
+}
+
+#headerHover__notifSeparation {
+    border: 1px solid #808080;
+    width: 10rem;
+    float: left;
 }
 
 
@@ -130,7 +187,7 @@ input, button {
 
 #formCo__fond {
     background-color: #FFFFFF;
-    height: 42.6rem;
+    height: 41.5rem;
     width: 28rem;
     border-radius: 10px;
     box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.6);
@@ -153,7 +210,7 @@ input, button {
     color: #FF9900;
     font-size: 26pt;
     font-weight: 700;
-    padding: 0.4rem 0rem 0.4rem 1rem ;
+    padding: 2rem 0rem 2rem 1rem ;
 }
 
 #signIn__fond {
@@ -212,12 +269,12 @@ input, button {
 }
 
 #signIn__submit {
-    padding: 1.5rem 8rem 1.5rem 8rem;
+    padding: 1.5rem 8.5rem 1.5rem 8.5rem;
 }
 
 #formIn__fond {
     background-color: #FFFFFF;
-    height: 44rem;
+    height: 41.5rem;
     width: 28rem;
     border-radius: 10px;
     box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.6);
@@ -230,12 +287,12 @@ input, button {
     color: #FF9900;
     font-size: 26pt;
     font-weight: 700;
-    padding: 0.4rem 0rem 0.4rem 1rem ;
+    padding: 2rem 0rem 2rem 1rem ;
 }
 
 #signUp__fond {
     background-color: #FF9900;
-    height: 39rem;
+    height: 35rem;
     width: 28rem;
     border-radius: 10px;
 }
@@ -322,6 +379,10 @@ input, button {
     box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
     -moz-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
     -webkit-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+}
+
+.post_contenu p {
+    padding: 1rem 0rem 1rem 0rem;
 }
 
 .postComment {
@@ -465,9 +526,84 @@ input, button {
     transform: translateY(-6px);
 }
 
+/**PAGE PROFILE**/
+.profileHeader {
+    color: #808080;
+    font-size: 22pt;
+    font-weight: 400;
+    padding: 1rem 0rem 1rem 0rem;
+}
+
+.profileAside {
+    float: left;
+    position: -webkit-sticky;
+    position: sticky;
+    width: 18rem;
+    top: 10px;
+    left: 120px;
+    background-color: #ebe8e8;
+    margin-top: 16px;
+    padding: 0rem 1rem 1rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -moz-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -webkit-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+}
+
+.profileAside__bioTitle {
+    color: #FF9900;
+    font-size: 22pt;
+    font-weight: 500;
+}
+
+.profileAside__bioText {
+    color: #808080;
+    font-size: 14pt;
+}
+
+.profileAside__bioSeparation {
+    border: 1px solid #808080;
+    margin-top: 1rem;
+    margin-bottom: 1rem;    
+}
+
+.profileAside__bioFriends a, .profileAside__bioPhotos a {
+    color: #808080;
+    font-size: 14pt;
+}
+
+
+/**AJOUT D'AMIS**/
+.requestTime {
+    color: #FF9900;
+    font-size: 22pt;
+    font-weight: 400;
+}
+
+.requestBtn__main {
+    margin-top: 4rem;
+}
+
+.requestBtn {
+    color: #ffffff;
+    background-color: #FF9900;
+    padding: 0.4rem 1.2rem 0.4rem 1.2rem;
+    border-radius: 5px;
+    font-size: 20pt;
+}
+
+.requestText {
+    color: #808080;
+    font-size: 22pt;
+    font-weight: 400;
+    padding: 2rem 0rem 1rem 0rem;
+}
+
+
 
 /**PAGE 404**/
 #errorFlex {
+    margin-top: 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -493,7 +629,7 @@ input, button {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
     top: -7px; 
-    right: 225px;
+    right: 560px;
 
 }
 
@@ -501,8 +637,8 @@ input, button {
     position: absolute;
     font-size: 22pt;
     font-weight: 400;
-    top: 395px;
-    left: 285px;
+    top: 425px;
+    left: 270px;
 }
 
 #cardButton {

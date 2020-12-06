@@ -55,35 +55,38 @@ ob_start();
                                 <img src="./src/icons/user_white.svg" alt="Icone utilisateur">
                             </button>
                             <div id="headerHover__menu">
-                                <p><?= $_SESSION['name']?></p>
-                                <p><a href="index.php?action=profile&id=<?= $_SESSION['id']?>">Mon Profil</a></p> 
-                                <p><a href="index.php?action=settings">Mes Paramètres</a></p>
-                                <p><a href="index.php?action=deconnexion" onclick="deconnexion()">Se déconnecter</a></p>
+                                <p id="headerHover__menuName"><?= $_SESSION['name']?></p>
+                                <hr id="headerHover__menuSeparation">
+                                <p class="headerHover__menuLink"><a href="index.php?action=profile&id=<?= $_SESSION['id']?>">Mon Profil</a></p> 
+                                <p class="headerHover__menuLink"><a href="index.php?action=settings">Mes Paramètres</a></p>
+                                <p class="headerHover__menuLink"><a href="index.php?action=deconnexion" onclick="deconnexion()">Se déconnecter</a></p>
                             </div>
                         </div>
                         <div class="headerNotif">
-                            <button class="headerNotif__button">
+                            <button class="headerNotif__button" onclick="notifHover()">
                                 <img src="./src/icons/bell.svg" alt="Icone cloche">
                                 <p></p>
                             </button>
-                        </div>
-                        <div>
-                            <ul>
-                                <?php
-                                    $sql2 = "SELECT lien.*, user.id, user.name FROM lien JOIN user ON lien.idUtilisateur2=user.id WHERE lien.idUtilisateur2=? AND lien.etat='attente'";
-                                    $query2 = $pdo -> prepare($sql2);
-                                    $query2 -> execute(array($_SESSION["id"]));
-                                    $result2 = $query2 -> fetch();
-                                        if(!empty($result2)){
-                                ?>
-                                <span><?=$result2['name']?></span>
-                                    <a href="index.php?action=reponse&id=<?=$result2['idUtilisateur1']?>&reponse=accepter">accepter</a>
-                                <?php
-                                    } else {
-                                        echo "<p>Aucune invitation pour le moment</p>";
-                                    };
-                                ?>
-                            </ul>
+                            <div id="headerHover__notif">
+                                <ul id="headerHover__notifMain">
+                                    <p id="headerHover__notifTitle">Notifications</p>
+                                    <hr id="headerHover__notifSeparation">
+                                    <?php
+                                        $sql2 = "SELECT lien.*, user.id, user.name FROM lien JOIN user ON lien.idUtilisateur2=user.id WHERE lien.idUtilisateur2=? AND lien.etat='attente'";
+                                        $query2 = $pdo -> prepare($sql2);
+                                        $query2 -> execute(array($_SESSION["id"]));
+                                        $result2 = $query2 -> fetch();
+                                            if(!empty($result2)){
+                                    ?>
+                                    <span><?=$result2['name']?></span>
+                                        <a href="index.php?action=reponse&id=<?=$result2['idUtilisateur1']?>&reponse=accepter" id="headerHover__notifAccepter">accepter</a>
+                                    <?php
+                                        } else {
+                                            echo "<p id='headerHover__notifRien'>Aucune invitation pour le moment</p>";
+                                        };
+                                    ?>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -93,22 +96,22 @@ ob_start();
                 } else {
                    ?>
                     <section class='container' id='page_connexion'>
-                    <div id='page__title'>
-                        <p>FaceMe</p>
-                    </div>
-                    <div id='formCo__fond'>
-                        <p id='signIn__title'>Se connecter</p>
-                        <div id='signIn__fond'>
-                            <form action='index.php?action=connexion' method='POST' id='signIn__main'>
-                                <input type='text' placeholder='Adresse e-mail' class='signIn__input' name='email' required>
-                                <input type='password' placeholder='Mot de Passe' class='signIn__input' name='PASSWORD' required>
-                                <input type='submit' value='Je me connecte' class='form__submit' id='submit'>
-                            </form>
-                            <div id='form__separation'></div>
-                            <p id='signUp__title'>On ne se connait pas encore ?</p>
-                            <a href='index.php?action=create_account' class='form__submit' id='signIn__submit' onclick='changement()'>Créer un compte</a>
+                        <div id='page__title'>
+                            <p>FaceMe</p>
                         </div>
-                    </div>
+                        <div id='formCo__fond'>
+                            <p id='signIn__title'>Se connecter</p>
+                            <div id='signIn__fond'>
+                                <form action='index.php?action=connexion' method='POST' id='signIn__main'>
+                                    <input type='text' placeholder='Adresse e-mail' class='signIn__input' name='email' required>
+                                    <input type='password' placeholder='Mot de Passe' class='signIn__input' name='PASSWORD' required>
+                                    <input type='submit' value='Je me connecte' class='form__submit' id='submit'>
+                                </form>
+                                <div id='form__separation'></div>
+                                <p id='signUp__title'>On ne se connait pas encore ?</p>
+                                <a href='index.php?action=create_account' class='form__submit' id='signIn__submit' onclick='connexion()'>Créer un compte</a>
+                            </div>
+                        </div>
                     <?php
                 }
             ?>
