@@ -1,4 +1,4 @@
-<div id="formIn__fond">
+<div id="formIn__fond" >
     <p id="formIn__title">Je crée mon compte</p>
     <div id="signUp__fond">
         <form action="index.php?action=form_account" method="POST" id="signUp__main"> 
