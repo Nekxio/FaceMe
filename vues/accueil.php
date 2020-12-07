@@ -78,6 +78,7 @@
                     </div>
                 </div>
                 <div class="post_contenu">
+                    <p><?=$result['dateEcrit']?></p>
                     <p><?= $result['contenu'] ?></p>
                     <?php
                         if(isset($result['image'])){
@@ -133,6 +134,7 @@
                 ?>
                 <div class="vueCommentaires">
                     <div class="vueCommentaires__flex">
+                        <p><?=$result1['dateCom']?></p>
                         <h1 class="vueCommentaires__title"><?= $result1['name'] ?></h1><p class="vueCommentaires__text"> a écrit :</p>
                         <a href="index.php?action=deletecom&id=<?= $result1['id']?>">Delete</a>
                     </div>

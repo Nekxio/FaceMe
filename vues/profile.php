@@ -122,11 +122,12 @@
     <section class="container">
         <div class="publication">
             <h1 class="publication__title">Dîtes à vos amis comment se passe votre journée</h1>
-                <form action='index.php?action=publication&id=<?= $id?>' method='POST' class="post_form">
-                    <input type='text' placeholder='Écrire une publication' name='contenu' required class="publication_input">
+                <form action='index.php?action=publication&id=<?= $id?>' method='POST' class="post_form" enctype="multipart/form-data">
+                    <input type='text' placeholder='Écrire une publication' name='contenu' class="publication_input">
                     <hr class="separation_orange">
                         <div class="post_commentairesFlex">
-                            <button type='file' class="post_commentairesIcon">
+                            <button class="post_commentairesIcon">
+                                <input type="file" name="image">
                                 <img src="./src/icons/add.svg" alt="icône ajout fichier">
                             </button>
                             <button type='submit' class="post_commentairesIcon">
@@ -162,6 +163,7 @@
                         </div>
                     </div>
                     <div class="post_contenu">
+                        <p><?=$result6['dateEcrit']?></p>
                         <p><?= $result6['contenu'] ?></p>
                         <?php
                             if(isset($result6['image'])){
@@ -216,6 +218,7 @@
                     ?>
                     <div class="vueCommentaires">
                         <div class="vueCommentaires__flex">   
+                            <p><?=$result7['dateCom']?></p>
                             <h1 class="vueCommentaires__title"><?= $result7['name'] ?></h1><p class="vueCommentaires__text"> a écrit :</p>
                             <a href="index.php?action=deletecom&id=<?= $result7['id']?>">Delete</a>
                         </div>
