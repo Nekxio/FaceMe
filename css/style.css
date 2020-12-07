@@ -534,3 +534,17 @@ input, button {
     height: 42px;
     padding-left: 1.6rem;
 }
+
+.search_main{
+    position: relative;
+    overflow: visible;
+}
+
+#results{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    overflow-y: scroll;
+    max-height: 300px;
+}

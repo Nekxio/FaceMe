@@ -47,7 +47,11 @@ ob_start();
                     </div>
                     <div class="headerSearch">
                         <img src="./src/icons/loupe.svg" alt="Icone loupe">
-                        <input type="text" placeholder="Rechercher" id="headerSearch__input">
+                        <div class="search_main">
+                            <input type="text" placeholder="Rechercher" name="recherche" id="headerSearch__input">
+                            <ul id="results">
+                            </ul>
+                        </div>
                     </div>
                     <div class="headerButton">
                         <div class="headerUser">
