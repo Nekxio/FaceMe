@@ -126,7 +126,7 @@
                     <input type='text' placeholder='Écrire une publication' name='contenu' class="publication_input">
                     <hr class="separation_orange">
                         <div class="post_commentairesFlex">
-                            <button class="post_commentairesIcon">
+                            <button class="post_commentairesIcon" type="button">
                                 <input type="file" name="image">
                                 <img src="./src/icons/add.svg" alt="icône ajout fichier">
                             </button>
@@ -195,12 +195,13 @@
                 <hr class="separation_grise">
                 <div class="post_commentaires">
                     <h1>Commentaires</h1>
-                    <form action='index.php?action=commentaires&idPost=<?= $result6['id']?>' method='POST' class="post_commentairesForm">
+                    <form action='index.php?action=commentaires&idPost=<?= $result6['id']?>' method='POST' class="post_commentairesForm" enctype="multipart/form-data">
                     <label><?= $result6['name'] ?></label>
-                    <input type='text' placeholder='Écrire un commentaire' name='contenu' required class="post_commentairesInput">
+                    <input type='text' placeholder='Écrire un commentaire' name='contenu' class="post_commentairesInput">
                     <hr class="separation_orange">
                         <div class="post_commentairesFlex">
-                            <button type='file' class="post_commentairesIcon">
+                            <button class="post_commentairesIcon" type="button">
+                                <input type="file" name="imageCom">
                                 <img src="./src/icons/add.svg" alt="icône ajout fichier">
                             </button>
                             <button type='submit' class="post_commentairesIcon">
@@ -224,7 +225,12 @@
                         </div>
                         <p class="vueCommentaires__content"><?= $result7['contenu'] ?></p>
                         <?php
+                            if(isset($result7['imageCom'])){
+                        ?>
+                            <img src="<?= $result7['imageCom'] ?>" alt="image de <?= $result7['name'] ?>"/>
+                        <?php
                             }
+                        }
                         ?>
                     </div>
                 </div>

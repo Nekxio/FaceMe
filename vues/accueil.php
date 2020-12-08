@@ -39,11 +39,12 @@
    <div class="container">
        <div class="publication">
         <h1 class="publication__title">Dîtes à vos amis comment se passe votre journée</h1>
-            <form action='index.php?action=publication&id=<?= $id?>' method='POST' class="post_form">
-                <input type='text' placeholder='Écrire une publication' name='contenu' required class="publication_input">
+            <form action='index.php?action=publication&id=<?= $id?>' method='POST' class="post_form" enctype="multipart/form-data">
+                <input type='text' placeholder='Écrire une publication' name='contenu' class="publication_input">
                 <hr class="separation_orange">
                 <div class="post_commentairesFlex">
-                    <button type='file' class="post_commentairesIcon">
+                   <button class="post_commentairesIcon" type="button">
+                        <input type="file" name="image">
                         <img src="./src/icons/add.svg" alt="icône ajout fichier">
                     </button>
                     <button type='submit' class="post_commentairesIcon">
@@ -111,14 +112,15 @@
             <hr class="separation_grise">
             <div class="post_commentaires">
                 <h1>Commentaires</h1>
-                <form action='index.php?action=commentaires&idPost=<?= $result['id']?>' method='POST' class="post_commentairesForm">
+                <form action='index.php?action=commentaires&idPost=<?= $result['id']?>' method='POST' class="post_commentairesForm" enctype="multipart/form-data">
                     <label><?= $result['name'] ?></label>
-                    <input type='text' placeholder='Écrire un commentaire' name='contenu' required class="post_commentairesInput" id="input_commentFocus">
+                    <input type='text' placeholder='Écrire un commentaire' name='contenu' class="post_commentairesInput" id="input_commentFocus">
                     <hr class="separation_orange">
                     <div class="post_commentairesFlex">
-                        <button type='file' class="post_commentairesIcon">
-                            <img src="./src/icons/add.svg" alt="icône ajout fichier">
-                        </button>
+                        <button class="post_commentairesIcon" type="button">
+                                <input type="file" name="imageCom">
+                                <img src="./src/icons/add.svg" alt="icône ajout fichier">
+                            </button>
                         <button type='submit' class="post_commentairesIcon">
                             <img src="./src/icons/send.svg" alt="icône envoyer">
                         </button>
@@ -139,7 +141,13 @@
                         <a href="index.php?action=deletecom&id=<?= $result1['id']?>">Delete</a>
                     </div>
                     <p class="vueCommentaires__content"><?= $result1['contenu'] ?></p>
-                    <?php } ?>
+                    <?php
+                            if(isset($result1['imageCom'])){
+                        ?>
+                            <img src="<?= $result1['imageCom'] ?>" alt="image de <?= $result1['name'] ?>."/>
+                        <?php
+                            }
+                    } ?>
                 </div>
             </div>
         </div>
