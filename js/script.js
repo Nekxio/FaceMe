@@ -5,6 +5,7 @@ function connexion() {
     y.style.display = "none";
 }
 
+
 /**AFFICHAGE MENU CONTEXTUEL HEADER**/
 function userHover() {
     let e = document.getElementById("headerHover__menu");
@@ -16,6 +17,7 @@ function userHover() {
         e.style.display = "none";
     }
 }
+
 
 /**AFFICHAGE MENU CONTEXTUEL NOTIF**/
 function notifHover() {
@@ -60,7 +62,8 @@ function scrollToTop() {
     }, 2000);
 }
 
-/**ANIMATION HOVER DELETE**/
+
+/**ANIMATION HOVER DELETE PUBLICATION**/
 function newBin() {
     document.getElementById("post_userBin").src = "./src/icons/opentrash.svg";
 }
@@ -77,6 +80,8 @@ function commentFocus() {
     });
 }
 
+
+/**RECHERCHE D'AMIS**/
 let search = document.getElementById('headerSearch__input');
 search.addEventListener('keyup', function () {
     if (search.value == '') {
@@ -91,6 +96,4 @@ search.addEventListener('keyup', function () {
         req.open("GET", "http://localhost/FaceMe/traitement/search.php?recherche=" + search.value);
         req.send()
     }
-
-
 });

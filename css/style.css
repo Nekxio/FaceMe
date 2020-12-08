@@ -90,6 +90,13 @@ input, button {
     height: 48px;
 }
 
+.headerNotif__button {
+    transition: 0.2s ease-in-out;
+}
+
+.headerNotif__button:hover {
+    transform: rotate(15deg);
+}
 
 #headerHover__menu {
     position: absolute;
@@ -122,7 +129,7 @@ input, button {
 }
 
 .headerHover__menuLink {
-    transition: 0.4s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
 
 .headerHover__menuLink:hover {
@@ -384,6 +391,21 @@ input, button {
     -webkit-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
 }
 
+.post_contenuHour p {
+    color: #a3a3a3;
+    font-size: 12pt;
+}
+
+.post_contenuText {
+    color: #474747;
+    font-size: 16pt;
+}
+
+.post_contenuImg img {
+    max-width: 830px;
+    border-radius: 10px;
+}
+
 .post_contenu p {
     padding: 1rem 0rem 1rem 0rem;
 }
@@ -445,7 +467,7 @@ input, button {
 .post_commentairesForm {
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
+    background-color: #fcfcfc;
     border-radius: 10px;
     padding: 1rem 1rem 1rem 1rem;
     box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
@@ -469,6 +491,15 @@ input, button {
 .post_commentairesIcon {
     border: none;
     background-color: transparent;
+    cursor: pointer;
+}
+
+.post_envoyerSpecial {
+    transition: 0.2s ease-in-out;
+}
+
+.post_envoyerSpecial:hover {
+    transform: translate(6px, -5px);
 }
 
 .post_commentairesIcon > img {
@@ -480,20 +511,43 @@ input, button {
     border: 1px solid #FF9900;
 }
 
+.vueCommentaires {
+    background-color: #ffffff;
+    padding: 0rem 1rem 1rem 1rem;
+    border-radius: 10px;
+    margin: 1rem 0rem 1rem 0rem;
+    box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -moz-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -webkit-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+}
+
 .vueCommentaires__flex {
     display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+
+.vueCommentaires__flexText {
+    display: flex;
     align-items: center;
+    color: #a3a3a3;
+    font-size: 12pt;
 }
 
-.vueCommentaires__title {
-    color: #FF9900;
-    font-size: 18pt;
-    font-weight: 500;
+.vueCommentaires__flexText p {
+    padding-right: 0.5rem;
 }
 
-.vueCommentaires__text {
-    padding: 0rem 0rem 0rem 0.5rem;
-    color: #707070;
+.vueCommentaires__content {
+    color:#474747;
+    font-size: 16pt;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.vueCommentaires__contentImg img {
+    max-width: 840px;
+    border-radius: 10px;
 }
 
 .topArea {
@@ -693,5 +747,5 @@ input, button {
 
 #results_search {
     list-style-type: none;
-    color: #FF9900;
+    color: #474747;
 }

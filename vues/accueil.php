@@ -47,7 +47,7 @@
                         <input type="file" name="image">
                         <img src="./src/icons/add.svg" alt="icône ajout fichier">
                     </button>
-                    <button type='submit' class="post_commentairesIcon">
+                    <button type='submit' class="post_commentairesIcon post_envoyerSpecial">
                         <img src="./src/icons/send.svg" alt="icône envoyer">
                     </button>
                 </div>
@@ -70,7 +70,7 @@
                 <div class="post_user">
                     <div class="post_userId">
                         <img src="./src/icons/user_orange.svg" alt="icône user orange">
-                        <h1><?= $result['name'] ?></h1>
+                        <h1><?= $result['name'] ?> a publié :</h1>
                     </div>
                     <div class="post_userBin">
                         <a href="index.php?action=deletepost&id=<?= $result['id']?>">
@@ -79,12 +79,18 @@
                     </div>
                 </div>
                 <div class="post_contenu">
-                    <p><?=$result['dateEcrit']?></p>
-                    <p><?= $result['contenu'] ?></p>
+                    <div class="post_contenuHour">
+                        <p class="post_contenuText">Le <?=$result['dateEcrit']?></p>
+                    </div>
+                    <div class="post_contenuText">
+                        <p><?= $result['contenu'] ?></p>
+                    </div>
                     <?php
                         if(isset($result['image'])){
-                    ?>
+                    ?>  
+                    <div class="post_contenuImg">
                         <img src="<?= $result['image'] ?>" alt="image de <?= $result['name'] ?>."/>
+                    </div>
                     <?php
                     }
                 ?>
@@ -121,7 +127,7 @@
                                 <input type="file" name="imageCom">
                                 <img src="./src/icons/add.svg" alt="icône ajout fichier">
                             </button>
-                        <button type='submit' class="post_commentairesIcon">
+                        <button type='submit' class="post_commentairesIcon post_envoyerSpecial">
                             <img src="./src/icons/send.svg" alt="icône envoyer">
                         </button>
                     </div>  
@@ -134,21 +140,32 @@
                     $query1 -> execute(array($result["id"]));
                     while($result1 = $query1 -> fetch()){
                 ?>
-                <div class="vueCommentaires">
-                    <div class="vueCommentaires__flex">
-                        <p><?=$result1['dateCom']?></p>
-                        <h1 class="vueCommentaires__title"><?= $result1['name'] ?></h1><p class="vueCommentaires__text"> a écrit :</p>
-                        <a href="index.php?action=deletecom&id=<?= $result1['id']?>">Delete</a>
-                    </div>
-                    <p class="vueCommentaires__content"><?= $result1['contenu'] ?></p>
-                    <?php
-                            if(isset($result1['imageCom'])){
-                        ?>
-                            <img src="<?= $result1['imageCom'] ?>" alt="image de <?= $result1['name'] ?>."/>
+                    <div class="vueCommentaires">
+                        <div class="vueCommentaires__flex">
+                            <div class="vueCommentaires__flexText">
+                                <p>Le <?=$result1['dateCom']?></p>
+                                <p><?= $result1['name'] ?></p><p> a commenté :</p>
+                            </div>
+                            <div class="post_userBin">
+                                <a href="index.php?action=deletecom&id=<?= $result1['id']?>">
+                                    <img src="./src/icons/trash.svg" onmouseover="newBin()" onmouseout="oldBin()" alt="icône poubelle" id="post_userBin">
+                                </a>
+                            </div>
+                        </div>
+                        <p class="vueCommentaires__content"><?= $result1['contenu'] ?></p>
                         <?php
-                            }
-                    } ?>
-                </div>
+                                if(isset($result1['imageCom'])){
+                            ?>
+                            <div class="vueCommentaires__contentImg">
+                                <img src="<?= $result1['imageCom'] ?>" alt="image de <?= $result1['name'] ?>." width='870px'/>
+                            </div>
+                                <?php
+                                    }
+                                ?>
+                    </div>
+                <?php
+                    }
+                ?>
             </div>
         </div>
     </div>
