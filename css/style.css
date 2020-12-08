@@ -25,6 +25,9 @@ input, button {
     margin: 0 auto;
 }
 
+.hide{
+    display: none;
+}
 
 
 /**HEADER FACEME**/   
