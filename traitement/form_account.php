@@ -24,15 +24,17 @@ if ($pwd1 == $pwd2) {
 	$pwd_check = false;
 }
 
+$bio = "Bonjour, je suis ".$_POST['name'];
+
 if ($name_check == true) {
 
-	if ($pwd_check) {
+	if ($pwd_check == true) {
 
 		if ($email_check == true) {
-			$sql="INSERT INTO user (name, mdp, email) VALUES (?,PASSWORD(?),?)";
+			$sql="INSERT INTO user (name, mdp, email, bio) VALUES (?,PASSWORD(?),?,?)";
 
 			$q = $pdo->prepare($sql);
-			$q->execute(array($_POST['name'],$_POST['PASSWORD'],$_POST['email']));
+			$q->execute(array($_POST['name'],$_POST['PASSWORD'],$_POST['email'], $bio));
 			echo "Le compte est créé ";
 		}
 	}else {

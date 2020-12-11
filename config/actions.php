@@ -14,5 +14,7 @@ $listeDesActions = array(
     "deletepost" => "traitement/deletepost.php",
     "deletecom" => "traitement/deletecom.php",
     "likes" => "traitement/likes.php",
-    "reponse" => "traitement/reponsefriendship.php"
+    "reponse" => "traitement/reponsefriendship.php",
+    "settings" => "vues/settings.php",
+    "form_settings" => "traitement/form_settings.php"
 );

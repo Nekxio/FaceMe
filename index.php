@@ -83,7 +83,8 @@ ob_start();
                                             if(!empty($result2)){
                                     ?>
                                     <span><?=$result2['name']?></span>
-                                        <a href="index.php?action=reponse&id=<?=$result2['idUtilisateur1']?>&reponse=accepter" id="headerHover__notifAccepter">accepter</a>
+                                        <a href="index.php?action=reponse&id=<?=$result2['idUtilisateur1']?>&reponse=accepter" id="headerHover__notifAccepter">Accepter</a>
+                                        <a href="index.php?action=reponse&id=<?=$result2['idUtilisateur1']?>&reponse=refuser" id="headerHover__notifAccepter">Refuser</a>
                                     <?php
                                         } else {
                                             echo "<p id='headerHover__notifRien'>Aucune invitation pour le moment</p>";
