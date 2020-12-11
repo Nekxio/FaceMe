@@ -75,13 +75,14 @@
 			}else {
 				if ($email_check = false) {
 					echo "L'adresse email '$email' est considérée comme invalide.";
-					
+					header('Location: ' . $_SERVER["HTTP_REFERER"] );
 				}
 				elseif ($pwd_check == false) {
 					echo 'Mot de passe différent';
-					
+					header('Location: ' . $_SERVER["HTTP_REFERER"] );
 				};
 			};
+			header('Location: ' . $_SERVER["HTTP_REFERER"] );
 		}
 		
 ?>

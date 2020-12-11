@@ -56,7 +56,13 @@ ob_start();
                     <div class="headerButton">
                         <div class="headerUser">
                             <button class="headerUser__button" onclick="userHover()">
-                                <img src="./src/icons/user_white.svg" alt="Icone utilisateur">
+                            <?php
+                                        $sql1 = "SELECT user.avatar FROM user WHERE id=?";
+                                        $query1 = $pdo -> prepare($sql1);
+                                        $query1 -> execute(array($_SESSION["id"]));
+                                        $result1 = $query1 -> fetch();
+                            ?>
+                                <img src="<?=$result1['avatar']?>" alt="Icone utilisateur">
                             </button>
                             <div id="headerHover__menu">
                                 <p id="headerHover__menuName"><?= $_SESSION['name']?></p>
@@ -76,7 +82,7 @@ ob_start();
                                     <p id="headerHover__notifTitle">Notifications</p>
                                     <hr id="headerHover__notifSeparation">
                                     <?php
-                                        $sql2 = "SELECT lien.*, user.id, user.name FROM lien JOIN user ON lien.idUtilisateur2=user.id WHERE lien.idUtilisateur2=? AND lien.etat='attente'";
+                                        $sql2 = "SELECT lien.*, user1.id AS id, user1.name AS name, user2.id FROM lien JOIN user AS user2 ON lien.idUtilisateur2=user2.id INNER JOIN user AS user1 ON lien.idUtilisateur1=user1.id WHERE lien.idUtilisateur2=? AND lien.etat='attente'";
                                         $query2 = $pdo -> prepare($sql2);
                                         $query2 -> execute(array($_SESSION["id"]));
                                         $result2 = $query2 -> fetch();
