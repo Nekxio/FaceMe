@@ -1,6 +1,6 @@
 <?php
         $increment_background = 0;
-        $target_dir_background = "uploads/pictures/backgrounds";
+        $target_dir_background = "uploads/pictures/backgrounds/";
         $target_file_background = $target_dir_background . basename($_FILES["background"]["name"]);
         $uploadOk_background = 1;
         $imageFileType_background = strtolower(pathinfo($target_file_background,PATHINFO_EXTENSION));

@@ -16,5 +16,5 @@ $listeDesActions = array(
     "likes" => "traitement/likes.php",
     "reponse" => "traitement/reponsefriendship.php",
     "settings" => "vues/settings.php",
-    "form_settings" => "traitement/form_settings.php"
+    "form_settings" => "traitement/form_settings.php",
 );

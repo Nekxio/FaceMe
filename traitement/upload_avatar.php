@@ -1,6 +1,6 @@
 <?php
         $increment_avatar = 0;
-        $target_dir_avatar = "uploads/pictures/avatars";
+        $target_dir_avatar = "uploads/pictures/avatars/";
         $target_file_avatar = $target_dir_avatar . basename($_FILES["avatar"]["name"]);
         $uploadOk_avatar = 1;
         $imageFileType_avatar = strtolower(pathinfo($target_file_avatar,PATHINFO_EXTENSION));
