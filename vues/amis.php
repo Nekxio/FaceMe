@@ -65,13 +65,13 @@
             // Requête de sélection des éléments dun mur
             // SELECT * FROM ecrit WHERE idAmi=? order by dateEcrit DESC
             // le paramètre  est le $id
-            $sql3 ="SELECT user.* FROM user INNER JOIN lien ON idUtilisateur1=user.id AND etat='ami' AND idUtilisateur2=? UNION SELECT user.* FROM user INNER JOIN lien ON idUtilisateur2=user.id AND etat='ami' AND idUtilisateur1=? LIMIT 9";
+            $sql3 ="SELECT user.* FROM user INNER JOIN lien ON idUtilisateur1=user.id AND etat='ami' AND idUtilisateur2=? UNION SELECT user.* FROM user INNER JOIN lien ON idUtilisateur2=user.id AND etat='ami' AND idUtilisateur1=?";
                     $query3 = $pdo->prepare($sql3);
                     $query3->execute(array($_GET['id'],$_SESSION['id']));
                     while($result3 = $query3 -> fetch()){
                 ?>
-                <img src='<?=$result3['avatar']?>' alt='image de <?=$result3['name']?>' />
-                <p class='friend-name'><?=$result3['name']?></p>;
+                <img src="<?=$result3['avatar']?>" alt="image de <?=$result3['name']?>"" />
+                <p class='friend-name'><?=$result3['name']?></p>
                 <?php
                 }
     }
