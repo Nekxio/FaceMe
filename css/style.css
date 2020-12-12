@@ -86,6 +86,10 @@ input, button {
     cursor: pointer;
 }
 
+.headerUser img {
+    border-radius: 50%;
+}
+
 .headerUser img, .headerNotif img {
     height: 48px;
 }
@@ -383,7 +387,6 @@ input, button {
 
 .post_contenu {
     background-color: #ffffff;
-    padding: 1rem 1rem 1rem 1rem;
     border-radius: 10px;
     padding: 0.4rem 1.4rem 0.4rem 1.4rem;
     box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
@@ -766,4 +769,557 @@ input, button {
 #results_search {
     list-style-type: none;
     color: #474747;
+}
+
+
+
+/**RESPONSIVE**/
+/**Mobile S (320px)**/
+@media (min-width: 320px) and (max-width: 374px) {
+    /**Header**/
+    .headerLogo img {
+        height: 48px;
+    }
+
+    .headerSearch img {
+        height: 12px;
+    }
+
+    .headerSearch {
+        margin-left: 0.4rem;
+        padding: 0.4rem 0.8rem 0.4rem 0.8rem;
+    }
+
+    #headerSearch__input {
+        font-size: 11pt;
+        width: 80px;
+    }
+
+    .headerUser__button img {
+        border-radius: 50%;
+        width: 28px;
+        object-fit: cover;
+    }
+
+    .headerUser__button img, .headerNotif__button img {
+        height: 28px;
+    }
+
+    .headerUser, .headerNotif {
+        padding: 0rem;
+    }
+
+    /**Principal**/
+    .headerFlex, .publication, .post_complet, .topArea {
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
+
+    /**Formulaire de publication**/
+    .publication__title {
+        font-size: 16pt;
+    }
+
+    .publication_input {
+        width: 230px;
+    }
+
+    .post_commentairesIcon img {
+        height: 30px;
+    }
+
+    /**Affichage des pulications**/
+    .post_complet {
+        padding: 0.3rem 0.8rem 0.2rem 0.8rem;
+    }
+
+    .post_completpadding {
+        padding: 0rem;
+    }
+
+    .post_contenu {
+        padding: 0.2rem 0.8rem 0.2rem 0.8rem;
+    }
+
+    .post_user {
+        margin-bottom: 0.4rem;
+    }
+
+    .post_userId img {
+        height: 28px;
+    }
+
+    .post_userId h1 {
+        font-size: 12pt;
+    }
+
+    #post_userBin {
+        height: 28px;
+    }
+
+    .post_contenuHour p {
+        font-size: 9pt;
+    }
+
+    .post_contenuText {
+        font-size: 11pt;
+    }
+
+    .postComment {
+        justify-content: space-between;
+    }
+
+    .post_likes img, .post_comment img {
+        height: 22px;
+    }
+
+    .likes_count {
+        font-size: 9pt;
+    }
+
+    /**Partie commentaires**/
+    .post_commentaires h1 {
+        font-size: 12pt;
+    }
+
+    .post_commentairesIcon img {
+        height: 28px;
+    }
+
+    .vueCommentaires__flexText {
+        font-size: 7pt;
+    }
+
+    .vueCommentaires__flexText p {
+        padding-right: 0.2rem;
+    }
+
+    .vueCommentaires__content {
+        font-size: 11pt;
+    }
+
+    /**Top area**/
+    .topArea__text {
+        font-size: 12pt;
+    }
+
+    .topArea__button img {
+        height: 34px;
+    }
+}
+ 
+
+/**Mobile M (375px)**/
+@media (min-width: 375px) and (max-width: 424px) {
+        /**Header**/
+    .headerLogo img {
+        height: 50px;
+    }
+
+    .headerSearch img {
+        height: 12px;
+    }
+
+    .headerSearch {
+        margin-left: 0.4rem;
+        padding: 0.4rem 0.8rem 0.4rem 0.8rem;
+    }
+
+    #headerSearch__input {
+        font-size: 11pt;
+        width: 110px;
+    }
+
+    .headerUser__button img {
+        border-radius: 50%;
+        width: 28px;
+        object-fit: cover;
+    }
+
+    .headerUser__button img, .headerNotif__button img {
+        height: 28px;
+    }
+
+    .headerUser, .headerNotif {
+        padding: 0rem;
+    }
+
+    /**Principal**/
+    .headerFlex, .publication, .post_complet, .topArea {
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
+
+    /**Formulaire de publication**/
+    .publication__title {
+        font-size: 16pt;
+    }
+
+    .publication_input {
+        width: 285px;
+    }
+
+    .post_commentairesIcon img {
+        height: 30px;
+    }
+
+    /**Affichage des pulications**/
+    .post_complet {
+        padding: 0.3rem 0.8rem 0.2rem 0.8rem;
+    }
+
+    .post_completpadding {
+        padding: 0rem;
+    }
+
+    .post_contenu {
+        padding: 0.2rem 0.8rem 0.2rem 0.8rem;
+    }
+
+    .post_user {
+        margin-bottom: 0.4rem;
+    }
+
+    .post_userId img {
+        height: 28px;
+    }
+
+    .post_userId h1 {
+        font-size: 12pt;
+    }
+
+    #post_userBin {
+        height: 28px;
+    }
+
+    .post_contenuHour p {
+        font-size: 9pt;
+    }
+
+    .post_contenuText {
+        font-size: 11pt;
+    }
+
+    .postComment {
+        justify-content: space-between;
+    }
+
+    .post_likes img, .post_comment img {
+        height: 22px;
+    }
+
+    .likes_count {
+        font-size: 9pt;
+    }
+
+    /**Partie commentaires**/
+    .post_commentaires h1 {
+        font-size: 12pt;
+    }
+
+    .post_commentairesIcon img {
+        height: 28px;
+    }
+
+    .vueCommentaires__flexText {
+        font-size: 9pt;
+    }
+
+    .vueCommentaires__flexText p {
+        padding-right: 0.2rem;
+    }
+
+    .vueCommentaires__content {
+        font-size: 11pt;
+    }
+
+    /**Top area**/
+    .topArea__text {
+        font-size: 12pt;
+    }
+
+    .topArea__button img {
+        height: 34px;
+    }
+}
+ 
+ 
+/**Mobile L (425px)**/
+@media (min-width: 425px) and (max-width: 767px) {
+    /**Header**/
+    .headerLogo img {
+        height: 52px;
+    }
+
+    .headerSearch img {
+        height: 12px;
+    }
+
+    .headerSearch {
+        margin-left: 0.4rem;
+        padding: 0.4rem 0.8rem 0.4rem 0.8rem;
+    }
+
+    #headerSearch__input {
+        font-size: 11pt;
+        width: 150px;
+    }
+
+    .headerUser__button img {
+        border-radius: 50%;
+        width: 28px;
+        object-fit: cover;
+    }
+
+    .headerUser__button img, .headerNotif__button img {
+        height: 28px;
+    }
+
+    .headerUser, .headerNotif {
+        padding: 0rem;
+    }
+
+    /**Principal**/
+    .headerFlex, .publication, .post_complet, .topArea {
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
+
+    /**Formulaire de publication**/
+    .publication__title {
+        font-size: 16pt;
+    }
+
+    .publication_input {
+        width: 335px;
+    }
+
+    .post_commentairesIcon img {
+        height: 30px;
+    }
+
+    /**Affichage des pulications**/
+    .post_complet {
+        padding: 0.3rem 0.8rem 0.2rem 0.8rem;
+    }
+
+    .post_completpadding {
+        padding: 0rem;
+    }
+
+    .post_contenu {
+        padding: 0.2rem 0.8rem 0.2rem 0.8rem;
+    }
+
+    .post_user {
+        margin-bottom: 0.4rem;
+    }
+
+    .post_userId img {
+        height: 28px;
+    }
+
+    .post_userId h1 {
+        font-size: 12pt;
+    }
+
+    #post_userBin {
+        height: 28px;
+    }
+
+    .post_contenuHour p {
+        font-size: 9pt;
+    }
+
+    .post_contenuText {
+        font-size: 12pt;
+    }
+
+    .postComment {
+        justify-content: space-between;
+    }
+
+    .post_likes img, .post_comment img {
+        height: 28px;
+    }
+
+    .likes_count {
+        font-size: 9pt;
+    }
+
+    /**Partie commentaires**/
+    .post_commentaires h1 {
+        font-size: 12pt;
+    }
+
+    .post_commentairesIcon img {
+        height: 28px;
+    }
+
+    .vueCommentaires__flexText {
+        font-size: 7pt;
+    }
+
+    .vueCommentaires__flexText p {
+        padding-right: 0.2rem;
+    }
+
+    .vueCommentaires__content {
+        font-size: 12pt;
+    }
+
+    /**Top area**/
+    .topArea__text {
+        font-size: 12pt;
+    }
+
+    .topArea__button img {
+        height: 34px;
+    } 
+}
+ 
+ 
+/**Tablet (768px)**/
+@media (min-width: 768px) and (max-width: 1023px) {
+    /**Header**/
+    .headerLogo img {
+        height: 64px;
+    }
+
+    .headerSearch img {
+        height: 18px;
+    }
+
+    .headerSearch {
+        padding: 0.6rem 1rem 0.6rem 1rem;
+    }
+
+    #headerSearch__input {
+        font-size: 14pt;
+        width: 280px;
+    }
+
+    .headerUser__button img {
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .headerUser__button img, .headerNotif__button img {
+        height: 28px;
+    }
+
+    .headerUser, .headerNotif {
+        padding: 0rem;
+    }
+
+    /**Principal**/
+    .headerFlex, .publication, .post_complet, .topArea {
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
+
+    /**Formulaire de publication**/
+    .publication__title {
+        font-size: 16pt;
+    }
+
+    .publication_input {
+        width: 680px;
+    }
+
+    .post_commentairesIcon img {
+        height: 30px;
+    }
+
+    /**Affichage des pulications**/
+    .post_complet {
+        padding: 0.3rem 0.8rem 0.2rem 0.8rem;
+    }
+
+    .post_completpadding {
+        padding: 0rem;
+    }
+
+    .post_contenu {
+        padding: 0.2rem 0.8rem 0.2rem 0.8rem;
+    }
+
+    .post_user {
+        margin-bottom: 0.4rem;
+    }
+
+    .post_userId img {
+        height: 28px;
+    }
+
+    .post_userId h1 {
+        font-size: 12pt;
+    }
+
+    #post_userBin {
+        height: 28px;
+    }
+
+    .post_contenuHour p {
+        font-size: 9pt;
+    }
+
+    .post_contenuText {
+        font-size: 12pt;
+    }
+
+    .postComment {
+        justify-content: space-between;
+    }
+
+    .post_likes img, .post_comment img {
+        height: 28px;
+    }
+
+    .likes_count {
+        font-size: 9pt;
+    }
+
+    /**Partie commentaires**/
+    .post_commentaires h1 {
+        font-size: 12pt;
+    }
+
+    .post_commentairesIcon img {
+        height: 28px;
+    }
+
+    .vueCommentaires__flexText {
+        font-size: 10pt;
+    }
+
+    .vueCommentaires__flexText p {
+        padding-right: 0.4rem;
+    }
+
+    .vueCommentaires__content {
+        font-size: 12pt;
+    }
+
+    /**Top area**/
+    .topArea__text {
+        font-size: 12pt;
+    }
+
+    .topArea__button img {
+        height: 34px;
+    } 
+}
+ 
+ 
+/**Laptop (1024px)**/
+@media (min-width: 1024px) and (max-width: 1439px) {
+ 
+}
+ 
+ 
+/**Laptop (1440px)**/
+@media (min-width: 1440px) {
+ 
 }
