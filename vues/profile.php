@@ -140,9 +140,9 @@
             // Requête de sélection des éléments dun mur
             // SELECT * FROM ecrit WHERE idAmi=? order by dateEcrit DESC
             // le paramètre  est le $id
-            $sql6 = "SELECT ecrit.*, user.name, user.avatar FROM user JOIN ecrit ON user.id = ecrit.idAuteur WHERE idAmi=? order by dateEcrit DESC";
+            $sql6 = "SELECT ecrit.*, user.name, user.avatar FROM user JOIN ecrit ON user.id = ecrit.idAuteur WHERE user.id=? order by dateEcrit DESC";
             $query6 = $pdo -> prepare($sql6);
-            $query6 -> execute(array($_SESSION["id"]));
+            $query6 -> execute(array($_GET["id"]));
             while($result6 = $query6 -> fetch()){
         ?>
     </section>
