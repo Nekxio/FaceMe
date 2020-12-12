@@ -786,27 +786,22 @@ input, button {
     color: #474747;
 }
 
+
 /**PAGE SETTINGS**/
 .settingsTitle {
     color: #808080;
-    font-size: 22pt;
+    font-size: 18pt;
     font-weight: 400;
-    padding-top: 0.6rem;
+    padding-top: 1.2rem;
     padding-bottom: 1.2rem;
 }
 
-.settingsForm {
+.settingsCard {
     border-radius: 10px;
     background-color: #EEEEEE;
     box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
     -moz-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
     -webkit-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
-}
-
-.settingsForm__flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     padding: 1rem 1rem 1rem 1rem;
 }
 
@@ -818,16 +813,33 @@ input, button {
     width: 24rem;
 }
 
-.settingsForm__flexSpecial {
+.settingsCard__flex {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 1.2rem;
 }
 
-.settingsForm__center {
+.settingsCard__flexSubmit {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
+.settings__submit {
+    border: none;
+    background-color: #FF9900; 
+    font-weight: 500;
+    border-radius: 10px;
+    color: #ffffff;
+    transition: 0.4s ease-in-out;
+    padding: 0.8rem 1.6rem 0.8rem 1.6rem;    
+}
+
+.settings__submit:hover {
+    box-shadow: 0px 0px 8px 4px rgba(119, 119, 119, 0.6);
+    -moz-box-shadow: 0px 0px 8px 4px rgba(119, 119, 119, 0.6);
+    -webkit-box-shadow: 0px 0px 8px 4px rgba(119, 119, 119, 0.6);
+}
 
 
 /**RESPONSIVE**/
@@ -1035,6 +1047,41 @@ input, button {
 
     .profileAside__bioFriends a, .profileAside__bioPhotos a {
         font-size: 11pt;
+    }
+
+    /**PAGE SETTINGS**/
+    .settingsTitle {
+        font-size: 14pt;
+        margin-left: 0.5rem;
+    }
+
+    .settingsCard {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+
+    .settingsCard__flex {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .settings__input {
+        width: 80%;
+        margin-bottom: 0.6rem;
+    }
+
+    .settingsCard__flexSubmit {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .settings__inputsFile {
+        margin-left: 0.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .settings__submitSpecial {
+        width: 100%;
     }
 }
  
@@ -1244,6 +1291,41 @@ input, button {
     .profileAside__bioFriends a, .profileAside__bioPhotos a {
         font-size: 11pt;
     }
+
+    /**PAGE SETTINGS**/
+    .settingsTitle {
+        font-size: 14pt;
+        margin-left: 0.5rem;
+    }
+
+    .settingsCard {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+
+    .settingsCard__flex {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .settings__input {
+        width: 84%;
+        margin-bottom: 0.6rem;
+    }
+
+    .settingsCard__flexSubmit {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .settings__inputsFile {
+        margin-left: 0.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .settings__submitSpecial {
+        width: 100%;
+    }
 }
  
  
@@ -1452,6 +1534,41 @@ input, button {
     .profileAside__bioFriends a, .profileAside__bioPhotos a {
         font-size: 11pt;
     }
+
+    /**PAGE SETTINGS**/
+    .settingsTitle {
+        font-size: 14pt;
+        margin-left: 0.5rem;
+    }
+
+    .settingsCard {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+
+    .settingsCard__flex {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .settings__input {
+        width: 86%;
+        margin-bottom: 0.6rem;
+    }
+
+    .settingsCard__flexSubmit {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .settings__inputsFile {
+        margin-left: 0.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .settings__submitSpecial {
+        width: 100%;
+    }
 }
  
  
@@ -1659,6 +1776,27 @@ input, button {
 
     .profileAside__bioFriends a, .profileAside__bioPhotos a {
         font-size: 14pt;
+    }
+
+    /**PAGE SETTINGS**/
+    .settingsTitle {
+        font-size: 16pt;
+        margin-left: 0.8rem;
+    }
+
+    .settingsCard {
+        margin-left: 0.8rem;
+        margin-right: 0.8rem;
+    }
+
+    .settings__input {
+        width: 40%;
+        margin-bottom: 0.6rem;
+    }
+
+    .settings__inputsFile {
+        margin-left: 0.8rem;
+        margin-bottom: 1rem;
     }
 }
  
