@@ -43,8 +43,8 @@
                 <input type='text' placeholder='Écrire une publication' name='contenu' class="publication_input">
                 <hr class="separation_orange">
                 <div class="post_commentairesFlex">
-                   <button class="post_commentairesIcon" type="button">
-                        <input type="file" name="image">
+                    <input type="file" name="image" id="real_input" hidden="hidden">
+                    <button class="post_commentairesIcon" type="button" id="customBtn">
                         <img src="./src/icons/add.svg" alt="icône ajout fichier">
                     </button>
                     <button type='submit' class="post_commentairesIcon post_envoyerSpecial">
