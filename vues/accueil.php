@@ -123,7 +123,7 @@
                     <input type='text' placeholder='Écrire un commentaire' name='contenu' class="post_commentairesInput" id="input_commentFocus">
                     <hr class="separation_orange">
                     <div class="post_commentairesFlex">
-                        <input type="file" name="image" id="real_inputCom" hidden="hidden">
+                        <input type="file" name="imageCom" id="real_inputCom" hidden="hidden">
                         <button class="post_commentairesIcon" type="button" id="custom_btnCom">
                             <img src="./src/icons/add.svg" alt="icône ajout fichier">
                         </button>

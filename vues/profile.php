@@ -140,7 +140,7 @@
             // Requête de sélection des éléments dun mur
             // SELECT * FROM ecrit WHERE idAmi=? order by dateEcrit DESC
             // le paramètre  est le $id
-            $sql6 = "SELECT ecrit.*, user.name FROM ecrit JOIN user ON ecrit.idAuteur=user.id WHERE idAmi=? order by dateEcrit DESC";
+            $sql6 = "SELECT ecrit.*, user.name, user.avatar FROM user JOIN ecrit ON user.id = ecrit.idAuteur WHERE idAmi=? order by dateEcrit DESC";
             $query6 = $pdo -> prepare($sql6);
             $query6 -> execute(array($_SESSION["id"]));
             while($result6 = $query6 -> fetch()){
@@ -153,7 +153,7 @@
                 <div>
                     <div class="post_user">
                         <div class="post_userId">
-                            <img src="./src/icons/user_orange.svg" alt="icône user orange">
+                            <img src="<?=$result6['avatar']?>" alt="icône user orange">
                             <h1><?= $result6['name'] ?> a publié :</h1>
                         </div>
                         <div class="post_userBin">
@@ -203,11 +203,12 @@
                 <div class="post_commentaires">
                     <h1>Commentaires</h1>
                     <form action='index.php?action=commentaires&idPost=<?= $result6['id']?>' method='POST' class="post_commentairesForm" enctype="multipart/form-data">
+                        <img src="<?= $result6['avatar'] ?>" />
                         <label><?= $result6['name'] ?></label>
                         <input type='text' placeholder='Écrire un commentaire' name='contenu' class="post_commentairesInput" id="input_commentFocus">
                         <hr class="separation_orange">
                         <div class="post_commentairesFlex">
-                            <input type="file" name="image" id="real_input" hidden="hidden">
+                            <input type="file" name="imageCom" id="real_input" hidden="hidden">
                             <button class="post_commentairesIcon" type="button" id="customBtn">
                                 <img src="./src/icons/add.svg" alt="icône ajout fichier">
                             </button>
@@ -219,7 +220,7 @@
                 </div>
                 <div>
                     <?php
-                        $sql7 = "SELECT commentaires.*, user.name FROM commentaires JOIN user ON commentaires.idAuteur=user.id WHERE idPost=? order by dateCom DESC";
+                        $sql7 = "SELECT commentaires.*, user.name, user.avatar FROM user JOIN commentaires ON user.id = commentaires.idAuteur WHERE idPost=? order by dateCom DESC";
                         $query7 = $pdo -> prepare($sql7);
                         $query7 -> execute(array($result6["id"]));
                         while($result7 = $query7 -> fetch()){
@@ -228,7 +229,7 @@
                             <div class="vueCommentaires__flex">
                                 <div class="vueCommentaires__flexText">
                                     <p>Le <?=$result7['dateCom']?></p>
-                                    <p><?= $result7['name'] ?></p><p> a commenté :</p>
+                                    <span><img src="<?= $result7['avatar'] ?>" /> <p><?= $result7['name'] ?></p><p> a commenté :</p></span>
                                 </div>
                                 <div class="post_userBin">
                                     <a href="index.php?action=deletecom&id=<?= $result7['id']?>">
