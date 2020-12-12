@@ -19,4 +19,5 @@ $listeDesActions = array(
     "form_settings" => "traitement/form_settings.php",
     "photos" => "vues/photos.php",
     "form_photo" => "traitement/form_photo.php",
+    "amis" => "vues/amis.php"
 );

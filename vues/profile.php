@@ -78,7 +78,7 @@
             <hr class="profileAside__bioSeparation">
         </div>
         <div class="profileAside__bioFriends">
-            <a href="#">Amis</a>
+            <a href="index.php?action=amis&id=<?=$_GET["id"]?>">Amis</a>
             <div>
                 <?php
                     $sql3 ="SELECT user.* FROM user INNER JOIN lien ON idUtilisateur1=user.id AND etat='ami' AND idUtilisateur2=? UNION SELECT user.* FROM user INNER JOIN lien ON idUtilisateur2=user.id AND etat='ami' AND idUtilisateur1=? LIMIT 9";

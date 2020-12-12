@@ -61,19 +61,7 @@
         $query5 -> execute(array($_SESSION["id"]));
         $result5 = $query5 -> fetch();
     ?>
-        <?php 
-            // Requête de sélection des éléments dun mur
-            // SELECT * FROM ecrit WHERE idAmi=? order by dateEcrit DESC
-            // le paramètre  est le $id
-            $sql6 = "SELECT user.name, user.avatar, pictures.* FROM user JOIN pictures ON user.id = pictures.idAuteur WHERE user.id=? order by dateImage DESC";
-            $query6 = $pdo -> prepare($sql6);
-            $query6 -> execute(array($_GET["id"]));
-            $result6 = $query6 -> fetch();
-        ?>
-    </section>
-
-    <section class="container">
-        <?php
+    <?php
             if($_SESSION['id'] == $_GET['id']){
         ?>
                 <form action='index.php?action=form_photo&id=<?= $id?>' method='POST' class="post_form" enctype="multipart/form-data">
@@ -90,13 +78,24 @@
                 </form>
         <?php
             }
-        
-        for($i = 0; $i < count(array($result6['picture'])); $i++){
         ?>
+        <?php 
+            // Requête de sélection des éléments dun mur
+            // SELECT * FROM ecrit WHERE idAmi=? order by dateEcrit DESC
+            // le paramètre  est le $id
+            $sql6 = "SELECT user.name, user.avatar, pictures.* FROM user JOIN pictures ON user.id = pictures.idAuteur WHERE user.id=? order by dateImage DESC";
+            $query6 = $pdo -> prepare($sql6);
+            $query6 -> execute(array($_GET["id"]));
+            while($result6 = $query6 -> fetch()){;
+        ?>
+    </section>
+
+    <section class="container">
             <img src="<?=$result6['picture']?>" alt="photo de <?=$result6['name'] ?>" />
         <?php
+            }
         }
-    }
+    
   
     ?>
            
