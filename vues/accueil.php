@@ -57,7 +57,7 @@
    <?php // Requête de sélection des éléments dun mur
      // SELECT * FROM ecrit WHERE idAmi=? order by dateEcrit DESC
      // le paramètre  est le $id
-     $sql = "SELECT ecrit.*, user.name FROM ecrit JOIN user ON ecrit.idAuteur=user.id WHERE idAmi=? order by dateEcrit DESC";
+     $sql = "SELECT ecrit.*, user.name, user.avatar FROM user JOIN ecrit ON user.id = ecrit.idAuteur WHERE idAmi=? order by dateEcrit DESC";
      $query = $pdo -> prepare($sql);
         $query -> execute(array($_SESSION["id"]));
         while($result = $query -> fetch()){
@@ -69,7 +69,7 @@
             <div>
                 <div class="post_user">
                     <div class="post_userId">
-                        <img src="./src/icons/user_orange.svg" alt="icône user orange">
+                        <img src="<?=$result['avatar']?>" alt="icône user orange">
                         <h1><?= $result['name'] ?> a publié :</h1>
                     </div>
                     <div class="post_userBin">
@@ -119,6 +119,7 @@
             <div class="post_commentaires">
                 <h1>Commentaires</h1>
                 <form action='index.php?action=commentaires&idPost=<?= $result['id']?>' method='POST' class="post_commentairesForm" enctype="multipart/form-data">
+                    <img src="<?= $result['avatar'] ?>" />
                     <label><?= $result['name'] ?></label>
                     <input type='text' placeholder='Écrire un commentaire' name='contenu' class="post_commentairesInput" id="input_commentFocus">
                     <hr class="separation_orange">
@@ -135,7 +136,7 @@
             </div>
             <div>
                 <?php
-                    $sql1 = "SELECT commentaires.*, user.name FROM commentaires JOIN user ON commentaires.idAuteur=user.id WHERE idPost=? order by dateCom DESC";
+                    $sql1 = "SELECT commentaires.*, user.name, user.avatar FROM user JOIN commentaires ON user.id = commentaires.idAuteur WHERE idPost=? order by dateCom DESC";
                     $query1 = $pdo -> prepare($sql1);
                     $query1 -> execute(array($result["id"]));
                     while($result1 = $query1 -> fetch()){
@@ -144,7 +145,7 @@
                         <div class="vueCommentaires__flex">
                             <div class="vueCommentaires__flexText">
                                 <p>Le <?=$result1['dateCom']?></p>
-                                <p><?= $result1['name'] ?></p><p> a commenté :</p>
+                                <span><img src="<?= $result1['avatar'] ?>" /> <p><?= $result1['name'] ?></p><p> a commenté :</p></span>
                             </div>
                             <div class="post_userBin">
                                 <a href="index.php?action=deletecom&id=<?= $result1['id']?>">
