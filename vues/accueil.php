@@ -119,8 +119,10 @@
             <div class="post_commentaires">
                 <h1>Commentaires</h1>
                 <form action='index.php?action=commentaires&idPost=<?= $result3['id']?>' method='POST' class="post_commentairesForm" enctype="multipart/form-data">
-                    <img src="<?= $result3['avatar'] ?>" />
-                    <label><?= $result3['name'] ?></label>
+                    <div class="post_commentairesAvatarFlex">
+                        <img class="post_commentairesAvatar" src="<?= $result3['avatar'] ?>" />
+                        <label class="post_commentairesName"><?= $result3['name'] ?></label>
+                    </div>
                     <input type='text' placeholder='Écrire un commentaire' name='contenu' class="post_commentairesInput" id="input_commentFocus">
                     <hr class="separation_orange">
                     <div class="post_commentairesFlex">
@@ -145,7 +147,7 @@
                         <div class="vueCommentaires__flex">
                             <div class="vueCommentaires__flexText">
                                 <p>Le <?=$result1['dateCom']?></p>
-                                <span><img src="<?= $result1['avatar'] ?>" /> <p><?= $result1['name'] ?></p><p> a commenté :</p></span>
+                                <p><?= $result1['name'] ?></p><p> a commenté :</p>
                             </div>
                             <div class="post_userBin">
                                 <a href="index.php?action=deletecom&id=<?= $result1['id']?>">
