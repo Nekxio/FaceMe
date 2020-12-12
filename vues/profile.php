@@ -228,7 +228,7 @@
                             <div class="vueCommentaires__flex">
                                 <div class="vueCommentaires__flexText">
                                     <p>Le <?=$result7['dateCom']?></p>
-                                    <span><img src="<?= $result7['avatar'] ?>" /> <p><?= $result7['name'] ?></p><p> a commenté :</p></span>
+                                    <p><?= $result7['name'] ?></p><p> a commenté :</p>
                                 </div>
                                 <div class="post_userBin">
                                     <a href="index.php?action=deletecom&id=<?= $result7['id']?>">

@@ -88,6 +88,7 @@ input, button {
 
 .headerUser img {
     border-radius: 50%;
+    width: 48px;
 }
 
 .headerUser img, .headerNotif img {
@@ -373,6 +374,7 @@ input, button {
 .post_userId img {
     border-radius: 50%;
     height: 40px;
+    width: 40px;
     margin-right: 1rem;
     transition: 0.4s ease-in-out;
 }
@@ -784,6 +786,48 @@ input, button {
     color: #474747;
 }
 
+/**PAGE SETTINGS**/
+.settingsTitle {
+    color: #808080;
+    font-size: 22pt;
+    font-weight: 400;
+    padding-top: 0.6rem;
+    padding-bottom: 1.2rem;
+}
+
+.settingsForm {
+    border-radius: 10px;
+    background-color: #EEEEEE;
+    box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -moz-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -webkit-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+}
+
+.settingsForm__flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.settings__input {
+    background-color: #ffffff;
+    border: none;
+    padding: 0.8rem 1.6rem 0.8rem 1.6rem;
+    border-radius: 10px;
+    width: 24rem;
+}
+
+.settingsForm__flexSpecial {
+    display: flex;
+    justify-content: space-between;
+}
+
+.settingsForm__center {
+    display: flex;
+    justify-content: center;
+}
+
 
 
 /**RESPONSIVE**/
@@ -881,7 +925,8 @@ input, button {
 
     /**Affichage des pulications**/
     .post_complet {
-        padding: 0.3rem 0.8rem 0.2rem 0.8rem;
+        padding-top: 0.4rem;
+        padding-bottom: 0.8rem;
     }
 
     .post_completpadding {
@@ -898,6 +943,7 @@ input, button {
 
     .post_userId img {
         height: 28px;
+        width: 28px;
     }
 
     .post_userId h1 {
@@ -961,6 +1007,34 @@ input, button {
 
     .topArea__button img {
         height: 34px;
+    }
+
+    /**PAGE PROFIL**/
+    .profileHeader {
+        font-size: 14pt;
+        margin-left: 0.6rem;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+    }
+
+    .profileAside {
+        float: none;
+        position: static;
+        width: 16.8rem;
+        margin-left: 0.6rem;
+    }
+
+    .profileAside__bioTitle {
+        font-size: 14pt;
+        padding-top: 0.4rem;
+    }
+
+    .profileAside__bioText {
+        font-size: 11pt;
+    }
+
+    .profileAside__bioFriends a, .profileAside__bioPhotos a {
+        font-size: 11pt;
     }
 }
  
@@ -1059,7 +1133,8 @@ input, button {
 
     /**Affichage des pulications**/
     .post_complet {
-        padding: 0.3rem 0.8rem 0.2rem 0.8rem;
+        padding-top: 0.4rem;
+        padding-bottom: 0.8rem;
     }
 
     .post_completpadding {
@@ -1076,6 +1151,7 @@ input, button {
 
     .post_userId img {
         height: 28px;
+        width: 28px;
     }
 
     .post_userId h1 {
@@ -1139,6 +1215,34 @@ input, button {
 
     .topArea__button img {
         height: 34px;
+    }
+
+    /**PAGE PROFIL**/
+    .profileHeader {
+        font-size: 14pt;
+        margin-left: 0.6rem;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+    }
+
+    .profileAside {
+        float: none;
+        position: static;
+        width: 20.2rem;
+        margin-left: 0.6rem;
+    }
+
+    .profileAside__bioTitle {
+        font-size: 14pt;
+        padding-top: 0.4rem;
+    }
+
+    .profileAside__bioText {
+        font-size: 11pt;
+    }
+
+    .profileAside__bioFriends a, .profileAside__bioPhotos a {
+        font-size: 11pt;
     }
 }
  
@@ -1237,7 +1341,8 @@ input, button {
 
     /**Affichage des pulications**/
     .post_complet {
-        padding: 0.3rem 0.8rem 0.2rem 0.8rem;
+        padding-top: 0.4rem;
+        padding-bottom: 0.8rem;
     }
 
     .post_completpadding {
@@ -1254,6 +1359,7 @@ input, button {
 
     .post_userId img {
         height: 28px;
+        width: 28px;
     }
 
     .post_userId h1 {
@@ -1318,6 +1424,34 @@ input, button {
     .topArea__button img {
         height: 34px;
     } 
+
+    /**PAGE PROFIL**/
+    .profileHeader {
+        font-size: 14pt;
+        margin-left: 0.8rem;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+    }
+
+    .profileAside {
+        float: none;
+        position: static;
+        width: 23.4rem;
+        margin-left: 0.6rem;
+    }
+
+    .profileAside__bioTitle {
+        font-size: 14pt;
+        padding-top: 0.4rem;
+    }
+
+    .profileAside__bioText {
+        font-size: 11pt;
+    }
+
+    .profileAside__bioFriends a, .profileAside__bioPhotos a {
+        font-size: 11pt;
+    }
 }
  
  
@@ -1349,6 +1483,7 @@ input, button {
 
     .headerUser__button img, .headerNotif__button img {
         height: 28px;
+        width: 28px;
     }
 
     .headerUser, .headerNotif {
@@ -1414,7 +1549,8 @@ input, button {
 
     /**Affichage des pulications**/
     .post_complet {
-        padding: 0.3rem 0.8rem 0.2rem 0.8rem;
+        padding-top: 0.4rem;
+        padding-bottom: 0.8rem;
     }
 
     .post_completpadding {
@@ -1431,6 +1567,7 @@ input, button {
 
     .post_userId img {
         height: 28px;
+        width: 28px;
     }
 
     .post_userId h1 {
@@ -1495,6 +1632,34 @@ input, button {
     .topArea__button img {
         height: 34px;
     } 
+
+    /**PAGE PROFIL**/
+    .profileHeader {
+        font-size: 14pt;
+        margin-left: 0.8rem;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+    }
+
+    .profileAside {
+        float: none;
+        position: static;
+        width: 44.8rem;
+        margin-left: 0.6rem;
+    }
+
+    .profileAside__bioTitle {
+        font-size: 18pt;
+        padding-top: 0.4rem;
+    }
+
+    .profileAside__bioText {
+        font-size: 14pt;
+    }
+
+    .profileAside__bioFriends a, .profileAside__bioPhotos a {
+        font-size: 14pt;
+    }
 }
  
  
@@ -1542,10 +1707,59 @@ input, button {
     #headerHover__notifRien {
         font-size: 11pt;
     }
+
+    /**PAGE PROFIL**/
+    .profileHeader {
+        font-size: 18pt;
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+    }
+
+    .profileAside {
+        float: none;
+        position: static;
+        width: 57.4rem;
+        margin-left: 2.2rem;
+    }
+
+    .profileAside__bioTitle {
+        font-size: 16pt;
+        padding-top: 0.4rem;
+    }
+
+    .profileAside__bioText {
+        font-size: 14pt;
+    }
+
+    .profileAside__bioFriends a, .profileAside__bioPhotos a {
+        font-size: 14pt;
+    }
 }
  
  
 /**Laptop (1440px)**/
-@media (min-width: 1440px) {
- 
+@media (min-width: 1440px) and (max-width: 1660px) {
+    .profileHeader {
+        font-size: 18pt;
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+    }
+
+    .profileAside {
+        width: 10rem;
+        left: 30px;
+    }
+
+    .profileAside__bioTitle {
+        font-size: 16pt;
+        padding-top: 0.4rem;
+    }
+
+    .profileAside__bioText {
+        font-size: 14pt;
+    }
+
+    .profileAside__bioFriends a, .profileAside__bioPhotos a {
+        font-size: 14pt;
+    }
 }
