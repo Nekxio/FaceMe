@@ -57,39 +57,39 @@
    <?php // Requête de sélection des éléments dun mur
      // SELECT * FROM ecrit WHERE idAmi=? order by dateEcrit DESC
      // le paramètre  est le $id
-     $sql = "SELECT ecrit.*, user.name, user.avatar FROM user JOIN ecrit ON user.id = ecrit.idAuteur WHERE idAmi=? order by dateEcrit DESC";
-     $query = $pdo -> prepare($sql);
-        $query -> execute(array($_SESSION["id"]));
-        while($result = $query -> fetch()){
+     $sql3 = "SELECT ecrit.*, user.name, user.avatar FROM user JOIN ecrit ON user.id = ecrit.idAuteur WHERE idAmi=? order by dateEcrit DESC";
+     $query3 = $pdo -> prepare($sql3);
+        $query3 -> execute(array($_SESSION["id"]));
+        while($result3 = $query3 -> fetch()){
     ?>
 
     <section class="container">
-    <div class="post_complet" id="<?= $result['id'] ?>">
+    <div class="post_complet" id="<?= $result3['id'] ?>">
         <div class="post_completpadding">
             <div>
                 <div class="post_user">
                     <div class="post_userId">
-                        <img src="<?=$result['avatar']?>" alt="icône user orange">
-                        <h1><?= $result['name'] ?> a publié :</h1>
+                        <img src="<?=$result3['avatar']?>" alt="icône user orange">
+                        <h1><?= $result3['name'] ?> a publié :</h1>
                     </div>
                     <div class="post_userBin">
-                        <a href="index.php?action=deletepost&id=<?= $result['id']?>">
+                        <a href="index.php?action=deletepost&id=<?= $result3['id']?>">
                             <img src="./src/icons/trash.svg" onmouseover="newBin()" onmouseout="oldBin()" alt="icône poubelle" id="post_userBin">
                         </a>
                     </div>
                 </div>
                 <div class="post_contenu">
                     <div class="post_contenuHour">
-                        <p class="post_contenuText">Le <?=$result['dateEcrit']?></p>
+                        <p class="post_contenuText">Le <?=$result3['dateEcrit']?></p>
                     </div>
                     <div class="post_contenuText">
-                        <p><?= $result['contenu'] ?></p>
+                        <p><?= $result3['contenu'] ?></p>
                     </div>
                     <?php
-                        if(isset($result['image'])){
+                        if(isset($result3['image'])){
                     ?>  
                     <div class="post_contenuImg">
-                        <img src="<?= $result['image'] ?>" alt="image de <?= $result['name'] ?>."/>
+                        <img src="<?= $result3['image'] ?>" alt="image de <?= $result3['name'] ?>."/>
                     </div>
                     <?php
                     }
@@ -97,13 +97,13 @@
                     <hr class="post_separation">
                     <div class="postComment">
                         <div class="post_likes"> 
-                            <a href="index.php?action=likes&id=<?= $result['id']?>">
+                            <a href="index.php?action=likes&id=<?= $result3['id']?>">
                                 <img src="./src/icons/like.svg" alt="icône coeur" class="post_likesIcons">
                             </a>   
                             <?php
                                 $sql8 = "SELECT idPost, count(*) as likes FROM aime WHERE idPost=?" ;
                                 $query8 = $pdo -> prepare($sql8);
-                                $query8 -> execute(array($result['id']));
+                                $query8 -> execute(array($result3['id']));
                                 $result8 = $query8 -> fetch();
                             ?>
                             <p class="likes_count"><?=$result8['likes']?></p>
@@ -118,9 +118,9 @@
             <hr class="separation_grise">
             <div class="post_commentaires">
                 <h1>Commentaires</h1>
-                <form action='index.php?action=commentaires&idPost=<?= $result['id']?>' method='POST' class="post_commentairesForm" enctype="multipart/form-data">
-                    <img src="<?= $result['avatar'] ?>" />
-                    <label><?= $result['name'] ?></label>
+                <form action='index.php?action=commentaires&idPost=<?= $result3['id']?>' method='POST' class="post_commentairesForm" enctype="multipart/form-data">
+                    <img src="<?= $result3['avatar'] ?>" />
+                    <label><?= $result3['name'] ?></label>
                     <input type='text' placeholder='Écrire un commentaire' name='contenu' class="post_commentairesInput" id="input_commentFocus">
                     <hr class="separation_orange">
                     <div class="post_commentairesFlex">
@@ -138,7 +138,7 @@
                 <?php
                     $sql1 = "SELECT commentaires.*, user.name, user.avatar FROM user JOIN commentaires ON user.id = commentaires.idAuteur WHERE idPost=? order by dateCom DESC";
                     $query1 = $pdo -> prepare($sql1);
-                    $query1 -> execute(array($result["id"]));
+                    $query1 -> execute(array($result3["id"]));
                     while($result1 = $query1 -> fetch()){
                 ?>
                     <div class="vueCommentaires">
