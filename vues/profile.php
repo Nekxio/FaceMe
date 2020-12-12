@@ -78,35 +78,34 @@
             <hr class="profileAside__bioSeparation">
         </div>
         <div class="profileAside__bioFriends">
-            <a href="#">Amis</a>
+            <a href="index.php?action=amis&id=<?=$_GET["id"]?>">Amis</a>
             <div>
                 <?php
-                    $sql3 ="SELECT user.* FROM user INNER JOIN lien ON idUtilisateur1=user.id AND etat='ami' AND idUtilisateur2=? UNION SELECT user.* FROM user INNER JOIN lien ON idUtilisateur2=user.id AND etat='ami' AND idUtilisateur1=? LIMIT 9";
-                    $query3 = $pdo->prepare($sql3);
-                    $query3->execute(array($_GET['id'],$_SESSION['id']));
-                    while($result3 = $query3 -> fetch()){
+                    //$sql3 ="SELECT user.*, lien.idUtilisateur1 AS user, lien.idUtilisateur2 AS me, lien.etat AS etat FROM user INNER JOIN lien ON idUtilisateur1=user.id  AND idUtilisateur2=? UNION SELECT user.* FROM user INNER JOIN lien ON idUtilisateur2=user.id AND etat='ami' AND idUtilisateur1=? LIMIT 9";
+                    //$query3 = $pdo->prepare($sql3);
+                    //$query3->execute(array($_SESSION['id']));
+                    //while($result3 = $query3 -> fetch()){
                 ?>
-                <img src='<?=$result3['avatar']?>' alt='image de <?=$result3['name']?>' />
-                <p class='friend-name'><?=$result3['name']?></p>;
+                <!--<img src='<?=$result3['avatar']?>' alt='image de <?=$result3['name']?>' />
+                <p class='friend-name'><?=$result3['name']?></p>-->
                 <?php
-                    }
+                    //}
                 ?>
             </div>
         </div>
         <div class="profileAside__bioPhotos">
-            <a href="#">Photos</a>
+            <a href="index.php?action=photos&id=<?=$_GET["id"]?>">Photos</a>
                 <div>
                     <?php
-                        $sql4 = "SELECT * FROM pictures WHERE idAuteur=?";
-                        $query4 = $pdo -> prepare($sql4);
-                        $query4 -> execute(array($_SESSION["id"]));
-                        while($result4 = $query4 -> fetch()){
-                            for ($j=0; $j<9; $j++){
+                        $sql6 = "SELECT user.id, user.name, pictures.* FROM user JOIN pictures ON user.id = pictures.idAuteur WHERE user.id=? order by dateImage DESC";
+                        $query6 = $pdo -> prepare($sql6);
+                        $query6 -> execute(array($_GET["id"]));
+                        while($result6 = $query6 -> fetch()){;
                     ?>
-                    <img src='<?=$result4['image']?>' alt='image de <?=$result2['name']?>' />
+                        <img src="<?=$result6['picture']?>" alt="photo de <?=$result6['name'] ?>" />
                     <?php
-                            }
                         }
+                    
                     ?>
                 </div>
             </div>
