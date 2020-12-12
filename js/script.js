@@ -98,10 +98,20 @@ search.addEventListener('keyup', function () {
     }
 });
 
-/**BOUTON FILE**/
-let realFileBtn = document.getElementById("real_input"); 
-let customBtn = document.getElementById("customBtn");
 
-customBtn.addEventListener("click", function () {
-    realFileBtn.click();
+/**BOUTON FILE PUBLICATION**/
+let realFileBtnPost = document.getElementById("real_inputPost"); 
+let customBtnPost = document.getElementById("custom_btnPost");
+
+customBtnPost.addEventListener("click", function () {
+    realFileBtnPost.click();
+});
+
+
+/**BOUTON FILE COMMENTAIRE**/
+let realFileBtnCom = document.getElementById("real_inputCom"); 
+let customBtnCom = document.getElementById("custom_btnCom");
+
+customBtnCom.addEventListener("click", function () {
+    realFileBtnCom.click();
 });

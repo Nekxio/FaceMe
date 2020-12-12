@@ -43,8 +43,8 @@
                 <input type='text' placeholder='Écrire une publication' name='contenu' class="publication_input">
                 <hr class="separation_orange">
                 <div class="post_commentairesFlex">
-                    <input type="file" name="image" id="real_input" hidden="hidden">
-                    <button class="post_commentairesIcon" type="button" id="customBtn">
+                    <input type="file" name="image" id="real_inputPost" hidden="hidden">
+                    <button class="post_commentairesIcon" type="button" id="custom_btnPost">
                         <img src="./src/icons/add.svg" alt="icône ajout fichier">
                     </button>
                     <button type='submit' class="post_commentairesIcon post_envoyerSpecial">
@@ -123,8 +123,8 @@
                     <input type='text' placeholder='Écrire un commentaire' name='contenu' class="post_commentairesInput" id="input_commentFocus">
                     <hr class="separation_orange">
                     <div class="post_commentairesFlex">
-                        <input type="file" name="image" id="real_input" hidden="hidden">
-                        <button class="post_commentairesIcon" type="button" id="customBtn">
+                        <input type="file" name="image" id="real_inputCom" hidden="hidden">
+                        <button class="post_commentairesIcon" type="button" id="custom_btnCom">
                             <img src="./src/icons/add.svg" alt="icône ajout fichier">
                         </button>
                         <button type='submit' class="post_commentairesIcon post_envoyerSpecial">
@@ -157,7 +157,7 @@
                                 if(isset($result1['imageCom'])){
                             ?>
                             <div class="vueCommentaires__contentImg">
-                                <img src="<?= $result1['imageCom'] ?>" alt="image de <?= $result1['name'] ?>." width='870px'/>
+                                <img src="<?= $result1['imageCom'] ?>" alt="image de <?= $result1['name'] ?>."/>
                             </div>
                                 <?php
                                     }

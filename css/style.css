@@ -401,8 +401,17 @@ input, button {
     font-size: 16pt;
 }
 
-.post_contenuImg img {
+.post_contenuImg {
+    display: flex;
+    justify-content: center;
     max-width: 830px;
+    max-height: 450px;
+    margin: 0 auto;
+}
+
+.post_contenuImg img {
+    width: 100%;
+    object-fit: contain;
     border-radius: 10px;
 }
 
@@ -545,8 +554,17 @@ input, button {
     padding-bottom: 1rem;
 }
 
+.vueCommentaires__contentImg {
+    display: flex;
+    justify-content: center;
+    max-width: 830px;
+    max-height: 450px;
+    margin: 0 auto;
+}
+
 .vueCommentaires__contentImg img {
-    max-width: 840px;
+    width: 100%;
+    object-fit: contain;
     border-radius: 10px;
 }
 
