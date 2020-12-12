@@ -94,7 +94,7 @@
             </div>
         </div>
         <div class="profileAside__bioPhotos">
-            <a href="#">Photos</a>
+            <a href="index.php?action=photos&id=<?=$_GET["id"]?>">Photos</a>
                 <div>
                     <?php
                         $sql4 = "SELECT * FROM pictures WHERE idAuteur=?";
