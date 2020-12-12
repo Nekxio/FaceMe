@@ -69,7 +69,7 @@
     </div>
 
     <div class="container">
-        <p class="profileHeader">Bienvenue sur votre profil <?= $result2['name'] ?></p>
+        <p class="profileHeader">Profil de <?= $result2['name'] ?></p>
     </div>
     <div class="profileAside">
         <div class="biography">
@@ -126,14 +126,14 @@
                     <input type='text' placeholder='Écrire une publication' name='contenu' class="publication_input">
                     <hr class="separation_orange">
                         <div class="post_commentairesFlex">
-                            <button class="post_commentairesIcon" type="button">
-                                <input type="file" name="image">
-                                <img src="./src/icons/add.svg" alt="icône ajout fichier">
-                            </button>
-                            <button type='submit' class="post_commentairesIcon post_envoyerSpecial">
-                                <img src="./src/icons/send.svg" alt="icône envoyer">
-                            </button>
-                        </div>  
+                        <input type="file" name="image" id="real_input" hidden="hidden">
+                        <button class="post_commentairesIcon" type="button" id="customBtn">
+                            <img src="./src/icons/add.svg" alt="icône ajout fichier">
+                        </button>
+                        <button type='submit' class="post_commentairesIcon post_envoyerSpecial">
+                            <img src="./src/icons/send.svg" alt="icône envoyer">
+                        </button>
+                    </div>
                 </form>
         </div>
         <?php 
@@ -207,14 +207,14 @@
                         <input type='text' placeholder='Écrire un commentaire' name='contenu' class="post_commentairesInput" id="input_commentFocus">
                         <hr class="separation_orange">
                         <div class="post_commentairesFlex">
-                            <button class="post_commentairesIcon" type="button">
-                                    <input type="file" name="imageCom">
-                                    <img src="./src/icons/add.svg" alt="icône ajout fichier">
-                                </button>
+                            <input type="file" name="image" id="real_input" hidden="hidden">
+                            <button class="post_commentairesIcon" type="button" id="customBtn">
+                                <img src="./src/icons/add.svg" alt="icône ajout fichier">
+                            </button>
                             <button type='submit' class="post_commentairesIcon post_envoyerSpecial">
                                 <img src="./src/icons/send.svg" alt="icône envoyer">
                             </button>
-                        </div>  
+                        </div>
                     </form>
                 </div>
                 <div>

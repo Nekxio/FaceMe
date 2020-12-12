@@ -97,3 +97,11 @@ search.addEventListener('keyup', function () {
         req.send()
     }
 });
+
+/**BOUTON FILE**/
+let realFileBtn = document.getElementById("real_input"); 
+let customBtn = document.getElementById("customBtn");
+
+customBtn.addEventListener("click", function () {
+    realFileBtn.click();
+});
