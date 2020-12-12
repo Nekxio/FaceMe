@@ -25,16 +25,18 @@ if ($pwd1 == $pwd2) {
 }
 
 $bio = "Bonjour, je suis ".$_POST['name'];
+$avatar = "src/icons/user_white.svg";
+$background= "src/images/background_user.jpg";
 
 if ($name_check == true) {
 
 	if ($pwd_check == true) {
 
 		if ($email_check == true) {
-			$sql="INSERT INTO user (name, mdp, email, bio) VALUES (?,PASSWORD(?),?,?)";
+			$sql="INSERT INTO user (name, mdp, email, bio, avatar, background) VALUES (?,PASSWORD(?),?,?,?,?)";
 
 			$q = $pdo->prepare($sql);
-			$q->execute(array($_POST['name'],$_POST['PASSWORD'],$_POST['email'], $bio));
+			$q->execute(array($_POST['name'],$_POST['PASSWORD'],$_POST['email'], $bio, $avatar, $background));
 			echo "Le compte est créé ";
 		}
 	}else {
