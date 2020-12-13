@@ -7,5 +7,4 @@
         $q = $pdo->prepare($sql);
         $q->execute(array($target_file, date("Y-m-d H:i:s"), $_SESSION['id']));
         header('Location: ' . $_SERVER["HTTP_REFERER"] );
-    
 ?>

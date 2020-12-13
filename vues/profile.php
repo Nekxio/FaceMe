@@ -28,14 +28,15 @@
 
     if ($ok==false) {
     ?>
-    
-    <div>
-        <?php       
+    <?php       
             $sql1 = "SELECT * FROM user WHERE id=?";
             $query1 = $pdo -> prepare($sql1);
             $query1 -> execute(array($_GET['id']));
             $result1 = $query1 -> fetch()
         ?>
+    <div style="background-image : url(<?= $result1['background'] ?>)">
+        
+        <img src="<?=$result1['avatar']?>" alt="Photo de profil de <?= $result1['name']?>"/>
         <h1 class="profile_name"><?= $result1['name'] ?></h1>
     </div>
     
@@ -67,9 +68,9 @@
             $result2 = $query2 -> fetch()
         ?>
     </div>
-
-    <div class="container">
-        <p class="profileHeader">Profil de <?= $result2['name'] ?></p>
+    <div class="container" style="background-image : url(<?= $result2['background'] ?>)">
+        <img src="<?=$result2['avatar']?>" alt="Photo de profil de <?= $result2['name']?>"/>
+        <h1 class="profileHeader"><?= $result2['name'] ?></h1>
     </div>
     <div class="container profileAside__main">
         <div class="profileAside__mainPadding">
