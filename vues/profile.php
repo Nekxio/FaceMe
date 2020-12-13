@@ -139,9 +139,9 @@
             // Requête de sélection des éléments dun mur
             // SELECT * FROM ecrit WHERE idAmi=? order by dateEcrit DESC
             // le paramètre  est le $id
-            $sql6 = "SELECT ecrit.*, user.name, user.avatar FROM user JOIN ecrit ON user.id = ecrit.idAuteur WHERE user.id=? order by dateEcrit DESC";
+            $sql6 = "SELECT *, ecrit.id AS idPost from ecrit join user on idAuteur=user.id where idAuteur in ( SELECT user.id FROM user INNER JOIN lien ON idUtilisateur1=user.id AND etat='ami' AND idUtilisateur2=? UNION SELECT user.id FROM user INNER JOIN lien ON idUtilisateur2=user.id AND etat='ami' AND idUtilisateur1=? UNION SELECT user.id FROM user WHERE user.id=?) ORDER by ecrit.id DESC";
             $query6 = $pdo -> prepare($sql6);
-            $query6 -> execute(array($_GET["id"]));
+            $query6 -> execute(array($_GET["id"], $_GET['id'], $_SESSION['id']));
             while($result6 = $query6 -> fetch()){
         ?>
     </section>
@@ -156,7 +156,7 @@
                             <h1><?= $result6['name'] ?> a publié :</h1>
                         </div>
                         <div class="post_userBin">
-                            <a href="index.php?action=deletepost&id=<?= $result6['id']?>">
+                            <a href="index.php?action=deletepost&id=<?= $result6['idPost']?>">
                                 <img src="./src/icons/trash.svg" onmouseover="newBin()" onmouseout="oldBin()" alt="icône poubelle" id="post_userBin">
                             </a>
                         </div>
@@ -180,13 +180,13 @@
                         <hr class="post_separation">
                         <div class="postComment">
                             <div class="post_likes"> 
-                                <a href="index.php?action=likes&id=<?= $result6['id']?>">
+                                <a href="index.php?action=likes&id=<?= $result6['idPost']?>">
                                     <img src="./src/icons/like.svg" alt="icône coeur" class="post_likesIcons">
                                 </a>   
                                 <?php
                                     $sql8 = "SELECT idPost, count(*) as likes FROM aime WHERE idPost=?" ;
                                     $query8 = $pdo -> prepare($sql8);
-                                    $query8 -> execute(array($result6['id']));
+                                    $query8 -> execute(array($result6['idPost']));
                                     $result8 = $query8 -> fetch();
                                 ?>
                                 <p class="likes_count"><?=$result8['likes']?></p>
@@ -228,7 +228,7 @@
                             <div class="vueCommentaires__flex">
                                 <div class="vueCommentaires__flexText">
                                     <p>Le <?=$result7['dateCom']?></p>
-                                    <p><?= $result7['name'] ?></p><p> a commenté :</p>
+                                    <span><img src="<?= $result7['avatar'] ?>" /> <p><?= $result7['name'] ?></p><p> a commenté :</p></span>
                                 </div>
                                 <div class="post_userBin">
                                     <a href="index.php?action=deletecom&id=<?= $result7['id']?>">

@@ -57,20 +57,20 @@
    <?php // Requête de sélection des éléments dun mur
      // SELECT * FROM ecrit WHERE idAmi=? order by dateEcrit DESC
      // le paramètre  est le $id
-     $sql3 = "SELECT ecrit.*, user.name, user.avatar FROM user JOIN ecrit ON user.id = ecrit.idAuteur WHERE idAmi=? order by dateEcrit DESC";
-     $query3 = $pdo -> prepare($sql3);
-        $query3 -> execute(array($_SESSION["id"]));
-        while($result3 = $query3 -> fetch()){
+    $sql3 = "SELECT *, ecrit.id AS idPost from ecrit join user on idAuteur=user.id where idAuteur in ( SELECT user.id FROM user INNER JOIN lien ON idUtilisateur1=user.id AND etat='ami' AND idUtilisateur2=? UNION SELECT user.id FROM user INNER JOIN lien ON idUtilisateur2=user.id AND etat='ami' AND idUtilisateur1=? UNION SELECT user.id FROM user WHERE user.id=?) ORDER by ecrit.id DESC";
+    $query3 = $pdo -> prepare($sql3);
+    $query3 -> execute(array($_SESSION["id"], $_SESSION['id'], $_SESSION['id']));
+    while($result3 = $query3 -> fetch()){
     ?>
 
     <section class="container">
-    <div class="post_complet" id="<?= $result3['id'] ?>">
+    <div class="post_complet" id="<?= $result3['idPost'] ?>">
         <div class="post_completpadding">
             <div>
                 <div class="post_user">
                     <div class="post_userId">
                         <img src="<?=$result3['avatar']?>" alt="icône user orange">
-                        <h1><?= $result3['name'] ?> a publié :</h1>
+                        <h1><a href="index.php?action=profile&id=<?=$result3['id']?>" ><?= $result3['name'] ?></a> a publié :</h1>
                     </div>
                     <div class="post_userBin">
                         <a href="index.php?action=deletepost&id=<?= $result3['id']?>">
@@ -97,13 +97,13 @@
                     <hr class="post_separation">
                     <div class="postComment">
                         <div class="post_likes"> 
-                            <a href="index.php?action=likes&id=<?= $result3['id']?>">
+                            <a href="index.php?action=likes&id=<?= $result3['idPost']?>">
                                 <img src="./src/icons/like.svg" alt="icône coeur" class="post_likesIcons">
                             </a>   
                             <?php
                                 $sql8 = "SELECT idPost, count(*) as likes FROM aime WHERE idPost=?" ;
                                 $query8 = $pdo -> prepare($sql8);
-                                $query8 -> execute(array($result3['id']));
+                                $query8 -> execute(array($result3['idPost']));
                                 $result8 = $query8 -> fetch();
                             ?>
                             <p class="likes_count"><?=$result8['likes']?></p>
