@@ -628,6 +628,10 @@ input, button {
 }
 
 /**PAGE PROFILE**/
+.profile_Avatar img {
+    width: 120px;
+}
+
 .profileHeader {
     color: #808080;
     font-size: 22pt;

@@ -35,7 +35,6 @@
             $result1 = $query1 -> fetch()
         ?>
     <div style="background-image : url(<?= $result1['background'] ?>)">
-        
         <img src="<?=$result1['avatar']?>" alt="Photo de profil de <?= $result1['name']?>"/>
         <h1 class="profile_name"><?= $result1['name'] ?></h1>
     </div>
