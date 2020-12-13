@@ -55,30 +55,38 @@
     <div class="container">
         <p class="profileHeader">Photos de <?= $result2['name'] ?></p>
     </div>
+
     <?php
         $sql5 = "SELECT * FROM user";
         $query5 = $pdo -> prepare($sql5);
         $query5 -> execute(array($_SESSION["id"]));
         $result5 = $query5 -> fetch();
     ?>
+    
     <?php
-            if($_SESSION['id'] == $_GET['id']){
-        ?>
-                <form action='index.php?action=form_photo&id=<?= $id?>' method='POST' class="post_form" enctype="multipart/form-data">
-                        <div class="post_commentairesFlex">
-                        <h1>Poster une nouvelle photo :</h1>
-                        <input type="file" name="image" id="real_input">
-                        <button class="post_commentairesIcon" type="button" id="customBtn">
+        if($_SESSION['id'] == $_GET['id']){
+    ?>
+        <form action='index.php?action=form_photo&id=<?= $id?>' method='POST' class="container postPhotos__main" enctype="multipart/form-data">
+            <div class="postPhotos__padding">
+                <h1 class="postPhotos__title">Poster une nouvelle photo :</h1>
+                <div class="postPhotos__btnFlex">
+                    <div>
+                        <input type="file" name="image" id="real_inputPhotos" hidden="hidden">
+                        <button class="post_commentairesIcon" type="button" id="custom_btnPhotos" onclick="filePhotos()">
                             <img src="./src/icons/add.svg" alt="icône ajout fichier">
                         </button>
-                        <button type='submit' class="post_commentairesIcon post_envoyerSpecial">
-                            <img src="./src/icons/send.svg" alt="icône envoyer">
-                        </button>
                     </div>
-                </form>
-        <?php
-            }
-        ?>
+                    <button type='submit' class="post_commentairesIcon post_envoyerSpecial">
+                        <img src="./src/icons/send.svg" alt="icône envoyer">
+                    </button>
+                </div>
+            </div>
+        </form>
+    <?php
+        }
+    ?>
+    
+    <section class="container photosDisplay__main">
         <?php 
             // Requête de sélection des éléments dun mur
             // SELECT * FROM ecrit WHERE idAmi=? order by dateEcrit DESC
@@ -88,17 +96,15 @@
             $query6 -> execute(array($_GET["id"]));
             while($result6 = $query6 -> fetch()){;
         ?>
-    </section>
 
-    <section class="container">
+        <div class="photosDisplay__img">
             <img src="<?=$result6['picture']?>" alt="photo de <?=$result6['name'] ?>" />
-        <?php
+        </div>
+    
+    <?php
             }
         }
-    
-  
     ?>
-           
     </section>
 
 

@@ -44,7 +44,7 @@
                 <hr class="separation_orange">
                 <div class="post_commentairesFlex">
                     <input type="file" name="image" id="real_inputPost" hidden="hidden">
-                    <button class="post_commentairesIcon" type="button" id="custom_btnPost">
+                    <button class="post_commentairesIcon" type="button" onclick="filePost()">
                         <img src="./src/icons/add.svg" alt="icône ajout fichier">
                     </button>
                     <button type='submit' class="post_commentairesIcon post_envoyerSpecial">
@@ -70,7 +70,7 @@
                 <div class="post_user">
                     <div class="post_userId">
                         <img src="<?=$result3['avatar']?>" alt="icône user orange">
-                        <h1><a href="index.php?action=profile&id=<?=$result3['id']?>" ><?= $result3['name'] ?></a> a publié :</h1>
+                        <p class="post_userIdName"><a href="index.php?action=profile&id=<?=$result3['id']?>" ><?= $result3['name'] ?></a>a publié :</p>
                     </div>
                     <div class="post_userBin">
                         <a href="index.php?action=deletepost&id=<?= $result3['id']?>">
@@ -108,7 +108,7 @@
                             ?>
                             <p class="likes_count"><?=$result8['likes']?></p>
                         </div>
-                        <button id="commentFocus" class="post_comment" onclick="commentFocus();">
+                        <button id="commentFocus" class="post_comment" onclick="commentFocus()">
                             <img src="./src/icons/message.svg" alt="icône commentaires">
                         </button>
                     </div>
@@ -127,7 +127,7 @@
                     <hr class="separation_orange">
                     <div class="post_commentairesFlex">
                         <input type="file" name="imageCom" id="real_inputCom" hidden="hidden">
-                        <button class="post_commentairesIcon" type="button" id="custom_btnCom">
+                        <button class="post_commentairesIcon" type="button" onclick="fileCom()">
                             <img src="./src/icons/add.svg" alt="icône ajout fichier">
                         </button>
                         <button type='submit' class="post_commentairesIcon post_envoyerSpecial">

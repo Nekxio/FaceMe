@@ -100,18 +100,27 @@ search.addEventListener('keyup', function () {
 
 
 /**BOUTON FILE PUBLICATION**/
-let realFileBtnPost = document.getElementById("real_inputPost"); 
-let customBtnPost = document.getElementById("custom_btnPost");
-
-customBtnPost.addEventListener("click", function () {
+function filePost() { 
+    let realFileBtnPost = document.getElementById("real_inputPost"); 
     realFileBtnPost.click();
-});
+}
 
 
 /**BOUTON FILE COMMENTAIRE**/
-let realFileBtnCom = document.getElementById("real_inputCom"); 
-let customBtnCom = document.getElementById("custom_btnCom");
-
-customBtnCom.addEventListener("click", function () {
+function fileCom() { 
+    let realFileBtnCom = document.getElementById("real_inputCom"); 
     realFileBtnCom.click();
-});
+}
+
+
+/**BOUTON FILE PHOTOS**/
+function filePhotos() { 
+    let realFileBtnPhotos = document.getElementById("real_inputPhotos"); 
+    realFileBtnPhotos.click();
+}
+
+/**BOUTON FILE SETTINGS**/
+function fileSet() {
+    let realFileBtnSet = document.getElementById("real_inputSet");
+    realFileBtnSet.click();
+}

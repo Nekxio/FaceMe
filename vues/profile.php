@@ -71,42 +71,44 @@
     <div class="container">
         <p class="profileHeader">Profil de <?= $result2['name'] ?></p>
     </div>
-    <div class="profileAside">
-        <div class="biography">
-            <h1 class="profileAside__bioTitle">Biographie</h1>
-            <p class="profileAside__bioText"><?= $result2['bio'] ?></p>
-            <hr class="profileAside__bioSeparation">
-        </div>
-        <div class="profileAside__bioFriends">
-            <a href="index.php?action=amis&id=<?=$_GET["id"]?>">Amis</a>
-            <div>
-                <?php
-                    //$sql3 ="SELECT user.*, lien.idUtilisateur1 AS user, lien.idUtilisateur2 AS me, lien.etat AS etat FROM user INNER JOIN lien ON idUtilisateur1=user.id  AND idUtilisateur2=? UNION SELECT user.* FROM user INNER JOIN lien ON idUtilisateur2=user.id AND etat='ami' AND idUtilisateur1=? LIMIT 9";
-                    //$query3 = $pdo->prepare($sql3);
-                    //$query3->execute(array($_SESSION['id']));
-                    //while($result3 = $query3 -> fetch()){
-                ?>
-                <!--<img src='<?=$result3['avatar']?>' alt='image de <?=$result3['name']?>' />
-                <p class='friend-name'><?=$result3['name']?></p>-->
-                <?php
-                    //}
-                ?>
+    <div class="container profileAside__main">
+        <div class="profileAside__mainPadding">
+            <div class="biography">
+                <h1 class="profileAside__bioTitle">Biographie</h1>
+                <p class="profileAside__bioText"><?= $result2['bio'] ?></p>
+                <hr class="profileAside__bioSeparation">
             </div>
-        </div>
-        <div class="profileAside__bioPhotos">
-            <a href="index.php?action=photos&id=<?=$_GET["id"]?>">Photos</a>
+            <div class="profileAside__bioFriends">
+                <a href="index.php?action=amis&id=<?=$_GET["id"]?>">Amis</a>
                 <div>
                     <?php
-                        $sql6 = "SELECT user.id, user.name, pictures.* FROM user JOIN pictures ON user.id = pictures.idAuteur WHERE user.id=? order by dateImage DESC";
-                        $query6 = $pdo -> prepare($sql6);
-                        $query6 -> execute(array($_GET["id"]));
-                        while($result6 = $query6 -> fetch()){;
+                        //$sql3 ="SELECT user.*, lien.idUtilisateur1 AS user, lien.idUtilisateur2 AS me, lien.etat AS etat FROM user INNER JOIN lien ON idUtilisateur1=user.id  AND idUtilisateur2=? UNION SELECT user.* FROM user INNER JOIN lien ON idUtilisateur2=user.id AND etat='ami' AND idUtilisateur1=? LIMIT 9";
+                        //$query3 = $pdo->prepare($sql3);
+                        //$query3->execute(array($_SESSION['id']));
+                        //while($result3 = $query3 -> fetch()){
                     ?>
-                        <img src="<?=$result6['picture']?>" alt="photo de <?=$result6['name'] ?>" />
+                    <!--<img src='<?=$result3['avatar']?>' alt='image de <?=$result3['name']?>' />
+                    <p class='friend-name'><?=$result3['name']?></p>-->
                     <?php
-                        }
-                    
+                        //}
                     ?>
+                </div>
+            </div>
+            <div class="profileAside__bioPhotos">
+                <a href="index.php?action=photos&id=<?=$_GET["id"]?>">Photos</a>
+                    <div class="profileAside__photosSettings">
+                        <?php
+                            $sql6 = "SELECT user.id, user.name, pictures.* FROM user JOIN pictures ON user.id = pictures.idAuteur WHERE user.id=? order by dateImage DESC";
+                            $query6 = $pdo -> prepare($sql6);
+                            $query6 -> execute(array($_GET["id"]));
+                            while($result6 = $query6 -> fetch()){;
+                        ?>
+                            <img src="<?=$result6['picture']?>" alt="photo de <?=$result6['name'] ?>"/>
+                        <?php
+                            }
+                        
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
@@ -125,8 +127,8 @@
                     <input type='text' placeholder='Écrire une publication' name='contenu' class="publication_input">
                     <hr class="separation_orange">
                         <div class="post_commentairesFlex">
-                        <input type="file" name="image" id="real_input" hidden="hidden">
-                        <button class="post_commentairesIcon" type="button" id="customBtn">
+                        <input type="file" name="image" id="real_inputPost" hidden="hidden">
+                        <button class="post_commentairesIcon" type="button" onclick="filePost()">
                             <img src="./src/icons/add.svg" alt="icône ajout fichier">
                         </button>
                         <button type='submit' class="post_commentairesIcon post_envoyerSpecial">
@@ -153,7 +155,7 @@
                     <div class="post_user">
                         <div class="post_userId">
                             <img src="<?=$result6['avatar']?>" alt="icône user orange">
-                            <h1><?= $result6['name'] ?> a publié :</h1>
+                            <p class="post_userIdName"><?= $result6['name'] ?> a publié :</p>
                         </div>
                         <div class="post_userBin">
                             <a href="index.php?action=deletepost&id=<?= $result6['idPost']?>">
@@ -202,13 +204,15 @@
                 <div class="post_commentaires">
                     <h1>Commentaires</h1>
                     <form action='index.php?action=commentaires&idPost=<?= $result6['id']?>' method='POST' class="post_commentairesForm" enctype="multipart/form-data">
-                        <img src="<?= $result6['avatar'] ?>" />
-                        <label><?= $result6['name'] ?></label>
+                        <div class="post_commentairesAvatarFlex">
+                            <img class="post_commentairesAvatar" src="<?= $result6['avatar'] ?>" />
+                            <label class="post_commentairesName"><?= $result6['name'] ?></label>
+                        </div>
                         <input type='text' placeholder='Écrire un commentaire' name='contenu' class="post_commentairesInput" id="input_commentFocus">
                         <hr class="separation_orange">
                         <div class="post_commentairesFlex">
-                            <input type="file" name="imageCom" id="real_input" hidden="hidden">
-                            <button class="post_commentairesIcon" type="button" id="customBtn">
+                            <input type="file" name="imageCom" id="real_inputCom" hidden="hidden">
+                            <button class="post_commentairesIcon" type="button" onclick="fileCom()">
                                 <img src="./src/icons/add.svg" alt="icône ajout fichier">
                             </button>
                             <button type='submit' class="post_commentairesIcon post_envoyerSpecial">
@@ -228,7 +232,7 @@
                             <div class="vueCommentaires__flex">
                                 <div class="vueCommentaires__flexText">
                                     <p>Le <?=$result7['dateCom']?></p>
-                                    <span><img src="<?= $result7['avatar'] ?>" /> <p><?= $result7['name'] ?></p><p> a commenté :</p></span>
+                                    <p><?= $result7['name'] ?></p><p> a commenté :</p>
                                 </div>
                                 <div class="post_userBin">
                                     <a href="index.php?action=deletecom&id=<?= $result7['id']?>">

@@ -364,6 +364,7 @@ input, button {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 1rem;
 }
 
 .post_userId {
@@ -371,17 +372,24 @@ input, button {
     align-items: center;
 }
 
+.post_userIdName {
+    font-size: 22pt;
+    font-weight: 600;
+    color: #FF9900;
+}
+
+.post_userIdName a {
+    color: #FF9900;
+    padding-right: 0.8rem;
+}
+
+
 .post_userId img {
     border-radius: 50%;
     height: 40px;
     width: 40px;
     margin-right: 1rem;
     transition: 0.4s ease-in-out;
-}
-
-.post_userId h1{
-    color: #FF9900;
-    font-weight: 700;
 }
 
 .post_userBin img {
@@ -627,26 +635,24 @@ input, button {
     padding: 1rem 0rem 1rem 0rem;
 }
 
-.profileAside {
-    float: left;
-    position: -webkit-sticky;
-    position: sticky;
-    width: 18rem;
-    top: 10px;
-    left: 120px;
+.profileAside__main {
     background-color: #ebe8e8;
-    margin-top: 16px;
-    padding: 0rem 1rem 1rem 1rem;
     border-radius: 10px;
     box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
     -moz-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
     -webkit-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
 }
 
+.profileAside__mainPadding {
+    padding: 1rem;
+}
+
 .profileAside__bioTitle {
     color: #FF9900;
     font-size: 22pt;
     font-weight: 500;
+    padding-bottom: 0.2rem;
+    margin: 0rem;
 }
 
 .profileAside__bioText {
@@ -663,6 +669,25 @@ input, button {
 .profileAside__bioFriends a, .profileAside__bioPhotos a {
     color: #808080;
     font-size: 14pt;
+    transition: 0.1s ease-in-out;
+}
+
+.profileAside__bioFriends a:hover, .profileAside__bioPhotos a:hover {
+    font-weight: 700;
+}
+
+.profileAside__photosSettings {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px;
+    margin-top: 0.5rem;
+}
+
+.profileAside__photosSettings img {
+    width: 145px;
+    height: 145px;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
 
@@ -842,6 +867,60 @@ input, button {
 }
 
 
+/**PAGE DES PHOTOS**/
+.postPhotos__main {
+    border-radius: 10px;
+    background-color: #EEEEEE;
+    box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -moz-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -webkit-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+}
+
+.postPhotos__padding {
+    padding: 0.4rem 1rem 0.4rem 1rem; 
+    display: flex;
+    justify-content: space-between;
+}
+
+.postPhotos__title {
+    font-size: 20pt;
+    color: #FF9900;
+    font-weight: 400;
+}
+
+.postPhotos__btnFlex {
+    display: flex;
+    align-items: center;
+}
+
+.postPhotos__btnFlex button {
+    padding-left: 2rem;
+}
+
+.photosDisplay__main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 2.6rem;
+    margin-bottom: 2.6rem;
+    border-radius: 10px;
+    background-color: #EEEEEE;
+    box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -moz-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+    -webkit-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
+}
+
+.photosDisplay__img {
+    padding: 1rem 1rem 1rem 1rem; 
+}
+
+.photosDisplay__img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+
 /**RESPONSIVE**/
 /**Mobile S (320px)**/
 @media (min-width: 320px) and (max-width: 374px) {
@@ -917,7 +996,7 @@ input, button {
     }
 
     /**Principal**/
-    .headerFlex, .publication, .post_complet, .topArea {
+    .headerFlex, .publication, .post_complet, .topArea, .profileAside__main {
         margin-right: 0.5rem;
         margin-left: 0.5rem;
     }
@@ -953,13 +1032,17 @@ input, button {
         margin-bottom: 0.4rem;
     }
 
+    .post_userIdName {
+        font-size: 12pt;
+    }
+
+    .post_userIdName>a {
+        padding-right: 0.2rem;
+    }
+
     .post_userId img {
         height: 28px;
         width: 28px;
-    }
-
-    .post_userId h1 {
-        font-size: 12pt;
     }
 
     #post_userBin {
@@ -1029,13 +1112,6 @@ input, button {
         padding-bottom: 0.2rem;
     }
 
-    .profileAside {
-        float: none;
-        position: static;
-        width: 16.8rem;
-        margin-left: 0.6rem;
-    }
-
     .profileAside__bioTitle {
         font-size: 14pt;
         padding-top: 0.4rem;
@@ -1049,6 +1125,17 @@ input, button {
         font-size: 11pt;
     }
 
+    .profileAside__photosSettings {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 0.2rem;
+    }
+    
+    .profileAside__photosSettings img {
+        width: 80px;
+        height: 80px;
+    }
+
     /**PAGE SETTINGS**/
     .settingsTitle {
         font-size: 14pt;
@@ -1058,11 +1145,6 @@ input, button {
     .settingsCard {
         margin-left: 0.5rem;
         margin-right: 0.5rem;
-    }
-
-    .settingsCard__flex {
-        display: flex;
-        flex-direction: column;
     }
 
     .settings__input {
@@ -1083,12 +1165,31 @@ input, button {
     .settings__submitSpecial {
         width: 100%;
     }
+
+    /**PAGE PHOTOS**/
+    .postPhotos__main, .photosDisplay__main {
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
+
+    .profileHeader {
+        padding-bottom: 0.5rem;
+    }
+
+    .photosDisplay__main {
+        margin-top: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .postPhotos__title {
+        font-size: 12pt;
+    }
 }
  
 
 /**Mobile M (375px)**/
 @media (min-width: 375px) and (max-width: 424px) {
-        /**Header**/
+    /**Header**/
     .headerLogo img {
         height: 50px;
     }
@@ -1160,7 +1261,7 @@ input, button {
     }
 
     /**Principal**/
-    .headerFlex, .publication, .post_complet, .topArea {
+    .headerFlex, .publication, .post_complet, .topArea, .profileAside__main {
         margin-right: 0.5rem;
         margin-left: 0.5rem;
     }
@@ -1196,13 +1297,17 @@ input, button {
         margin-bottom: 0.4rem;
     }
 
+    .post_userIdName {
+        font-size: 12pt;
+    }
+
+    .post_userIdName>a {
+        padding-right: 0.2rem;
+    }
+
     .post_userId img {
         height: 28px;
         width: 28px;
-    }
-
-    .post_userId h1 {
-        font-size: 12pt;
     }
 
     #post_userBin {
@@ -1272,13 +1377,6 @@ input, button {
         padding-bottom: 0.2rem;
     }
 
-    .profileAside {
-        float: none;
-        position: static;
-        width: 20.2rem;
-        margin-left: 0.6rem;
-    }
-
     .profileAside__bioTitle {
         font-size: 14pt;
         padding-top: 0.4rem;
@@ -1290,6 +1388,17 @@ input, button {
 
     .profileAside__bioFriends a, .profileAside__bioPhotos a {
         font-size: 11pt;
+    }
+
+    .profileAside__photosSettings {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 0.3rem;
+    }
+    
+    .profileAside__photosSettings img {
+        width: 100px;
+        height: 100px;
     }
 
     /**PAGE SETTINGS**/
@@ -1325,6 +1434,25 @@ input, button {
 
     .settings__submitSpecial {
         width: 100%;
+    }
+
+    /**PAGE PHOTOS**/
+    .postPhotos__main, .photosDisplay__main {
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
+
+    .profileHeader {
+        padding-bottom: 0.5rem;
+    }
+
+    .photosDisplay__main {
+        margin-top: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .postPhotos__title {
+        font-size: 14pt;
     }
 }
  
@@ -1403,7 +1531,7 @@ input, button {
     }
 
     /**Principal**/
-    .headerFlex, .publication, .post_complet, .topArea {
+    .headerFlex, .publication, .post_complet, .topArea, .profileAside__main {
         margin-right: 0.5rem;
         margin-left: 0.5rem;
     }
@@ -1439,13 +1567,17 @@ input, button {
         margin-bottom: 0.4rem;
     }
 
+    .post_userIdName {
+        font-size: 14pt;
+    }
+
+    .post_userIdName>a {
+        padding-right: 0.3rem;
+    }
+
     .post_userId img {
         height: 28px;
         width: 28px;
-    }
-
-    .post_userId h1 {
-        font-size: 12pt;
     }
 
     #post_userBin {
@@ -1515,13 +1647,6 @@ input, button {
         padding-bottom: 0.2rem;
     }
 
-    .profileAside {
-        float: none;
-        position: static;
-        width: 23.4rem;
-        margin-left: 0.6rem;
-    }
-
     .profileAside__bioTitle {
         font-size: 14pt;
         padding-top: 0.4rem;
@@ -1533,6 +1658,17 @@ input, button {
 
     .profileAside__bioFriends a, .profileAside__bioPhotos a {
         font-size: 11pt;
+    }
+
+    .profileAside__photosSettings {
+        margin-top: 0.4rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .profileAside__photosSettings img {
+        width: 110px;
+        height: 110px;
     }
 
     /**PAGE SETTINGS**/
@@ -1568,6 +1704,25 @@ input, button {
 
     .settings__submitSpecial {
         width: 100%;
+    }
+
+    /**PAGE PHOTOS**/
+    .postPhotos__main, .photosDisplay__main {
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
+
+    .profileHeader {
+        padding-bottom: 0.5rem;
+    }
+
+    .photosDisplay__main {
+        margin-top: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .postPhotos__title {
+        font-size: 14pt;
     }
 }
  
@@ -1646,7 +1801,7 @@ input, button {
     }
 
     /**Principal**/
-    .headerFlex, .publication, .post_complet, .topArea {
+    .headerFlex, .publication, .post_complet, .topArea, .profileAside__main {
         margin-right: 0.5rem;
         margin-left: 0.5rem;
     }
@@ -1682,13 +1837,17 @@ input, button {
         margin-bottom: 0.4rem;
     }
 
+    .post_userIdName {
+        font-size: 14pt;
+    }
+
+    .post_userIdName>a {
+        padding-right: 0.3rem;
+    }
+
     .post_userId img {
         height: 28px;
         width: 28px;
-    }
-
-    .post_userId h1 {
-        font-size: 12pt;
     }
 
     #post_userBin {
@@ -1758,13 +1917,6 @@ input, button {
         padding-bottom: 0.2rem;
     }
 
-    .profileAside {
-        float: none;
-        position: static;
-        width: 44.8rem;
-        margin-left: 0.6rem;
-    }
-
     .profileAside__bioTitle {
         font-size: 18pt;
         padding-top: 0.4rem;
@@ -1776,6 +1928,17 @@ input, button {
 
     .profileAside__bioFriends a, .profileAside__bioPhotos a {
         font-size: 14pt;
+    }
+
+    .profileAside__photosSettings {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: 0.5rem;
+    }
+    
+    .profileAside__photosSettings img {
+        width: 170px;
+        height: 170px;
     }
 
     /**PAGE SETTINGS**/
@@ -1797,6 +1960,26 @@ input, button {
     .settings__inputsFile {
         margin-left: 0.8rem;
         margin-bottom: 1rem;
+    }
+
+    /**PAGE PHOTOS**/
+    .postPhotos__main, .photosDisplay__main {
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
+
+    .profileHeader {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .photosDisplay__main {
+        margin-top: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .postPhotos__title {
+        font-size: 16pt;
     }
 }
  
@@ -1853,13 +2036,6 @@ input, button {
         padding-bottom: 0.4rem;
     }
 
-    .profileAside {
-        float: none;
-        position: static;
-        width: 57.4rem;
-        margin-left: 2.2rem;
-    }
-
     .profileAside__bioTitle {
         font-size: 16pt;
         padding-top: 0.4rem;
@@ -1872,22 +2048,28 @@ input, button {
     .profileAside__bioFriends a, .profileAside__bioPhotos a {
         font-size: 14pt;
     }
+
+    .profileAside__photosSettings {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        margin-top: 0.3rem;
+    }
+    
+    .profileAside__photosSettings img {
+        width: 175px;
+        height: 175px;
+    }
 }
  
  
 /**Laptop (1440px)**/
-@media (min-width: 1440px) and (max-width: 1660px) {
+@media (min-width: 1440px) {
     .profileHeader {
         font-size: 18pt;
         padding-top: 0.4rem;
         padding-bottom: 0.4rem;
     }
 
-    .profileAside {
-        width: 10rem;
-        left: 30px;
-    }
-
     .profileAside__bioTitle {
         font-size: 16pt;
         padding-top: 0.4rem;
@@ -1899,5 +2081,16 @@ input, button {
 
     .profileAside__bioFriends a, .profileAside__bioPhotos a {
         font-size: 14pt;
+    }
+    
+    .profileAside__photosSettings {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        margin-top: 0.3rem;
+    }
+    
+    .profileAside__photosSettings img {
+        width: 175px;
+        height: 175px;
     }
 }
