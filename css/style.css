@@ -93,6 +93,12 @@ button {
     cursor: pointer;
 }
 
+.headerNotif__buttonText {
+    color: #ffffff;
+    max-width: 6rem;
+    padding-left: 0.6rem;
+}
+
 .headerUser img {
     border-radius: 50%;
     width: 48px;
@@ -683,7 +689,7 @@ button {
 .profileAside__main {
     margin-top: 8.2rem;
     margin-bottom: 2.5rem;
-    background-color: #ebe8e8;
+    background-color: #EEEEEE;
     border-radius: 10px;
     box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
     -moz-box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
@@ -996,9 +1002,18 @@ button {
         padding: 0.4rem 0.8rem 0.4rem 0.8rem;
     }
 
+    .headerSearch img {
+        margin-right: 0.1rem;
+    }
+
     #headerSearch__input {
-        font-size: 11pt;
-        width: 80px;
+        font-size: 8pt;
+        width: 50px;
+    }
+
+    .headerNotif__buttonText {
+        font-size: 9pt;
+        padding-left: 0.3rem;
     }
 
     .headerUser__button img {
@@ -1392,7 +1407,12 @@ button {
 
     #headerSearch__input {
         font-size: 11pt;
-        width: 110px;
+        width: 80px;
+    }
+
+    .headerNotif__buttonText {
+        font-size: 10pt;
+        padding-left: 0.3rem;
     }
 
     .headerUser__button img {
@@ -1786,7 +1806,11 @@ button {
 
     #headerSearch__input {
         font-size: 11pt;
-        width: 150px;
+        width: 100px;
+    }
+
+    .headerNotif__buttonText {
+        font-size: 11pt;
     }
 
     .headerUser__button img {

@@ -81,7 +81,6 @@ ob_start();
                                 ?>
                             <button class="headerNotif__button" onclick="notifHover()">
                                 <img src="./src/icons/bell.svg" alt="Icone cloche">
-                                <p>Vous avez <?= $result8['invits'] ?> notification(s)</p>
                             </button>
                             <div id="headerHover__notif">
                                 <ul id="headerHover__notifMain">
@@ -106,6 +105,7 @@ ob_start();
                                 </ul>
                             </div>
                         </div>
+                        <p class="headerNotif__buttonText">Vous avez <?= $result8['invits'] ?> notification(s)</p>
                     </div>
                 </div>
             </div>
