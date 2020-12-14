@@ -78,11 +78,11 @@
     <div class="container profileAside__main">
         <div class="profileAside__mainPadding">
             <div class="biography">
-                <h1 class="profileAside__bioTitle">Biographie</h1>
+                <h1 class="profileAside__Title">Biographie</h1>
                 <p class="profileAside__bioText"><?= $result2['bio'] ?></p>
                 <hr class="profileAside__bioSeparation">
             </div>
-            <div class="profileAside__bioPhotos">
+            <div class="profileAside__Title">
                 <a href="index.php?action=photos&id=<?=$_GET["id"]?>">Photos</a>
                     <div class="profileAside__photosSettings">
                         <?php

@@ -16,11 +16,12 @@ p {
     padding: 0rem 0rem 0rem 0rem;
 }
 
-.bold{
+.bold {
     font-weight: 700;
 }
 
-input, button {
+input,
+button {
     outline: none;
 }
 
@@ -29,12 +30,12 @@ input, button {
     margin: 0 auto;
 }
 
-.hide{
+.hide {
     display: none;
 }
 
 
-/**HEADER FACEME**/   
+/**HEADER FACEME**/
 .headerFlex {
     display: flex;
     align-items: center;
@@ -79,12 +80,14 @@ input, button {
     align-items: center;
 }
 
-.headerUser, .headerNotif {
+.headerUser,
+.headerNotif {
     position: relative;
     padding-left: 2rem;
 }
 
-.headerUser__button, .headerNotif__button  {
+.headerUser__button,
+.headerNotif__button {
     border: none;
     background-color: transparent;
     cursor: pointer;
@@ -95,7 +98,8 @@ input, button {
     width: 48px;
 }
 
-.headerUser img, .headerNotif img {
+.headerUser img,
+.headerNotif img {
     height: 48px;
 }
 
@@ -112,7 +116,7 @@ input, button {
     z-index: 999;
     width: 8rem;
     line-height: 1.8rem;
-    background-color: #ffffff;  
+    background-color: #ffffff;
     border-radius: 10px;
     display: none;
     padding: 1rem 1rem 1rem 1rem;
@@ -148,7 +152,7 @@ input, button {
 
 #headerHover__notif {
     position: absolute;
-    background-color: #ffffff;  
+    background-color: #ffffff;
     display: none;
     border-radius: 10px;
     width: 14rem;
@@ -229,7 +233,7 @@ input, button {
     color: #FF9900;
     font-size: 26pt;
     font-weight: 700;
-    padding: 2rem 0rem 2rem 1rem ;
+    padding: 2rem 0rem 2rem 1rem;
 }
 
 #signIn__fond {
@@ -276,7 +280,7 @@ input, button {
     width: 26rem;
     height: 0.2rem;
     background-color: #FFFFFF;
-    margin: 3rem 0rem 3rem 1rem;    
+    margin: 3rem 0rem 3rem 1rem;
 }
 
 #signUp__title {
@@ -306,7 +310,7 @@ input, button {
     color: #FF9900;
     font-size: 26pt;
     font-weight: 700;
-    padding: 2rem 0rem 2rem 1rem ;
+    padding: 2rem 0rem 2rem 1rem;
 }
 
 #signUp__fond {
@@ -478,7 +482,7 @@ input, button {
     border: 1px solid #707070;
 }
 
-.post_commentaires > h1 {
+.post_commentaires>h1 {
     font-size: 16pt;
     font-weight: 400;
     color: #707070;
@@ -541,7 +545,7 @@ input, button {
     transform: translate(6px, -5px);
 }
 
-.post_commentairesIcon > img {
+.post_commentairesIcon>img {
     height: 40px;
 }
 
@@ -578,7 +582,7 @@ input, button {
 }
 
 .vueCommentaires__content {
-    color:#474747;
+    color: #474747;
     font-size: 16pt;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -633,6 +637,7 @@ input, button {
 
 /**PAGE PROFILE**/
 .profileImg_background {
+    background-position: center;
     width: 950px;
     height: 220px;
     border-bottom-left-radius: 10px;
@@ -659,7 +664,8 @@ input, button {
     font-weight: 500;
     position: absolute;
     top: 125px;
-    left: 15px;
+    left: 0;
+    text-align: center;
 }
 
 .profileHeader {
@@ -683,12 +689,19 @@ input, button {
     padding: 1rem;
 }
 
-.profileAside__bioTitle {
+.profileAside__Title,
+.profileAside__Title a {
     color: #FF9900;
     font-size: 22pt;
     font-weight: 500;
     padding-bottom: 0.2rem;
     margin: 0rem;
+    text-decoration: none;
+    transition: 0.1s ease-in-out;
+}
+
+.profileAside__Title a:hover{
+    font-weight: 800;
 }
 
 .profileAside__bioText {
@@ -699,17 +712,7 @@ input, button {
 .profileAside__bioSeparation {
     border: 1px solid #808080;
     margin-top: 1rem;
-    margin-bottom: 1rem;    
-}
-
-.profileAside__bioFriends a, .profileAside__bioPhotos a {
-    color: #808080;
-    font-size: 14pt;
-    transition: 0.1s ease-in-out;
-}
-
-.profileAside__bioFriends a:hover, .profileAside__bioPhotos a:hover {
-    font-weight: 700;
+    margin-bottom: 1rem;
 }
 
 .profileAside__photosSettings {
@@ -717,6 +720,7 @@ input, button {
     grid-template-columns: repeat(6, 1fr);
     grid-gap: 10px;
     margin-top: 0.5rem;
+    cursor: default;
 }
 
 .profileAside__photosSettings img {
@@ -724,6 +728,7 @@ input, button {
     height: 145px;
     border-radius: 10px;
     object-fit: cover;
+    cursor: default;
 }
 
 
@@ -782,7 +787,7 @@ input, button {
     font-weight: 600;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    top: -7px; 
+    top: -7px;
     right: 560px;
 
 }
@@ -827,12 +832,12 @@ input, button {
 
 
 /**RECHERCHE**/
-.search_main{
+.search_main {
     position: relative;
     overflow: visible;
 }
 
-#results{
+#results {
     position: absolute;
     top: 100%;
     left: -53px;
@@ -848,7 +853,7 @@ input, button {
     list-style-type: none;
 }
 
-#results_search a{
+#results_search a {
     font-size: 16pt;
     color: #474747;
     line-height: 2rem;
@@ -900,12 +905,12 @@ input, button {
 
 .settings__submit {
     border: none;
-    background-color: #FF9900; 
+    background-color: #FF9900;
     font-weight: 500;
     border-radius: 10px;
     color: #ffffff;
     transition: 0.4s ease-in-out;
-    padding: 0.8rem 1.6rem 0.8rem 1.6rem;    
+    padding: 0.8rem 1.6rem 0.8rem 1.6rem;
 }
 
 .settings__submit:hover {
@@ -925,7 +930,7 @@ input, button {
 }
 
 .postPhotos__padding {
-    padding: 0.4rem 1rem 0.4rem 1rem; 
+    padding: 0.4rem 1rem 0.4rem 1rem;
     display: flex;
     justify-content: space-between;
 }
@@ -958,7 +963,7 @@ input, button {
 }
 
 .photosDisplay__img {
-    padding: 1rem 1rem 1rem 1rem; 
+    padding: 1rem 1rem 1rem 1rem;
 }
 
 .photosDisplay__img img {
@@ -972,6 +977,7 @@ input, button {
 /**RESPONSIVE**/
 /**Mobile S (320px)**/
 @media (min-width: 320px) and (max-width: 374px) {
+
     /**Header**/
     .headerLogo img {
         height: 48px;
@@ -997,11 +1003,13 @@ input, button {
         object-fit: cover;
     }
 
-    .headerUser__button img, .headerNotif__button img {
+    .headerUser__button img,
+    .headerNotif__button img {
         height: 28px;
     }
 
-    .headerUser, .headerNotif {
+    .headerUser,
+    .headerNotif {
         padding: 0rem;
     }
 
@@ -1016,7 +1024,7 @@ input, button {
         font-size: 12pt;
     }
 
-    .headerHover__menuLink a { 
+    .headerHover__menuLink a {
         font-size: 9pt;
     }
 
@@ -1044,7 +1052,11 @@ input, button {
     }
 
     /**Principal**/
-    .headerFlex, .publication, .post_complet, .topArea, .profileAside__main {
+    .headerFlex,
+    .publication,
+    .post_complet,
+    .topArea,
+    .profileAside__main {
         margin-right: 0.5rem;
         margin-left: 0.5rem;
     }
@@ -1109,7 +1121,8 @@ input, button {
         justify-content: space-between;
     }
 
-    .post_likes img, .post_comment img {
+    .post_likes img,
+    .post_comment img {
         height: 22px;
     }
 
@@ -1169,7 +1182,8 @@ input, button {
         font-size: 11pt;
     }
 
-    .profileAside__bioFriends a, .profileAside__bioPhotos a {
+    .profileAside__bioFriends a,
+    .profileAside__bioPhotos a {
         font-size: 11pt;
     }
 
@@ -1178,7 +1192,7 @@ input, button {
         grid-template-columns: repeat(3, 1fr);
         margin-top: 0.2rem;
     }
-    
+
     .profileAside__photosSettings img {
         width: 80px;
         height: 80px;
@@ -1215,7 +1229,8 @@ input, button {
     }
 
     /**PAGE PHOTOS**/
-    .postPhotos__main, .photosDisplay__main {
+    .postPhotos__main,
+    .photosDisplay__main {
         margin-right: 0.5rem;
         margin-left: 0.5rem;
     }
@@ -1233,10 +1248,11 @@ input, button {
         font-size: 12pt;
     }
 }
- 
+
 
 /**Mobile M (375px)**/
 @media (min-width: 375px) and (max-width: 424px) {
+
     /**Header**/
     .headerLogo img {
         height: 50px;
@@ -1262,11 +1278,13 @@ input, button {
         object-fit: cover;
     }
 
-    .headerUser__button img, .headerNotif__button img {
+    .headerUser__button img,
+    .headerNotif__button img {
         height: 28px;
     }
 
-    .headerUser, .headerNotif {
+    .headerUser,
+    .headerNotif {
         padding: 0rem;
     }
 
@@ -1281,7 +1299,7 @@ input, button {
         font-size: 12pt;
     }
 
-    .headerHover__menuLink a { 
+    .headerHover__menuLink a {
         font-size: 9pt;
     }
 
@@ -1309,7 +1327,11 @@ input, button {
     }
 
     /**Principal**/
-    .headerFlex, .publication, .post_complet, .topArea, .profileAside__main {
+    .headerFlex,
+    .publication,
+    .post_complet,
+    .topArea,
+    .profileAside__main {
         margin-right: 0.5rem;
         margin-left: 0.5rem;
     }
@@ -1374,7 +1396,8 @@ input, button {
         justify-content: space-between;
     }
 
-    .post_likes img, .post_comment img {
+    .post_likes img,
+    .post_comment img {
         height: 22px;
     }
 
@@ -1434,7 +1457,8 @@ input, button {
         font-size: 11pt;
     }
 
-    .profileAside__bioFriends a, .profileAside__bioPhotos a {
+    .profileAside__bioFriends a,
+    .profileAside__bioPhotos a {
         font-size: 11pt;
     }
 
@@ -1443,7 +1467,7 @@ input, button {
         grid-template-columns: repeat(3, 1fr);
         margin-top: 0.3rem;
     }
-    
+
     .profileAside__photosSettings img {
         width: 100px;
         height: 100px;
@@ -1485,7 +1509,8 @@ input, button {
     }
 
     /**PAGE PHOTOS**/
-    .postPhotos__main, .photosDisplay__main {
+    .postPhotos__main,
+    .photosDisplay__main {
         margin-right: 0.5rem;
         margin-left: 0.5rem;
     }
@@ -1503,10 +1528,11 @@ input, button {
         font-size: 14pt;
     }
 }
- 
- 
+
+
 /**Mobile L (425px)**/
 @media (min-width: 425px) and (max-width: 767px) {
+
     /**Header**/
     .headerLogo img {
         height: 52px;
@@ -1532,11 +1558,13 @@ input, button {
         object-fit: cover;
     }
 
-    .headerUser__button img, .headerNotif__button img {
+    .headerUser__button img,
+    .headerNotif__button img {
         height: 28px;
     }
 
-    .headerUser, .headerNotif {
+    .headerUser,
+    .headerNotif {
         padding: 0rem;
     }
 
@@ -1551,7 +1579,7 @@ input, button {
         font-size: 12pt;
     }
 
-    .headerHover__menuLink a { 
+    .headerHover__menuLink a {
         font-size: 9pt;
     }
 
@@ -1579,7 +1607,11 @@ input, button {
     }
 
     /**Principal**/
-    .headerFlex, .publication, .post_complet, .topArea, .profileAside__main {
+    .headerFlex,
+    .publication,
+    .post_complet,
+    .topArea,
+    .profileAside__main {
         margin-right: 0.5rem;
         margin-left: 0.5rem;
     }
@@ -1644,7 +1676,8 @@ input, button {
         justify-content: space-between;
     }
 
-    .post_likes img, .post_comment img {
+    .post_likes img,
+    .post_comment img {
         height: 28px;
     }
 
@@ -1685,7 +1718,7 @@ input, button {
 
     .topArea__button img {
         height: 34px;
-    } 
+    }
 
     /**PAGE PROFIL**/
     .profileHeader {
@@ -1704,7 +1737,8 @@ input, button {
         font-size: 11pt;
     }
 
-    .profileAside__bioFriends a, .profileAside__bioPhotos a {
+    .profileAside__bioFriends a,
+    .profileAside__bioPhotos a {
         font-size: 11pt;
     }
 
@@ -1713,7 +1747,7 @@ input, button {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     .profileAside__photosSettings img {
         width: 110px;
         height: 110px;
@@ -1755,7 +1789,8 @@ input, button {
     }
 
     /**PAGE PHOTOS**/
-    .postPhotos__main, .photosDisplay__main {
+    .postPhotos__main,
+    .photosDisplay__main {
         margin-right: 0.5rem;
         margin-left: 0.5rem;
     }
@@ -1773,10 +1808,11 @@ input, button {
         font-size: 14pt;
     }
 }
- 
- 
+
+
 /**Tablet (768px)**/
 @media (min-width: 768px) and (max-width: 1023px) {
+
     /**Header**/
     .headerLogo img {
         height: 64px;
@@ -1801,12 +1837,14 @@ input, button {
         object-fit: cover;
     }
 
-    .headerUser__button img, .headerNotif__button img {
+    .headerUser__button img,
+    .headerNotif__button img {
         height: 28px;
         width: 28px;
     }
 
-    .headerUser, .headerNotif {
+    .headerUser,
+    .headerNotif {
         padding: 0rem;
     }
 
@@ -1821,7 +1859,7 @@ input, button {
         font-size: 12pt;
     }
 
-    .headerHover__menuLink a { 
+    .headerHover__menuLink a {
         font-size: 9pt;
     }
 
@@ -1849,7 +1887,11 @@ input, button {
     }
 
     /**Principal**/
-    .headerFlex, .publication, .post_complet, .topArea, .profileAside__main {
+    .headerFlex,
+    .publication,
+    .post_complet,
+    .topArea,
+    .profileAside__main {
         margin-right: 0.5rem;
         margin-left: 0.5rem;
     }
@@ -1914,7 +1956,8 @@ input, button {
         justify-content: space-between;
     }
 
-    .post_likes img, .post_comment img {
+    .post_likes img,
+    .post_comment img {
         height: 28px;
     }
 
@@ -1955,7 +1998,7 @@ input, button {
 
     .topArea__button img {
         height: 34px;
-    } 
+    }
 
     /**PAGE PROFIL**/
     .profileHeader {
@@ -1974,7 +2017,8 @@ input, button {
         font-size: 14pt;
     }
 
-    .profileAside__bioFriends a, .profileAside__bioPhotos a {
+    .profileAside__bioFriends a,
+    .profileAside__bioPhotos a {
         font-size: 14pt;
     }
 
@@ -1983,7 +2027,7 @@ input, button {
         grid-template-columns: repeat(4, 1fr);
         margin-top: 0.5rem;
     }
-    
+
     .profileAside__photosSettings img {
         width: 170px;
         height: 170px;
@@ -2011,7 +2055,8 @@ input, button {
     }
 
     /**PAGE PHOTOS**/
-    .postPhotos__main, .photosDisplay__main {
+    .postPhotos__main,
+    .photosDisplay__main {
         margin-right: 0.5rem;
         margin-left: 0.5rem;
     }
@@ -2030,15 +2075,15 @@ input, button {
         font-size: 16pt;
     }
 }
- 
- 
+
+
 /**Laptop (1024px)**/
 @media (min-width: 1024px) and (max-width: 1439px) {
     .post_commentairesAvatar {
         height: 40px;
         width: 40px;
     }
-    
+
     #headerHover__menu {
         top: 56px;
         left: -64px;
@@ -2050,7 +2095,7 @@ input, button {
         font-size: 14pt;
     }
 
-    .headerHover__menuLink a { 
+    .headerHover__menuLink a {
         font-size: 11pt;
     }
 
@@ -2093,7 +2138,8 @@ input, button {
         font-size: 14pt;
     }
 
-    .profileAside__bioFriends a, .profileAside__bioPhotos a {
+    .profileAside__bioFriends a,
+    .profileAside__bioPhotos a {
         font-size: 14pt;
     }
 
@@ -2102,14 +2148,14 @@ input, button {
         grid-template-columns: repeat(5, 1fr);
         margin-top: 0.3rem;
     }
-    
+
     .profileAside__photosSettings img {
         width: 175px;
         height: 175px;
     }
 }
- 
- 
+
+
 /**Laptop (1440px)**/
 @media (min-width: 1440px) {
     .profileHeader {
@@ -2127,16 +2173,17 @@ input, button {
         font-size: 14pt;
     }
 
-    .profileAside__bioFriends a, .profileAside__bioPhotos a {
+    .profileAside__bioFriends a,
+    .profileAside__bioPhotos a {
         font-size: 14pt;
     }
-    
+
     .profileAside__photosSettings {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         margin-top: 0.3rem;
     }
-    
+
     .profileAside__photosSettings img {
         width: 175px;
         height: 175px;
