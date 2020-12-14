@@ -160,7 +160,7 @@
                         <div class="vueCommentaires__flex">
                             <div class="vueCommentaires__flexText">
                                 <p>Le <?=$result1['dateCom']?></p>
-                                <p><?= $result1['name'] ?></p><p> a commenté :</p>
+                                <p class="bold"><?= $result1['name'] ?></p><p> a commenté :</p>
                             </div>
                             <div class="post_userBin">
                                 <a href="index.php?action=deletecom&id=<?= $result1['id']?>">
