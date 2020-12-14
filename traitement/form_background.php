@@ -9,5 +9,5 @@
 		$q4 = $pdo->prepare($sql4);
 		$q4->execute(array($target_file_background, $_SESSION['id']));
 		echo "Le compte a été mis à jour ! ";
-		header('Location: ' . $_SERVER["HTTP_REFERER"] );		
+		header('Location: ' . $_SERVER["HTTP_REFERER"] );
 ?>

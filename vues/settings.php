@@ -29,8 +29,8 @@ while($result = $q -> fetch()){;
         <p class="settingsTitle">Je modifie mon image de profil :</p>
         <div class="settingsCard">
             <form action="index.php?action=form_avatar" method="POST" enctype="multipart/form-data" class="settingsCard__flexSubmit">
-                <input type="file" name="avatar" class="settings__inputsFile" id="real_inputSet" hidden="hidden">
-                <button class="post_commentairesIcon" type="button" onclick="fileSet()">
+                <input type="file" name="avatar" class="settings__inputsFile" id="real_inputSetAvatar" hidden="hidden">
+                <button class="post_commentairesIcon" type="button" onclick="fileSetAvatar()">
                     <img src="./src/icons/useradd.svg" alt="icône ajout fichier">
                 </button>
                 <input type="submit" value="Mettre à jour" class="settings__submit settings__submitSpecial">
@@ -38,11 +38,11 @@ while($result = $q -> fetch()){;
         </div>
     </div>
     <div>
-        <p class="settingsTitle">Je modifie ma bannière :</p>
+        <p class="settingsTitle">Je modifie ma bannière de profil :</p>
         <div class="settingsCard">
             <form action="index.php?action=form_background" method="POST" enctype="multipart/form-data" class="settingsCard__flexSubmit">
-                <input type="file" name="background" class="settings__inputsFile" id="real_inputSet" hidden="hidden">
-                <button class="post_commentairesIcon" type="button" onclick="fileSet()">
+                <input type="file" name="background" class="settings__inputsFile" id="real_inputSetBackground" hidden="hidden">
+                <button class="post_commentairesIcon" type="button" onclick="fileSetBackground()">
                     <img src="./src/icons/background.svg" alt="icône ajout fichier">
                 </button>
                 <input type="submit" value="Mettre à jour" class="settings__submit settings__submitSpecial">

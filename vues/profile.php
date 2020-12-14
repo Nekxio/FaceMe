@@ -78,27 +78,11 @@
                 <p class="profileAside__bioText"><?= $result2['bio'] ?></p>
                 <hr class="profileAside__bioSeparation">
             </div>
-            <div class="profileAside__bioFriends">
-                <a href="index.php?action=amis&id=<?=$_GET["id"]?>">Amis</a>
-                <div>
-                    <?php
-                        //$sql3 ="SELECT user.*, lien.idUtilisateur1 AS user, lien.idUtilisateur2 AS me, lien.etat AS etat FROM user INNER JOIN lien ON idUtilisateur1=user.id  AND idUtilisateur2=? UNION SELECT user.* FROM user INNER JOIN lien ON idUtilisateur2=user.id AND etat='ami' AND idUtilisateur1=? LIMIT 9";
-                        //$query3 = $pdo->prepare($sql3);
-                        //$query3->execute(array($_SESSION['id']));
-                        //while($result3 = $query3 -> fetch()){
-                    ?>
-                    <!--<img src='<?=$result3['avatar']?>' alt='image de <?=$result3['name']?>' />
-                    <p class='friend-name'><?=$result3['name']?></p>-->
-                    <?php
-                        //}
-                    ?>
-                </div>
-            </div>
             <div class="profileAside__bioPhotos">
                 <a href="index.php?action=photos&id=<?=$_GET["id"]?>">Photos</a>
                     <div class="profileAside__photosSettings">
                         <?php
-                            $sql6 = "SELECT user.id, user.name, pictures.* FROM user JOIN pictures ON user.id = pictures.idAuteur WHERE user.id=? order by dateImage DESC";
+                            $sql6 = "SELECT user.id, user.name, pictures.* FROM user JOIN pictures ON user.id = pictures.idAuteur WHERE user.id=? order by dateImage DESC LIMIT 5";
                             $query6 = $pdo -> prepare($sql6);
                             $query6 -> execute(array($_GET["id"]));
                             while($result6 = $query6 -> fetch()){;
@@ -143,7 +127,7 @@
             // le paramètre  est le $id
             $sql6 = "SELECT *, ecrit.id AS idPost from ecrit join user on idAuteur=user.id where idAuteur in ( SELECT user.id FROM user INNER JOIN lien ON idUtilisateur1=user.id AND etat='ami' AND idUtilisateur2=? UNION SELECT user.id FROM user INNER JOIN lien ON idUtilisateur2=user.id AND etat='ami' AND idUtilisateur1=? UNION SELECT user.id FROM user WHERE user.id=?) ORDER by ecrit.id DESC";
             $query6 = $pdo -> prepare($sql6);
-            $query6 -> execute(array($_GET["id"], $_GET['id'], $_SESSION['id']));
+            $query6 -> execute(array($_GET["id"], $_GET['id'], $_GET['id']));
             while($result6 = $query6 -> fetch()){
         ?>
     </section>
@@ -157,11 +141,18 @@
                             <img src="<?=$result6['avatar']?>" alt="icône user orange">
                             <p class="post_userIdName"><?= $result6['name'] ?> a publié :</p>
                         </div>
+                        <?php
+                        if($_SESSION['id'] == $_GET['id']){
+                        ?>
+                       
                         <div class="post_userBin">
                             <a href="index.php?action=deletepost&id=<?= $result6['idPost']?>">
                                 <img src="./src/icons/trash.svg" onmouseover="newBin()" onmouseout="oldBin()" alt="icône poubelle" id="post_userBin">
                             </a>
                         </div>
+                        <?php
+                            }
+                        ?>
                     </div>
                     <div class="post_contenu">
                         <div class="post_contenuHour">
@@ -203,10 +194,16 @@
                 <hr class="separation_grise">
                 <div class="post_commentaires">
                     <h1>Commentaires</h1>
-                    <form action='index.php?action=commentaires&idPost=<?= $result6['id']?>' method='POST' class="post_commentairesForm" enctype="multipart/form-data">
+                    <form action='index.php?action=commentaires&idPost=<?= $result6['idPost']?>' method='POST' class="post_commentairesForm" enctype="multipart/form-data">
                         <div class="post_commentairesAvatarFlex">
-                            <img class="post_commentairesAvatar" src="<?= $result6['avatar'] ?>" />
-                            <label class="post_commentairesName"><?= $result6['name'] ?></label>
+                            <?php
+                                    $sql20 = "SELECT user.avatar FROM user WHERE id=?" ;
+                                    $query20 = $pdo -> prepare($sql20);
+                                    $query20 -> execute(array($_SESSION['id']));
+                                    $result20 = $query20 -> fetch();
+                                ?>
+                            <img class="post_commentairesAvatar" src="<?= $result20['avatar'] ?>" />
+                            <label class="post_commentairesName"><?= $_SESSION['name'] ?></label>
                         </div>
                         <input type='text' placeholder='Écrire un commentaire' name='contenu' class="post_commentairesInput" id="input_commentFocus">
                         <hr class="separation_orange">
@@ -225,7 +222,7 @@
                     <?php
                         $sql7 = "SELECT commentaires.*, user.name, user.avatar FROM user JOIN commentaires ON user.id = commentaires.idAuteur WHERE idPost=? order by dateCom DESC";
                         $query7 = $pdo -> prepare($sql7);
-                        $query7 -> execute(array($result6["id"]));
+                        $query7 -> execute(array($result6["idPost"]));
                         while($result7 = $query7 -> fetch()){
                     ?>
                         <div class="vueCommentaires">

@@ -803,16 +803,28 @@ input, button {
 #results{
     position: absolute;
     top: 100%;
-    left: 0;
-    width: 100%;
+    left: -53px;
+    width: 112%;
     overflow-y: scroll;
     max-height: 300px;
     background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 #results_search {
     list-style-type: none;
+}
+
+#results_search a{
+    font-size: 16pt;
     color: #474747;
+    line-height: 2rem;
+    transition: 0.1s ease-in-out;
+}
+
+#results_search a:hover {
+    font-weight: 700;
 }
 
 

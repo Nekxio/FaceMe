@@ -72,11 +72,18 @@
                         <img src="<?=$result3['avatar']?>" alt="icône user orange">
                         <p class="post_userIdName"><a href="index.php?action=profile&id=<?=$result3['id']?>" ><?= $result3['name'] ?></a>a publié :</p>
                     </div>
-                    <div class="post_userBin">
-                        <a href="index.php?action=deletepost&id=<?= $result3['id']?>">
-                            <img src="./src/icons/trash.svg" onmouseover="newBin()" onmouseout="oldBin()" alt="icône poubelle" id="post_userBin">
-                        </a>
-                    </div>
+                    <?php
+                        if($_SESSION['id'] == $result3['id']){
+                        ?>
+                       
+                        <div class="post_userBin">
+                            <a href="index.php?action=deletepost&id=<?= $result3['idPost']?>">
+                                <img src="./src/icons/trash.svg" onmouseover="newBin()" onmouseout="oldBin()" alt="icône poubelle" id="post_userBin">
+                            </a>
+                        </div>
+                        <?php
+                            }
+                        ?>
                 </div>
                 <div class="post_contenu">
                     <div class="post_contenuHour">
@@ -118,10 +125,16 @@
             <hr class="separation_grise">
             <div class="post_commentaires">
                 <h1>Commentaires</h1>
-                <form action='index.php?action=commentaires&idPost=<?= $result3['id']?>' method='POST' class="post_commentairesForm" enctype="multipart/form-data">
+                <form action='index.php?action=commentaires&idPost=<?= $result3['idPost']?>' method='POST' class="post_commentairesForm" enctype="multipart/form-data">
                     <div class="post_commentairesAvatarFlex">
-                        <img class="post_commentairesAvatar" src="<?= $result3['avatar'] ?>" />
-                        <label class="post_commentairesName"><?= $result3['name'] ?></label>
+                        <?php
+                                    $sql20 = "SELECT user.avatar FROM user WHERE id=?" ;
+                                    $query20 = $pdo -> prepare($sql20);
+                                    $query20 -> execute(array($_SESSION['id']));
+                                    $result20 = $query20 -> fetch();
+                                ?>
+                            <img class="post_commentairesAvatar" src="<?= $result20['avatar'] ?>" />
+                        <label class="post_commentairesName"><?= $_SESSION['name'] ?></label>
                     </div>
                     <input type='text' placeholder='Écrire un commentaire' name='contenu' class="post_commentairesInput" id="input_commentFocus">
                     <hr class="separation_orange">
@@ -140,7 +153,7 @@
                 <?php
                     $sql1 = "SELECT commentaires.*, user.name, user.avatar FROM user JOIN commentaires ON user.id = commentaires.idAuteur WHERE idPost=? order by dateCom DESC";
                     $query1 = $pdo -> prepare($sql1);
-                    $query1 -> execute(array($result3["id"]));
+                    $query1 -> execute(array($result3["idPost"]));
                     while($result1 = $query1 -> fetch()){
                 ?>
                     <div class="vueCommentaires">

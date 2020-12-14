@@ -119,8 +119,13 @@ function filePhotos() {
     realFileBtnPhotos.click();
 }
 
-/**BOUTON FILE SETTINGS**/
-function fileSet() {
-    let realFileBtnSet = document.getElementById("real_inputSet");
+/**BOUTON FILE AVATAR SETTINGS**/
+function fileSetAvatar() {
+    let realFileBtnSet = document.getElementById("real_inputSetAvatar");
+    realFileBtnSet.click();
+}
+/**BOUTON FILE BACKGROUND SETTINGS**/
+function fileSetBackground() {
+    let realFileBtnSet = document.getElementById("real_inputSetBackground");
     realFileBtnSet.click();
 }

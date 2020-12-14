@@ -26,6 +26,6 @@
                     echo "Désolé, votre image n'a pas été publié.";
                 }
             }
-            
+            var_dump($target_file_background);
         }
 ?>
