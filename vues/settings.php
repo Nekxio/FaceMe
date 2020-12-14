@@ -20,7 +20,7 @@ while($result = $q -> fetch()){;
                 </div>
                 <div class="settingsCard__flex">
                     <input type="text" placeholder="biographie" class="settings__input" id="formBio" name="bio" value="<?=$result['bio']?>" required>
-                    <input type="submit" value="Mettre à jour" class="settings__submit">
+                    <input type="submit" value="Mettre à jour" class="settings__submit" onclick="update()">
                 </div>
             </form>
         </div>
@@ -33,7 +33,7 @@ while($result = $q -> fetch()){;
                 <button class="post_commentairesIcon" type="button" onclick="fileSetAvatar()">
                     <img src="./src/icons/useradd.svg" alt="icône ajout fichier">
                 </button>
-                <input type="submit" value="Mettre à jour" class="settings__submit settings__submitSpecial">
+                <input type="submit" value="Mettre à jour" class="settings__submit settings__submitSpecial" onclick="update()">
             </form>
         </div>
     </div>
@@ -45,7 +45,7 @@ while($result = $q -> fetch()){;
                 <button class="post_commentairesIcon" type="button" onclick="fileSetBackground()">
                     <img src="./src/icons/background.svg" alt="icône ajout fichier">
                 </button>
-                <input type="submit" value="Mettre à jour" class="settings__submit settings__submitSpecial">
+                <input type="submit" value="Mettre à jour" class="settings__submit settings__submitSpecial" onclick="update()">
             </form>
         </div>
     </div>

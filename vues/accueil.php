@@ -73,7 +73,7 @@
                         <p class="post_userIdName"><a href="index.php?action=profile&id=<?=$result3['id']?>" ><?= $result3['name'] ?></a>a publié :</p>
                     </div>
                     <?php
-                        if($_SESSION['id'] == $result3['id']){
+                        if($_SESSION['id'] == $result3['idAuteur']){
                         ?>
                        
                         <div class="post_userBin">
@@ -162,11 +162,17 @@
                                 <p>Le <?=$result1['dateCom']?></p>
                                 <p class="bold"><?= $result1['name'] ?></p><p> a commenté :</p>
                             </div>
-                            <div class="post_userBin">
-                                <a href="index.php?action=deletecom&id=<?= $result1['id']?>">
-                                    <img src="./src/icons/trash.svg" onmouseover="newBin()" onmouseout="oldBin()" alt="icône poubelle" id="post_userBin">
-                                </a>
-                            </div>
+                            <?php
+                                    if($_SESSION['id'] == $result1['idAuteur']){
+                                ?>
+                                    <div class="post_userBin">
+                                        <a href="index.php?action=deletecom&id=<?= $result1['id']?>">
+                                            <img src="./src/icons/trash.svg" onmouseover="newBin()" onmouseout="oldBin()" alt="icône poubelle" id="post_userBin">
+                                        </a>
+                                    </div>
+                                <?php
+                                }
+                                ?>
                         </div>
                         <p class="vueCommentaires__content"><?= $result1['contenu'] ?></p>
                         <?php

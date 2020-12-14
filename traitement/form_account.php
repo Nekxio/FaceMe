@@ -26,7 +26,7 @@ if ($pwd1 == $pwd2) {
 
 $bio = "Bonjour, je suis ".$_POST['name'];
 $avatar = "src/icons/user_white.svg";
-$background= "src/images/background_user.jpg";
+$background= "uploads/pictures/backgrounds/background_default.jpg";
 
 if ($name_check == true) {
 

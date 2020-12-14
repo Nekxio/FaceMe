@@ -42,6 +42,16 @@ function deconnexion() {
     })
 }
 
+function update() {
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Mis à jour',
+        showConfirmButton: false,
+        timer: 1500
+    })
+}
+
 function friendship() {
     Swal.fire({
         position: 'center',
