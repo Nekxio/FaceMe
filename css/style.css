@@ -96,6 +96,8 @@ button {
 .headerUser img {
     border-radius: 50%;
     width: 48px;
+    height: 48px;
+    object-fit: cover;
 }
 
 .headerUser img,
@@ -196,6 +198,7 @@ button {
     line-height: 0;
     text-decoration: underline;
     animation: onload_title 1s;
+    z-index: -999;
 }
 
 @keyframes onload_title {
@@ -393,6 +396,7 @@ button {
 
 
 .post_userId img {
+    object-fit: cover;
     border-radius: 50%;
     height: 40px;
     width: 40px;
@@ -509,6 +513,7 @@ button {
     height: 48px;
     width: 48px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .post_commentairesAvatarFlex>label {

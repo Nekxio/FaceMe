@@ -1,6 +1,6 @@
 /**AFFICHAGE INSCRIPTION PAGE CONNEXION**/
 function connexion() {
-    let y = document.getElementById("formCo__fond");
+    let y = document.getElementById("page__title");
 
     y.style.display = "none";
 }
