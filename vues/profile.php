@@ -29,14 +29,16 @@
     if ($ok==false) {
     ?>
     <?php       
-            $sql1 = "SELECT * FROM user WHERE id=?";
+            $sql1 = "SELECT user.id, user.avatar, user.mdp, user.background, user.name FROM user WHERE id=?";
             $query1 = $pdo -> prepare($sql1);
             $query1 -> execute(array($_GET['id']));
             $result1 = $query1 -> fetch()
         ?>
-    <div class="container" style="background-image : url(<?= $result1['background'] ?>)">
-        <img src="<?=$result1['avatar']?>" alt="Photo de profil de <?= $result1['name']?>"/>
-        <h1 class="profile_name"><?= $result1['name'] ?></h1>
+    <div class="container profileImg_background" style="background-image : url(<?= $result1['background'] ?>)">
+        <div class="profileHeader__main">
+            <img class="profileImg_avatar" src="<?=$result1['avatar']?>" alt="Photo de profil de <?= $result1['name']?>"/>
+            <h1 class="profileText_name"><?= $result1['name'] ?></h1>
+        </div>
     </div>
     
     <?php       
@@ -63,7 +65,7 @@
         <p class="requestText">Vous n'êtes pas encore ami, vous ne pouvez pas voir son profil !</p>
         <?php       
         } else {
-            $sql2 = "SELECT * FROM user WHERE id=?";
+            $sql2 = "SELECT user.id, user.avatar, user.background, user.name, user.bio FROM user WHERE id=?";
             $query2 = $pdo -> prepare($sql2);
             $query2 -> execute(array($_GET['id']));
             $result2 = $query2 -> fetch()
@@ -102,7 +104,7 @@
         </div>
     <div>
     <?php
-        $sql5 = "SELECT * FROM user";
+        $sql5 = "SELECT user.id, user.avatar, user.background, user.name, user.bio FROM user";
         $query5 = $pdo -> prepare($sql5);
         $query5 -> execute(array($_SESSION["id"]));
         $result5 = $query5 -> fetch();
