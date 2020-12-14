@@ -27,3 +27,4 @@ Pour les fonctionnalités de notre réseau social, vous pouvez :
 - Ajouter des likes aux ecrits des amis.
 - Mettre à jour ses informations personnelles.
 - Page de profil personnalisée à chaque utilisateur et avec des éléments personnalisables à volonté.
+- Galerie de photos avec les photos des publications et celles que vous uploadez directement depuis sa page dédiée.
