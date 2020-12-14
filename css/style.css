@@ -982,7 +982,6 @@ button {
 /**RESPONSIVE**/
 /**Mobile S (320px)**/
 @media (min-width: 320px) and (max-width: 374px) {
-
     /**Header**/
     .headerLogo img {
         height: 48px;
@@ -1171,6 +1170,33 @@ button {
     }
 
     /**PAGE PROFIL**/
+    .profileImg_background {
+        background-position: center;
+        width: 100%;
+        height: 120px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: relative;
+    }
+
+    .profileHeader__main {
+        position: absolute;
+        top: 80px;
+        left: 120px;
+    }
+
+    .profileText_name {
+        top: 70px;
+        font-size: 16pt;
+    }
+
+    .profileImg_avatar {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
     .profileHeader {
         font-size: 14pt;
         margin-left: 0.6rem;
@@ -1214,8 +1240,13 @@ button {
         margin-right: 0.5rem;
     }
 
+    .settingsCard__flex {
+        display: flex;
+        flex-direction: column;
+    }
+
     .settings__input {
-        width: 80%;
+        width: 84%;
         margin-bottom: 0.6rem;
     }
 
@@ -1251,6 +1282,93 @@ button {
 
     .postPhotos__title {
         font-size: 12pt;
+    }
+
+    /**PAGE DE CONNEXION**/
+    #page_connexion {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #page__title {
+        display: none;
+    }
+
+    #formCo__fond {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        width: 305px;
+        height: 36.5rem;
+    }
+
+    #signIn__fond {
+        width: 305px;
+        height: 31rem;
+    }
+
+    #signIn__title {
+        font-size: 18pt;
+    }
+
+    .signIn__input {
+        width: 260px;
+    }
+
+    .form__submit {
+        width: 275px;
+    }
+
+    #form__separation {
+        width: 270px;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    #signUp__title {
+        font-size: 16pt;
+    }
+
+    #signIn__submit {
+        font-size: 14pt;
+        padding: 1.2rem 4.1rem 1.2rem 4.1rem;
+    }
+
+
+    #formIn__fond {
+        margin: 2rem 0.5rem 2rem 0.5rem;
+        width: 19rem;
+        height: 37.5rem;
+    }
+
+    #signUp__fond {
+        width: 19rem;
+        height: 32rem;
+    }
+
+    #formIn__title {
+        font-size: 18pt;
+    }
+
+    .signUp__input {
+        width: 260px;
+    }
+
+    /**PAGE 404**/
+    #cardFond { 
+        width: 19rem;
+        height: 12rem;
+    }
+
+    #cardFond__404 {
+        top: -2px;
+        right: 190px;
+        font-size: 86pt;
+    }
+
+    #cardFond__texte {
+        font-size: 12pt;
+        top: 138px;
+        left: 96px;
     }
 }
 
@@ -1446,6 +1564,33 @@ button {
     }
 
     /**PAGE PROFIL**/
+    .profileImg_background {
+        background-position: center;
+        width: 100%;
+        height: 160px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: relative;
+    }
+
+    .profileHeader__main {
+        position: absolute;
+        top: 110px;
+        left: 150px;
+    }
+
+    .profileText_name {
+        top: 70px;
+        font-size: 18pt;
+    }
+
+    .profileImg_avatar {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
     .profileHeader {
         font-size: 14pt;
         margin-left: 0.6rem;
@@ -1531,6 +1676,93 @@ button {
 
     .postPhotos__title {
         font-size: 14pt;
+    }
+
+    /**PAGE DE CONNEXION**/
+    #page_connexion {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #page__title {
+        display: none;
+    }
+
+    #formCo__fond {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        width: 360px;
+        height: 36.5rem;
+    }
+
+    #signIn__fond {
+        width: 360px;
+        height: 31rem;
+    }
+
+    #signIn__title {
+        font-size: 20pt;
+    }
+
+    .signIn__input {
+        width: 310px;
+    }
+
+    .form__submit {
+        width: 325px;
+    }
+
+    #form__separation {
+        width: 325px;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    #signUp__title {
+        font-size: 16pt;
+    }
+
+    #signIn__submit {
+        font-size: 14pt;
+        padding: 1.4rem 5.4rem 1.4rem 5.4rem;
+    }
+
+
+    #formIn__fond {
+        margin: 2rem 0.5rem 2rem 0.5rem;
+        width: 22.5rem;
+        height: 37.5rem;
+    }
+
+    #signUp__fond {
+        width: 22.5rem;
+        height: 32rem;
+    }
+
+    #formIn__title {
+        font-size: 18pt;
+    }
+
+    .signUp__input {
+        width: 310px;
+    }
+
+    /**PAGE 404**/
+    #cardFond { 
+        width: 22rem;
+        height: 12rem;
+    }
+
+    #cardFond__404 {
+        top: -2px;
+        right: 238px;
+        font-size: 86pt;
+    }
+
+    #cardFond__texte {
+        font-size: 12pt;
+        top: 138px;
+        left: 96px;
     }
 }
 
@@ -1726,6 +1958,33 @@ button {
     }
 
     /**PAGE PROFIL**/
+    .profileImg_background {
+        background-position: center;
+        width: 100%;
+        height: 180px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: relative;
+    }
+
+    .profileHeader__main {
+        position: absolute;
+        top: 140px;
+        left: 180px;
+    }
+
+    .profileText_name {
+        top: 70px;
+        font-size: 18pt;
+    }
+
+    .profileImg_avatar {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
     .profileHeader {
         font-size: 14pt;
         margin-left: 0.8rem;
@@ -1811,6 +2070,93 @@ button {
 
     .postPhotos__title {
         font-size: 14pt;
+    }
+
+    /**PAGE DE CONNEXION**/
+    #page_connexion {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #page__title {
+        display: none;
+    }
+
+    #formCo__fond {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        width: 410px;
+        height: 37rem;
+    }
+
+    #signIn__fond {
+        width: 410px;
+        height: 31rem;
+    }
+
+    #signIn__title {
+        font-size: 20pt;
+    }
+
+    .signIn__input {
+        width: 360px;
+    }
+
+    .form__submit {
+        width: 375px;
+    }
+
+    #form__separation {
+        width: 375px;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    #signUp__title {
+        font-size: 16pt;
+    }
+
+    #signIn__submit {
+        font-size: 14pt;
+        padding: 1.4rem 7.4rem 1.4rem 7.4rem;
+    }
+
+
+    #formIn__fond {
+        margin: 2rem 0.5rem 2rem 0.5rem;
+        width: 25.5rem;
+        height: 37.5rem;
+    }
+
+    #signUp__fond {
+        width: 25.5rem;
+        height: 32rem;
+    }
+
+    #formIn__title {
+        font-size: 18pt;
+    }
+
+    .signUp__input {
+        width: 360px;
+    }
+
+    /**PAGE 404**/
+    #cardFond { 
+        width: 24rem;
+        height: 14rem;
+    }
+
+    #cardFond__404 {
+        top: -2px;
+        right: 253px;
+        font-size: 100pt;
+    }
+
+    #cardFond__texte {
+        font-size: 14pt;
+        top: 161px;
+        left: 114px;
     }
 }
 
@@ -2006,6 +2352,33 @@ button {
     }
 
     /**PAGE PROFIL**/
+    .profileImg_background {
+        background-position: center;
+        width: 100%;
+        height: 180px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: relative;
+    }
+
+    .profileHeader__main {
+        position: absolute;
+        top: 140px;
+        left: 355px;
+    }
+
+    .profileText_name {
+        top: 70px;
+        font-size: 20pt;
+    }
+
+    .profileImg_avatar {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
     .profileHeader {
         font-size: 14pt;
         margin-left: 0.8rem;
@@ -2078,6 +2451,88 @@ button {
 
     .postPhotos__title {
         font-size: 16pt;
+    }
+
+        
+    /**PAGE DE CONNEXION**/    
+    #page__title {
+        display: none;
+    }
+    
+    #formCo__fond {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        width: 350px;
+        height: 38rem;
+    }
+    
+    #signIn__fond {
+        width: 350px;
+        height: 32rem;
+    }
+    
+    #signIn__title {
+        font-size: 20pt;
+    }
+    
+    .signIn__input {
+        width: 300px;
+    }
+    
+    .form__submit {
+        width: 315px;
+    }
+    
+    #form__separation {
+        width: 315px;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    #signUp__title {
+        font-size: 14pt;
+    }
+    
+    #signIn__submit {
+        font-size: 14pt;
+        padding: 1.2rem 5.3rem 1.2rem 5.3rem;
+    }
+    
+    #formIn__fond {
+        margin-right: 0.5rem;
+        width: 340px;
+        height: 38rem;
+    }
+    
+    #signUp__fond {
+        width: 340px;
+        height: 32.2rem;
+    }
+    
+    #formIn__title {
+        font-size: 18pt;
+    }
+    
+    .signUp__input {
+        width: 290px;
+    }
+
+    /**PAGE 404**/
+    #cardFond { 
+        width: 42rem;
+        height: 24rem;
+    }
+
+    #cardFond__404 {
+        top: -2px;
+        right: 453px;
+        font-size: 170pt;
+    }
+
+    #cardFond__texte {
+        font-size: 18pt;
+        top: 289px;
+        left: 175px;
     }
 }
 
@@ -2157,6 +2612,11 @@ button {
     .profileAside__photosSettings img {
         width: 175px;
         height: 175px;
+    }
+
+    /**PAGE DE CONNEXION**/    
+    #page__title {
+        display: none;
     }
 }
 
