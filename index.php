@@ -73,9 +73,15 @@ ob_start();
                             </div>
                         </div>
                         <div class="headerNotif">
+                                <?php
+                                    $sql8 = "SELECT count(*) AS invits FROM lien WHERE idUtilisateur2=? AND etat='attente'" ;
+                                    $query8 = $pdo -> prepare($sql8);
+                                    $query8 -> execute(array($_SESSION['id']));
+                                    $result8 = $query8 -> fetch();
+                                ?>
                             <button class="headerNotif__button" onclick="notifHover()">
                                 <img src="./src/icons/bell.svg" alt="Icone cloche">
-                                <p></p>
+                                <p>Vous avez <?= $result8['invits'] ?> notification(s)</p>
                             </button>
                             <div id="headerHover__notif">
                                 <ul id="headerHover__notifMain">

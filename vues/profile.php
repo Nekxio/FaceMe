@@ -3,7 +3,6 @@
         // On n est pas connecté, il faut retourner à la pgae de login
         header("Location:index.php?action=login");
     }
-
     // On veut affchier notre mur ou celui d'un de nos amis
     $ok = false;
 
