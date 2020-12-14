@@ -46,12 +46,14 @@
         $result1 = $query1 -> fetch();
         if($result1['etat'] == 'attente') {
             echo "<p class='container requestTime'>Demande envoyée, attente de sa réponse !</p>";
+        }elseif ($result1['etat'] == 'banni'){
+            echo "<p>Vous ne pouvez pas ajouter cette personne</p>";
         } else {
     ?>
     
-    <div class="container requestBtn__main">
-        <a href="index.php?action=friendship&id=<?= $_GET['id'] ?>" class="requestBtn" onclick="friendship()">Ajouter</a>
-    </div>
+        <div class="container requestBtn__main">
+            <a href="index.php?action=friendship&id=<?= $_GET['id'] ?>" class="requestBtn" onclick="friendship()">Ajouter</a>
+        </div>
     
     <?php
         };
@@ -229,7 +231,7 @@
                             <div class="vueCommentaires__flex">
                                 <div class="vueCommentaires__flexText">
                                     <p>Le <?=$result7['dateCom']?></p>
-                                    <p><?= $result7['name'] ?></p><p> a commenté :</p>
+                                    <p class="bold"><?= $result7['name'] ?></p><p> a commenté :</p>
                                 </div>
                                 <div class="post_userBin">
                                     <a href="index.php?action=deletecom&id=<?= $result7['id']?>">

@@ -16,6 +16,10 @@ p {
     padding: 0rem 0rem 0rem 0rem;
 }
 
+.bold{
+    font-weight: 700;
+}
+
 input, button {
     outline: none;
 }
