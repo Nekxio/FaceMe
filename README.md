@@ -25,3 +25,5 @@ Pour les fonctionnalités de notre réseau social, vous pouvez :
 - Site WEB responsive, accessible partout sur mobile et tablette.
 - Page 404 personnalisée.
 - Ajouter des likes aux ecrits des amis.
+- Mettre à jour ses informations personnelles.
+- Page de profil personnalisée à chaque utilisateur et avec des éléments personnalisables à volonté.
