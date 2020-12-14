@@ -130,9 +130,9 @@
             // Requête de sélection des éléments dun mur
             // SELECT * FROM ecrit WHERE idAmi=? order by dateEcrit DESC
             // le paramètre  est le $id
-            $sql6 = "SELECT *, ecrit.id AS idPost from ecrit join user on idAuteur=user.id where idAuteur in ( SELECT user.id FROM user INNER JOIN lien ON idUtilisateur1=user.id AND etat='ami' AND idUtilisateur2=? UNION SELECT user.id FROM user INNER JOIN lien ON idUtilisateur2=user.id AND etat='ami' AND idUtilisateur1=? UNION SELECT user.id FROM user WHERE user.id=?) ORDER by ecrit.id DESC";
+            $sql6 = "SELECT *, ecrit.id AS idPost ,user.name  FROM ecrit JOIN user ON ecrit.idAuteur = user.id WHERE idAmi=? order by dateEcrit DESC";
             $query6 = $pdo -> prepare($sql6);
-            $query6 -> execute(array($_GET["id"], $_GET['id'], $_GET['id']));
+            $query6 -> execute(array($_GET["id"]));
             while($result6 = $query6 -> fetch()){
         ?>
     </section>
@@ -147,7 +147,7 @@
                             <p class="post_userIdName"><?= $result6['name'] ?> a publié :</p>
                         </div>
                         <?php
-                        if($_SESSION['id'] == $result6['idAuteur']){
+                        if($_SESSION['id'] == $_GET['id']){
                         ?>
                        
                         <div class="post_userBin">
@@ -237,7 +237,7 @@
                                     <p class="bold"><?= $result7['name'] ?></p><p> a commenté :</p>
                                 </div>
                                 <?php
-                                    if($_SESSION['id'] == $result7['idAuteur']){
+                                    if($_SESSION['id'] == $_GET['id']){
                                 ?>
                                     <div class="post_userBin">
                                         <a href="index.php?action=deletecom&id=<?= $result7['id']?>">
