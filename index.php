@@ -67,7 +67,8 @@ ob_start();
                             <div id="headerHover__menu">
                                 <p id="headerHover__menuName"><?= $_SESSION['name']?></p>
                                 <hr id="headerHover__menuSeparation">
-                                <p class="headerHover__menuLink"><a href="index.php?action=profile&id=<?= $_SESSION['id']?>">Mon Profil</a></p> 
+                                <p class="headerHover__menuLink"><a href="index.php?action=profile&id=<?= $_SESSION['id']?>">Mon Profil</a></p>
+                                <p class="headerHover__menuLink"><a href="index.php?action=photos&id=<?= $_SESSION['id']?>">Mes Photos</a></p>
                                 <p class="headerHover__menuLink"><a href="index.php?action=settings">Mes Paramètres</a></p>
                                 <p class="headerHover__menuLink"><a href="index.php?action=deconnexion" onclick="deconnexion()">Se déconnecter</a></p>
                             </div>
