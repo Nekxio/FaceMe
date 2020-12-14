@@ -30,7 +30,7 @@
        <h1>Vous n'êtes pas encore ami, vous ne pouvez pas voir le mur !</h1>
     <?php   
     } else {
-        $sql2 = "SELECT * FROM user";
+        $sql2 = "SELECT user.id, user.avatar, user.background, user.name FROM user";
         $query2 = $pdo -> prepare($sql2);
         $query2 -> execute(array($_SESSION["id"]));
         $result2 = $query2 -> fetch();
