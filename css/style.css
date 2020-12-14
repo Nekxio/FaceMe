@@ -628,8 +628,34 @@ input, button {
 }
 
 /**PAGE PROFILE**/
-.profile_Avatar img {
-    width: 120px;
+.profileImg_background {
+    width: 950px;
+    height: 220px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+}
+
+.profileHeader__main {
+    position: absolute;
+    top: 110px;
+    left: 390px;
+}
+
+.profileImg_avatar {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profileText_name {
+    font-size: 22pt;
+    color: #FF9900;
+    font-weight: 500;
+    position: absolute;
+    top: 125px;
+    left: 15px;
 }
 
 .profileHeader {
@@ -640,6 +666,8 @@ input, button {
 }
 
 .profileAside__main {
+    margin-top: 8.2rem;
+    margin-bottom: 2.5rem;
     background-color: #ebe8e8;
     border-radius: 10px;
     box-shadow: 0px 4px 6px 3px rgba(119, 119, 119, 0.6);
