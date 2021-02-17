@@ -1,5 +1,5 @@
 # FaceMe
-Mini facebook du groupe Léo Hilaire et Edouard Bucamp - C1
+Mini facebook du groupe Léo Hilaire (Back-end) et Edouard Bucamp (Front-end) - C1
 
 ## Installation
 
