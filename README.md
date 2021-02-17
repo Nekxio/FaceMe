@@ -10,7 +10,7 @@ Mini facebook du groupe Léo Hilaire (Back-end) et Edouard Bucamp (Front-end) - 
 
 L'installation est à présent terminée, le site peut être lancé.
 
-Si vous n'avez pas envie de perdre votre précieux temps avec ces manipulations, tout est prêt à cette adresse : [Face-Me](http://face-me.online).
+Si vous n'avez pas envie de perdre votre précieux temps avec ces manipulations, tout est prêt à cette adresse : [Face-Me](https://face-me.online).
 
 ## Les fonctionnalités
 
