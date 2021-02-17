@@ -4,7 +4,7 @@ Mini facebook du groupe Léo Hilaire (Back-end) et Edouard Bucamp (Front-end) - 
 ## Installation
 
 - Pour commencer, ouvrez **PHPMYADMIN** dans votre navigateur favori, en ayant lancé **WAMP** au préalable.
-- Pour se connecter en local, l'identifiant est **root** et il n'y a pas de mot de passe.
+- Pour se connecter en local, saisissez votre identifiant ainsi que votre mot de passe. (A renseigner également dans le fichier config/config.php)
 - Cliquez sur "**Nouvelle base de données**", entrez "**faceme**" pour le nom de la base et "**utf8-bin**" dans la liste déroulante et faire **OK**.
 - Cliquez sur le bouton "**Importer**" en haut de l'interface, ensuite cliquez sur le bouton "**Choisir un fichier**", décochez l'option dans la section "**Importation partielle**" et cliquez sur le bouton "**Executer**".
 
